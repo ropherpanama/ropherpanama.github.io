@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[El blog del xobi]]></title>
-  <link href="http://localhost/atom.xml" rel="self"/>
-  <link href="http://localhost/"/>
-  <updated>2015-09-29T11:44:04-05:00</updated>
-  <id>http://localhost/</id>
+  <link href="http://ropherpanama.github.io/atom.xml" rel="self"/>
+  <link href="http://ropherpanama.github.io/"/>
+  <updated>2015-09-29T13:12:03-05:00</updated>
+  <id>http://ropherpanama.github.io/</id>
   <author>
     <name><![CDATA[Rosendo Ropher]]></name>
     
@@ -14,13 +14,14 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Comanteca Linux]]></title>
-    <link href="http://localhost/blog/2015/09/29/comanteca-linux/"/>
+    <title type="html"><![CDATA[Linux: Comandos Que Me Facilitan La Vida!]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/comanteca-linux/"/>
     <updated>2015-09-29T11:42:53-05:00</updated>
-    <id>http://localhost/blog/2015/09/29/comanteca-linux</id>
-    <content type="html"><![CDATA[<h2>Linux: comandos que me facilitan la vida!</h2>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/comanteca-linux</id>
+    <content type="html"><![CDATA[<p>En este artículo iré colocando comandos (o secuencias de ellos) <strong>válidos para Linux</strong> que de alguna manera me saquen de un apuro o sean interesantes.</p>
 
-<p>Este post es simplemente para tener a mano comandos o secuencias de comandos que son muy útiles.</p>
+<!--more-->
+
 
 <ol>
 <li><strong>Promedio del peso de los archivos en una carpeta, el peso se muestra en KB:</strong>
@@ -43,9 +44,9 @@ Saludos!</p>
   
   <entry>
     <title type="html"><![CDATA[Android Unable to Execute Dex: Multiple Dex Files]]></title>
-    <link href="http://localhost/blog/2015/09/29/android-dex-multiple-libs/"/>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/android-dex-multiple-libs/"/>
     <updated>2015-09-29T11:38:22-05:00</updated>
-    <id>http://localhost/blog/2015/09/29/android-dex-multiple-libs</id>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/android-dex-multiple-libs</id>
     <content type="html"><![CDATA[<p>Este problema es bastante sencillo de solucionar, sólo hay que LEER (lo entendí después de una noche rompiendome la cabeza) en vez de GOOGLEAR.</p>
 
 <p><strong>En mi caso el mensaje era este:</strong></p>
@@ -54,6 +55,11 @@ Saludos!</p>
 [2013-05-07 23:08:21 - smf-prototype] Conversion to Dalvik format failed: Unable to execute dex: Multiple dex files define Lcom/sun/jersey/api/json/JSONConfigurated;</p></blockquote>
 
 <p>Estoy trabajando en unos <strong>webservices</strong> que usan el soporte de <strong>JSON</strong> y para eso requiero un par de librerías.</p>
+
+<!--more-->
+
+
+<p></p>
 
 <p>La clave está precisamente en el mensaje :</p>
 
@@ -74,14 +80,17 @@ Algunos borran las <strong>Dependencias de Android</strong> del <strong>build pa
   
   <entry>
     <title type="html"><![CDATA[Android: Verificar Estado Del WIFI]]></title>
-    <link href="http://localhost/blog/2015/09/29/android-estado-del-apaptador-wifi/"/>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/android-estado-del-apaptador-wifi/"/>
     <updated>2015-09-29T11:35:21-05:00</updated>
-    <id>http://localhost/blog/2015/09/29/android-estado-del-apaptador-wifi</id>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/android-estado-del-apaptador-wifi</id>
     <content type="html"><![CDATA[<p>Este es un tipo de funcionalidad que es bueno tenerla en una clase de utilidades globales (en otras palabras, en una clase de métodos estáticos).</p>
 
 <p>Aveces es necesario conocer el estado del adaptador de red WIFI, para permitirle al usuario o a la misma aplicación realizar o no un proceso crítico del flujo de ejecución.</p>
 
 <p>Como lo escribí arriba, hagamos una <strong>clase de utilidades</strong>, como la siguiente:</p>
+
+<!--more-->
+
 
 <pre><code>import android.content.Context;
 
@@ -116,12 +125,15 @@ else
   
   <entry>
     <title type="html"><![CDATA[Android, ListView Dentro De Un ScrollView]]></title>
-    <link href="http://localhost/blog/2015/09/29/android-scrollview/"/>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/android-scrollview/"/>
     <updated>2015-09-29T11:32:20-05:00</updated>
-    <id>http://localhost/blog/2015/09/29/android-scrollview</id>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/android-scrollview</id>
     <content type="html"><![CDATA[<p>Aveces, cuando desarrollas <strong>antes de leer las teorías</strong> pasan cosas como esta.
 Hace algunos días, me encontré con una dificultad al desarrollar una aplicación Android; mi caso era el siguiente.
 Quería que una de las pantallas de mi aplicación respondiera a los cambios de orientación que el usuario realizara a su teléfono, esto no es mayor problema, por defecto el <strong>manifest</strong> de la aplicación configura todas las actividades para que esto suceda. Mi problema era que en esa pantalla tenia un <code>ListView</code> que desplegaba una lista de productos. En modo vertical se veía perfecto el <code>ListView</code>, pero al girar el teléfono; al ser el espacio vertical más pequeño, no mostraba todos los componentes de la lista, porque quedaban escondidos al girar la pantalla.</p>
+
+<!--more-->
+
 
 <p><strong>La solución:</strong> Utilizar, en lugar de un <code>&lt;LinearLayout/&gt;</code> un <code>&lt;ScrollView /&gt;</code>, el problema:</p>
 
@@ -206,15 +218,18 @@ El siguiente paso será utilizar en nuestro <strong>xml</strong> de la actividad
   
   <entry>
     <title type="html"><![CDATA[Introducción a Android Con Un Ejemplo (Y No Es HelloWorld)]]></title>
-    <link href="http://localhost/blog/2015/09/29/android-primer-ejemplo/"/>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/android-primer-ejemplo/"/>
     <updated>2015-09-29T11:27:28-05:00</updated>
-    <id>http://localhost/blog/2015/09/29/android-primer-ejemplo</id>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/android-primer-ejemplo</id>
     <content type="html"><![CDATA[<p>Esta introducción va a ser diferente, ya que no vamos a ver como instalar ni configurar el SDK o cosas por el estilo y vamos a pasar directo a ver como luce un proyecto de android una vez creado. Además vamos a aplicar algo de programación para hacer una ventana que haga algo más que el clásico HelloWorld.</p>
 
 <p>Primero vamos a crear un nuevo proyecto de Android: <strong>File -> New -> Android Application Project</strong> (o sus similares en español).</p>
 
 <p>Completa los datos como los ves en la siguiente imagen, los detalles de SDK van a depender de lo que tengas instalado en tu máquina, por lo general suelo definir como SDK mínimo el 2.3, para lo demás uso lo más reciente disponible que tenga; en mi caso el Target lo he colocado API 18 y compilaré
 con el API 19</p>
+
+<!--more-->
+
 
 <p><img src="http://4.bp.blogspot.com/-_4-FO8OZOYc/UzMj5-hW6KI/AAAAAAAAAIg/2uUpH37maNY/s1600/button_events_8.PNG" alt="enter image description here" /></p>
 
@@ -283,14 +298,17 @@ Ahí, nos leemos. <strong>Recuerda seguirme en las redes sociales</strong>. Preg
   
   <entry>
     <title type="html"><![CDATA[Apuntes - Tuning Glassfish (Optimización Para Producción)]]></title>
-    <link href="http://localhost/blog/2015/09/29/tuning-de-glassfish/"/>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/tuning-de-glassfish/"/>
     <updated>2015-09-29T11:20:00-05:00</updated>
-    <id>http://localhost/blog/2015/09/29/tuning-de-glassfish</id>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/tuning-de-glassfish</id>
     <content type="html"><![CDATA[<h3>Ajuste de JVM</h3>
 
 <p>Ya que Glassfish está hecho sobre Java, muchas de las optimizaciones pueden hacerse a través de la Java Virtual Machine</p>
 
 <p>En el fichero <code>domain.xml</code> ubicado en <code>%GLASSFISH_HOME%/glassfish/domains/&lt;DOMAIN_NAME/config</code> se deben editar los parametro <code>Xms</code> y <code>Xmx</code>, esto para reservar más memoria para el GF.</p>
+
+<!--more-->
+
 
 <p>Ubica los siguientes parámetros y modifícalos según la necesidad y capacidad del servervidor que aloja tu aplicación:</p>
 
@@ -373,13 +391,16 @@ o
   
   <entry>
     <title type="html"><![CDATA[Threads Java: Iniciarlos, Detenerlos Y Reanudarlos (Básico)]]></title>
-    <link href="http://localhost/blog/2015/09/27/some-awesome-title/"/>
+    <link href="http://ropherpanama.github.io/blog/2015/09/27/some-awesome-title/"/>
     <updated>2015-09-27T20:51:29-05:00</updated>
-    <id>http://localhost/blog/2015/09/27/some-awesome-title</id>
+    <id>http://ropherpanama.github.io/blog/2015/09/27/some-awesome-title</id>
     <content type="html"><![CDATA[<p>Bien, primero que nada explicar de que vá el asunto.</p>
 
 <p>La idea es controlar la ejecución de un <code>Thread</code>; es decir, poder detenerlo y reanudarlo. De plano que para iniciarlo lo iniciamos en el main y que también podamos detener del todo el proceso (para no poder levantarlo más).
 Explico un poco el enfoque de la solución, implementé un <code>Proceso</code> principal, este es el trabajo que debe hacer el <code>Thread</code>; simplemente consiste en imprimir un número cada cierto tiempo, un tiempo random no mayor a 5 segundos.</p>
+
+<!--more-->
+
 
 <blockquote><p>Decir que esto se ejecutará infinitamente.</p></blockquote>
 
@@ -580,9 +601,9 @@ Saliendo
   
   <entry>
     <title type="html"><![CDATA[Java : Crear Un PDF Con iText]]></title>
-    <link href="http://localhost/blog/2015/09/27/mi-primer-post/"/>
+    <link href="http://ropherpanama.github.io/blog/2015/09/27/mi-primer-post/"/>
     <updated>2015-09-27T19:35:05-05:00</updated>
-    <id>http://localhost/blog/2015/09/27/mi-primer-post</id>
+    <id>http://ropherpanama.github.io/blog/2015/09/27/mi-primer-post</id>
     <content type="html"><![CDATA[<blockquote><p>Atención: Este proyecto puedes realizarlo con Eclipse, Netbeans, etc.</p></blockquote>
 
 <p>En un par de pasos vamos a crear un archivo PDF en JAVA</p>
@@ -596,6 +617,9 @@ Saliendo
 
 
 <p>Deberás añadir las librerías de iText a tu proyecto (prueba con <a href="https://maven.apache.org/">Maven</a>), para que puedas hacer uso de las clases que se detallan aquí.</p>
+
+<!--more-->
+
 
 <p>Teniendo todo esto vamos a crear nuestro archivo.</p>
 

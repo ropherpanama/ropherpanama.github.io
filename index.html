@@ -9,7 +9,7 @@
   <meta name="author" content="Rosendo Ropher">
 
   
-  <meta name="description" content="Comanteca Linux Sep 29th, 2015 11:42 am Linux: comandos que me facilitan la vida! Este post es simplemente para tener a mano comandos o secuencias &hellip;">
+  <meta name="description" content="Linux: Comandos Que Me Facilitan La Vida! Sep 29th, 2015 11:42 am En este artículo iré colocando comandos (o secuencias de ellos) válidos para Linux &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://localhost/">
+  <link rel="canonical" href="http://ropherpanama.github.io/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="El blog del xobi" type="application/atom+xml">
@@ -65,7 +65,7 @@
 <!--                                                                                           -->
 <!-- <form action="https://www.google.com/search" method="get">                                                                -->
 <!--   <fieldset role="search">                                                                                           -->
-<!--     <input type="hidden" name="sitesearch" value="localhost">                                   -->
+<!--     <input type="hidden" name="sitesearch" value="ropherpanama.github.io">                                   -->
 <!--     <input class="search" type="text" name="q" results="0" placeholder="Buscar"/>                                    -->
 <!--   </fieldset>                                                                                                        -->
 <!-- </form>                                                                                                              -->
@@ -93,7 +93,7 @@
       
   <header>
     
-      <h1 class="post-title"><a href="/blog/2015/09/29/comanteca-linux/">Comanteca Linux</a></h1>
+      <h1 class="post-title"><a href="/blog/2015/09/29/comanteca-linux/">Linux: Comandos Que Me Facilitan La Vida!</a></h1>
     
     
       <p class="post-info">
@@ -109,28 +109,14 @@
   </header>
 
 
-  <div class="post-excerpt"><h2>Linux: comandos que me facilitan la vida!</h2>
+  <div class="post-excerpt"><p>En este artículo iré colocando comandos (o secuencias de ellos) <strong>válidos para Linux</strong> que de alguna manera me saquen de un apuro o sean interesantes.</p>
 
-<p>Este post es simplemente para tener a mano comandos o secuencias de comandos que son muy útiles.</p>
-
-<ol>
-<li><strong>Promedio del peso de los archivos en una carpeta, el peso se muestra en KB:</strong>
-<em><em>* </em>ls -l | gawk &lsquo;{sum += $5; n++;} END {print sum/n/1024 &ldquo; KB&rdquo;}</em></li>
-<li><strong>Listar archivos con su peso en KB:</strong>
-<em><em>* </em>ls -lh</em></li>
-<li><strong>Mostrar el total de archivos de una carpeta:</strong>
-<em><em>* </em>ls | wc -l</em></li>
-<li><strong>Ejecutar un comando, ver la salida por terminal y a la vez guardarla en un archivo:</strong>
-<em><em>* </em>{comando} | tee salida.log</em></li>
-<li><strong>Buscar archivo a partir de un directorio en sus subdirectorios:</strong>
-<em><em>* </em>find . -name FILE.ext</em></li>
-</ol>
-
-
-<p>Esta lista se irá actualizando con más comandos útiles.
-Saludos!</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/09/29/comanteca-linux/">Leer m&aacutes &rarr;</a>
+    </footer>
   
 
 
@@ -166,22 +152,12 @@ Saludos!</p>
 
 <p>Estoy trabajando en unos <strong>webservices</strong> que usan el soporte de <strong>JSON</strong> y para eso requiero un par de librerías.</p>
 
-<p>La clave está precisamente en el mensaje :</p>
-
-<blockquote><p>com/sun/jersey/api/json/JSONConfigurated</p></blockquote>
-
-<p>Al buscar entre las librerías que estaba usando para los asuntos de <strong>JSON</strong> (<code>jersey-json-1.16.jar</code> y <code>jersey-bundle-1.17.jar</code>) me dí cuenta que ambos JARs tienen la clase <code>JSONConfigurated</code> ubicada en el mismo paquete.</p>
-
-<p><img src="http://1.bp.blogspot.com/-e_SS03hFSSw/UYpjIpX6A1I/AAAAAAAAAD0/BVAwux4Dfp4/s1600/json+1.png" alt="enter image description here" /></p>
-
-<p><img src="http://3.bp.blogspot.com/-5to6ccF1tbk/UYpjlQhgYwI/AAAAAAAAAD8/GQu0Dwe-ABo/s1600/json+2.png" alt="enter image description here" /></p>
-
-<p><strong>Solución</strong> : eliminar una de las librerías o usar un <code>bundle</code>, como en mi caso. En realidad sin saber había metido la otra librería (<code>jersey-json</code>) y por eso me tiraba el error, pero he visto en muchos lados que a la gente les pasa lo mismo con otras librerías.
-Algunos borran las <strong>Dependencias de Android</strong> del <strong>build path</strong> (funciona pero si usas cosas como <strong>anotaciones de Android</strong> no es nada agradable), otros le hacen un simple <strong>Clean</strong> al proyecto, pero realmente el problema es este, debemos tener cuidado y control de las librerías que estamos incluyendo en nuestro proyecto, debemos fijarnos bien si las versiones que usamos son compatibles entre sí.</p>
-
-<p>Un saludo!</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/09/29/android-dex-multiple-libs/">Leer m&aacutes &rarr;</a>
+    </footer>
   
 
 
@@ -214,36 +190,12 @@ Algunos borran las <strong>Dependencias de Android</strong> del <strong>build pa
 
 <p>Como lo escribí arriba, hagamos una <strong>clase de utilidades</strong>, como la siguiente:</p>
 
-<pre><code>import android.content.Context;
-
-public class SystemUtils {    
-    public static boolean isWifiOn(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo ni = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-
-        if(!ni.isConnected()) return false; else return true;
-    }
-} 
-</code></pre>
-
-<p>Nuestro método <code>isWifiOn</code> nos retornará un <code>true</code> si el WIFI está encendido; un <code>false</code> en caso contrario. Lo que nos permite implementar una acción dependiendo del caso en el que sea llamada la función, por ejemplo:</p>
-
-<pre><code>if(SystemUtils.isWifiOn(getApplicationContext()))
-    Toast.makeText(getApplicationContext(), "WIFI está encendido", Toast.LENGTH_LONG).show(); 
-else
-    Toast.makeText(getApplicationContext(), "WIFI está apagado", Toast.LENGTH_LONG).show();
-</code></pre>
-
-<p>Noten que al ser un <strong>método estático</strong> lo podemos llamar sin instanciar la clase <code>SystemUtils</code>; pues lo podemos acceder mediante un llamado directo.</p>
-
-<p>Otro punto muy importante, antes de ejecutar tu aplicación asegurate de que en el <strong>AndroidManifest.xml</strong> le estás cediendo los <strong>permisos</strong> a la aplicación para que pueda verificar el estado del adaptador.</p>
-
-<pre><code>&lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/&gt; 
-</code></pre>
-
-<p>Espero les sirva, saludos!</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/09/29/android-estado-del-apaptador-wifi/">Leer m&aacutes &rarr;</a>
+    </footer>
   
 
 
@@ -274,86 +226,12 @@ else
 Hace algunos días, me encontré con una dificultad al desarrollar una aplicación Android; mi caso era el siguiente.
 Quería que una de las pantallas de mi aplicación respondiera a los cambios de orientación que el usuario realizara a su teléfono, esto no es mayor problema, por defecto el <strong>manifest</strong> de la aplicación configura todas las actividades para que esto suceda. Mi problema era que en esa pantalla tenia un <code>ListView</code> que desplegaba una lista de productos. En modo vertical se veía perfecto el <code>ListView</code>, pero al girar el teléfono; al ser el espacio vertical más pequeño, no mostraba todos los componentes de la lista, porque quedaban escondidos al girar la pantalla.</p>
 
-<p><strong>La solución:</strong> Utilizar, en lugar de un <code>&lt;LinearLayout/&gt;</code> un <code>&lt;ScrollView /&gt;</code>, el problema:</p>
-
-<blockquote><p><strong>NO SE PUEDE TENER UN LISTVIEW DENTRO DE UN SCROLLVIEW.</strong></p></blockquote>
-
-<p>Bueno &hellip; con un pequeño truco si se puede, veamos:</p>
-
-<p><strong>Mi actividad era algo así</strong></p>
-
-<p><img src="http://4.bp.blogspot.com/-96MFYd6nWyk/UyvLJ4L7_QI/AAAAAAAAAIE/HwifvWIuSf4/s1600/cap1.PNG" alt="enter image description here" /></p>
-
-<p>En lugar de tenerlo todo en un <code>LinearLayout</code>, debemos tener todo en un <code>ScrollView</code>, para que al girar el dispositivo podamos &ldquo;scrollear&rdquo; y poder ver todos los componentes de la GUI de la app.</p>
-
-<p>Primero debemos crear nuestra propia clase que extienda de <code>ScrollView</code></p>
-
-<pre><code>package com.example.layout.modified;
-
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.widget.ScrollView;
-
-public class VerticalScrollView extends ScrollView {
-
-  public VerticalScrollView(Context context) {
-  super(context);
- }
-
-  public VerticalScrollView(Context context, AttributeSet attrs) {
-  super(context, attrs);
- }
-
-  public VerticalScrollView(Context context, AttributeSet attrs, int defStyle) {
-  super(context, attrs, defStyle);
- }
-
-  @Override
- public boolean onInterceptTouchEvent(MotionEvent ev) {
-  final int action = ev.getAction();
-  switch (action) {
-  case MotionEvent.ACTION_DOWN:
-   super.onTouchEvent(ev);
-   break;
-
-   case MotionEvent.ACTION_MOVE:
-   return false; // redirect MotionEvents to ourself
-
-   case MotionEvent.ACTION_CANCEL:
-   super.onTouchEvent(ev);
-   break;
-
-   case MotionEvent.ACTION_UP:
-   return false;
-
-   default:
-   break;
-  }
-
-   return false;
- }
-
-  @Override
- public boolean onTouchEvent(MotionEvent ev) {
-  super.onTouchEvent(ev);
-  return true;
- }
-}
-</code></pre>
-
-<p>Con esta clase reescribimos el comportamiento de un <code>ScrollView</code> normal, y esto nos evitará el mal funcionamiento de nuestra app al querer hacer scroll sobre la pantalla. Tal cual como esta allí pueden copiarla.
-El siguiente paso será utilizar en nuestro <strong>xml</strong> de la actividad nuestra Custom Class, así:</p>
-
-<p><img src="http://4.bp.blogspot.com/-3Gpr-xXwfko/UyvLmlj0FqI/AAAAAAAAAIM/ryRFTeXkw5Q/s1600/cap2.PNG" alt="enter image description here" /></p>
-
-<p>Observar el inicio del tag del <strong>xml</strong> ahora, <code>&lt;com.example.layout.modified.VerticalScrollView</code>, observar que es muy importante nombrar completamente la clase (nombre de paquete y nombre de clase) ,con esto estamos indicando que queremos usar nuestro <strong>custom ScrollView</strong> llamado <code>VerticalScrollView</code>, lo segundo es que he colocado el contenido de mi actividad dentro del nuevo <code>ScrollView</code>.</p>
-
-<p>Con esto ya tendremos solucionado nuestro pequeño inconveniente y podremos Scrollear sobre un <code>ScrollView</code> que contiene un <code>ListView</code>.</p>
-
-<p>Dudas a la orden, Saludos!</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/09/29/android-scrollview/">Leer m&aacutes &rarr;</a>
+    </footer>
   
 
 
@@ -387,70 +265,12 @@ El siguiente paso será utilizar en nuestro <strong>xml</strong> de la actividad
 <p>Completa los datos como los ves en la siguiente imagen, los detalles de SDK van a depender de lo que tengas instalado en tu máquina, por lo general suelo definir como SDK mínimo el 2.3, para lo demás uso lo más reciente disponible que tenga; en mi caso el Target lo he colocado API 18 y compilaré
 con el API 19</p>
 
-<p><img src="http://4.bp.blogspot.com/-_4-FO8OZOYc/UzMj5-hW6KI/AAAAAAAAAIg/2uUpH37maNY/s1600/button_events_8.PNG" alt="enter image description here" /></p>
-
-<p>Paso seguido vamos a asegurarnos de marcar las casillas que aparecen en la siguiente imagen:</p>
-
-<p><img src="http://1.bp.blogspot.com/-lmkUUXZtaGs/UzMlcdv--JI/AAAAAAAAAJk/zbGNW0bP46M/s1600/button_events_9.PNG" alt="enter image description here" /></p>
-
-<p>Desmarco <strong>&ldquo;Create custom launcher icon&rdquo;</strong> porque no me interesa ahora mismo crear un icono para la app.
-Dejo marcada <strong>&ldquo;Create activity&rdquo;</strong> porque quiero que me genere y me configure una primera actividad (Pantalla y su controlador) que será la que editaremos más adelante. Presionamos Next</p>
-
-<p><img src="http://3.bp.blogspot.com/-kipzblDykgY/UzMlcQzaynI/AAAAAAAAAJ4/qfYQUVlf2cU/s1600/button_events_10.PNG" alt="enter image description here" /></p>
-
-<p>Como decidimos crear una <strong>Activity</strong> nos aparece esta pantalla, asegúrate de configurarla como en la imagen y presiona Next. En la pantalla siguiente colócale un nombre a tu activity (Activity Name), lo demás se autocompleta según lo que coloques. Presiona Finish.</p>
-
-<p><img src="http://1.bp.blogspot.com/-S2ciCbhk_DU/UzMlcbf7flI/AAAAAAAAAJ0/Aas-vdl2PJI/s1600/button_events_11.PNG" alt="enter image description here" /></p>
-
-<p>Después de seguidos estos pasos debes tener una estructura de proyecto como la siguiente:</p>
-
-<p><img src="http://2.bp.blogspot.com/-KIEJi-lTiRA/UzMj8Bw0pCI/AAAAAAAAAI8/_nnl6I874hE/s1600/button_events_3.PNG" alt="enter image description here" /></p>
-
-<p>Primero vamos a darle un vistazo al archivo llamado <strong>AndroidManifest.xml</strong></p>
-
-<p>Hay muchas cosas que no sabrás con qué se comen, pero por ahora lo que nos interesa conocer es lo siguiente:
-1.  <strong>Linea 4:</strong> es la versión de nuestra app, la podremos ir aumentando según vaya creciendo nuestra app (nuevas versiones)
-2.  <strong>Lineas 13,14 y 15:</strong> Si te fijas verás que la referencia a los componentes están precedidos por un <strong>@</strong>, esto significa que son recursos de tu aplicación, estos recursos pueden ser manipulados libremente por tí para personalizar tu app a tu gusto. Dáles un vistazo presionando la tecla <strong>Ctrl + Click</strong> sobre el <strong>@</strong> de cada uno.
-3.  <strong>Linea 17:</strong> De esta forma se asocia la activity (XML) con tu código Java, ves que el <strong>name del activity</strong> es el mismo de la clase que se creó en el <strong>package</strong> que definimos (es su nombre completo <strong>package + class name</strong>)
-4.  <strong>Linea 19:</strong> El <code>&lt;intent-filter&gt;</code>  en este caso está indicando que nuestra única activity que tenemos, será la primera en aparecer cuando ejecutemos nuestra aplicación, esto se logra con las lineas <strong>20</strong> y <strong>22</strong>.</p>
-
-<p><img src="http://2.bp.blogspot.com/-RIoA1LMP-RM/UzMoR3HNGnI/AAAAAAAAAKE/4EcrxOlhuXw/s1600/button_events_6.PNG" alt="enter image description here" /></p>
-
-<p>Ahora vamos a editar los ficheros <strong>activity_button_event.xml</strong> (archivo en donde se diseña la pantalla) y su controlador <code>ButtonEventActivity.java</code> (Que vendría siendo algo asi como el <code>Listener</code> del <code>JFrame</code> en <code>Swing</code>)</p>
-
-<p>Primero editamos el xml para que en vez de un <code>TextView</code> (algo así como el <code>JLabel</code> de <code>Swing</code>) nos muestre un <code>Button</code> (algo así como el <code>JButton</code> de <code>Swing</code>), lo haremos de esta forma:</p>
-
-<p><img src="http://3.bp.blogspot.com/-P74H8F4n6FY/UzMoR16fKEI/AAAAAAAAAKM/k4jQDWZWqjU/s1600/button_events_4.PNG" alt="enter image description here" /></p>
-
-<p>Primero, hemos reemplazado el <strong>Layout</strong> (similar a como se aplican layouts en <code>Swing</code>) default por un <code>LinearLayout</code>, en la <strong>linea 5</strong> vemos que la orientación es <strong>vertical</strong>, esto quiere decir que todos los componentes que vayamos agregando se irán apilando <strong>uno debajo del otro</strong>.
-En la <strong>línea 12</strong> estamos creando un <code>Button</code>, con su etiqueta o texto (Ver mensaje) y sus propiedades de tamaño, <strong>fill_parent</strong> le indica al componente que debe extenderse tanto como el tamaño de su contenedor y <strong>wrap_content</strong> le indica al componente que debe ajustarse al contenido que tenga el componente, en este caso es un texto, así que se ajustará al texto para extenderse.
-En la <strong>linea 16</strong> se muestra la forma que ofrece <strong>Android</strong> para manipular los eventos de los botones (es muy sencilla y practica aunque no es la única forma), si venimos programando con <strong>java SE</strong> podremos aplicar los mismos mecanismos de manejo de eventos (<code>addActionListener</code> .. etc.).</p>
-
-<h3>¿Cómo funciona esto?</h3>
-
-<p>Al definir en el <code>onClick</code> la etiqueta &ldquo;<code>ejecutarEvento</code>&rdquo;, debemos crear en el controlador de la pantalla (archivo <strong>.java</strong>) una función sin retorno (<strong>void</strong>) con el mismo nombre de esa etiqueta y que reciba como parámetro un <strong>View</strong>, así de sencillo.</p>
-
-<p>Veamos el código del controlador:</p>
-
-<p><img src="http://3.bp.blogspot.com/-MzLU7JGUS9k/UzMoR_kp9DI/AAAAAAAAAKY/QSTIGgZ06yI/s1600/button_events_5.PNG" alt="enter image description here" /></p>
-
-<p>Las primeras 24 lineas te las debe generar el <strong>Eclipse</strong> cuando creamos el proyecto, lo nuevo y lo que debemos añadir nosotros son las <strong>líneas 29 en adelante</strong> (sin olvidar escribir los javadocs, créanme que son muy útiles para quienes tengan que revisar su código posteriormente). Como se dijo, el nombre del método es el mismo al que tiene el <code>Button</code> en el <code>onClick</code> en el XML anterior y lleva un <code>View</code> como argumento.
-Lo que hace nuestro botón es mostrarnos un <code>Toast</code> (un pequeño aviso en pantalla) indicando que se ha realizado un click en el botón.</p>
-
-<p>Ahora puedes proceder a ejecutar tu aplicación, en la medida de lo posible usar un teléfono real, ya que el emulador suele ser muy lento :)</p>
-
-<p><strong>Debe quedar algo así:</strong></p>
-
-<p><img src="http://1.bp.blogspot.com/-lIKGAk40dis/UzMj8I1KvkI/AAAAAAAAAJA/_VeE9Tp-z_M/s1600/button_events_1.png" alt="enter image description here" /></p>
-
-<p><strong>Y al presionar el botón debe aparecer esto:</strong></p>
-
-<p><img src="http://3.bp.blogspot.com/-CxQOQQd5SOw/UzMj8cJauyI/AAAAAAAAAI4/kJegpZCGRGU/s1600/button_events_2.png" alt="enter image description here" /></p>
-
-<p>Bien, eso es todo por ahora. En el próximo punto vamos a hacer que nuestra pantalla tenga más componentes, como <code>EditText</code> (algo así como los <code>JTextField</code> de <code>Swing</code>) y que lo que escribamos en ellos pase a otra pantalla para ser procesado.
-Ahí, nos leemos. <strong>Recuerda seguirme en las redes sociales</strong>. Preguntas y comentarios a la orden, saludos!</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/09/29/android-primer-ejemplo/">Leer m&aacutes &rarr;</a>
+    </footer>
   
 
 
@@ -483,84 +303,12 @@ Ahí, nos leemos. <strong>Recuerda seguirme en las redes sociales</strong>. Preg
 
 <p>En el fichero <code>domain.xml</code> ubicado en <code>%GLASSFISH_HOME%/glassfish/domains/&lt;DOMAIN_NAME/config</code> se deben editar los parametro <code>Xms</code> y <code>Xmx</code>, esto para reservar más memoria para el GF.</p>
 
-<p>Ubica los siguientes parámetros y modifícalos según la necesidad y capacidad del servervidor que aloja tu aplicación:</p>
-
-<p><code>&lt;jvm-options&gt;-Xmx1024m&lt;/jvm-options&gt;</code> y <code>&lt;jvm-options&gt;-Xms1024m&lt;/jvm-options&gt;</code></p>
-
-<p>En este caso se está asignando 1GB de RAM, ambos parámetros se colocan igual para asignar la memoria en el arranque del servicio, de esta forma no se pierde tiempo haciéndolo después.</p>
-
-<p>Modificar la opción <code>-client</code> por <code>-server</code> de la siguiente manera, si el servidor que ejecuta el GF es 64bits entonces por default tomará la opción correcta, pero nada se pierde con “asegurarnos":<code>&lt;jvm-options&gt;-server&lt;/jvm-options&gt;</code></p>
-
-<p>También incluir estas configuraciones <code>-Xss128k</code>, <code>-XX:+DisableExplicitGC</code>, <code>-XX:ParallelGCThreads=N</code> (en donde N es el número de CPU&rsquo;s del servidor si la cantidad es menor a 8, en caso contrario N es igual #CPU&rsquo;s/2)</p>
-
-<p><code>-XX:+UseParallelOldGC</code></p>
-
-<p>Si la aplicación está haciendo una gran cantidad de operaciones de E/S como escritura, también se le puede decir a <code>Grizzly</code> que utilice una estrategia asíncrona:</p>
-
-<p><code>-Dcom.sun.grizzly.http.asyncwrite.enabled=true</code></p>
-
-<p>Una alternativa que podría considerarse también si se está notando que algunas operaciones de escritura parecen tomar más tiempo de lo esperado.  Se puede aumentar el número de procesadores de escritura al aumentar el número Selectors NIO:</p>
-
-<p><code>-Dcom.sun.grizzly.maxSelectors=XXX</code></p>
-
-<p>Si la aplicación será utilizada por dispostivos móviles o a través de redes lentas puede configurar:</p>
-
-<p><code>-Dcom.sun.grizzly.readTimeout</code>
-o
-<code>network-config&gt;network-listeners&gt;network-listener&gt;transport#read-timeout</code> para las operaciones read y <code>com.sun.grizzly.writeTimeout o network-config&gt;network-listeners&gt;network-listener&gt;transport#write-timeout</code> para las operaciones write.</p>
-
-<p>Para que un hilo no bloquee otros posibles procesos de I/O durante mucho tiempo puede configurar la opción:</p>
-
-<p><code>-Dcom.sun.grizzly.useKeepAliveAlgorithm=true</code></p>
-
-<p>Esto le dará oportunidad de ejecución a otras peticiones.</p>
-
-<h3>GlassFish Tuning</h3>
-
-<p>Algunas configuraciones en el servidor de aplicaciones en sí, pueden ser las siguientes:</p>
-
-<p>En el mismo fichero <code>domain.xml</code> modificar las siguientes opciones como se muestra a continuación:</p>
-
-<ol>
-<li>Evitemos el autodeploy y la recarga dinámica, esto toma tiempo y no es deseable, configuramos lo siguiente: <code>&lt;das-config autodeploy-enabled="false" dynamic-reload-enabled="false"&gt;&lt;/das-config&gt;</code></li>
-<li>Aceptor Threads: Si se tiene por ejemplo, un servidor con 2 CPU&rsquo;s de 4 núcleos cada uno, el valor de este parámetro debe ser 8. Para configurarlo ve a la consola de administración y busca la siguiente direccion <code>Configuration -&gt; Network Config -&gt; Transports -&gt; tcp -&gt; Acceptor threads</code></li>
-<li>Cacheo de recursos estáticos: <code>Configuration -&gt; Network Config -&gt; Protocols -&gt; http-listener-1 -&gt; File Cache -&gt; Enabled</code>. De tener conexiones HTTPS habilitarlo también para el listener seguro.</li>
-<li>Si el servidor solo posee un Network Interface Card (NIC) reemplaza todos los valores <code>0.0.0.0</code> de  los http listeners con el IP del servidor, como se muestra <code>Configuration -&gt; Network Config -&gt; Network Listeners -&gt; &lt;listener_name&gt; -&gt; Address</code></li>
-<li><p>Modificar el fichero <code>default-web.xml</code> ubicado en <code>%GLASSFISH_HOME%/glassfish/domains/&lt;DOMAIN_NAME&gt;/config</code> como se muestra:</p>
-
-<pre><code> &lt;servlet&gt;
- &lt;servlet-name&gt;jsp&lt;/servlet-name&gt;
- &lt;servlet-class&gt;org.apache.jasper.servlet.JspServlet&lt;/servlet-class&gt;
-     &lt;init-param&gt;
-         &lt;param-name&gt;development&lt;/param-name&gt;
-         &lt;param-value&gt;false&lt;/param-value&gt;
-     &lt;/init-param&gt;
-     &lt;init-param&gt;
-         &lt;param-name&gt;genStrAsCharArray&lt;/param-name&gt;
-         &lt;param-value&gt;true&lt;/param-value&gt;
-     &lt;/init-param&gt;
-     ...
- &lt;/servlet&gt;
-</code></pre></li>
-</ol>
-
-
-<h3>Optimizaciones para JDBC</h3>
-
-<p>Para drivers JDBC de Oracle pueden configurarse las siguientes opciones:</p>
-
-<ul>
-<li><code>ImplicitCachingEnabled=true</code></li>
-<li><code>MaxStatements=200</code></li>
-<li>Configurar los valores del Pool de conexiones <code>steady-pool-size</code> y <code>max-pool-size</code> con el mismo valor. Una regla general es configurar estos valores con el mismo número que se ha configurado en los <code>HTTP request processing threads</code></li>
-</ul>
-
-
-<p>Sobre la marcha seguimos trabajando con Glassfish (ahora en su versión 4) y estos ajustes seguro que se irán actualizando.</p>
-
-<p>A todos un saludo!</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/09/29/tuning-de-glassfish/">Leer m&aacutes &rarr;</a>
+    </footer>
   
 
 
@@ -592,202 +340,12 @@ o
 <p>La idea es controlar la ejecución de un <code>Thread</code>; es decir, poder detenerlo y reanudarlo. De plano que para iniciarlo lo iniciamos en el main y que también podamos detener del todo el proceso (para no poder levantarlo más).
 Explico un poco el enfoque de la solución, implementé un <code>Proceso</code> principal, este es el trabajo que debe hacer el <code>Thread</code>; simplemente consiste en imprimir un número cada cierto tiempo, un tiempo random no mayor a 5 segundos.</p>
 
-<blockquote><p>Decir que esto se ejecutará infinitamente.</p></blockquote>
-
-<h4>Clase <code>Proceso.java</code></h4>
-
-<pre><code>import java.util.Random;
-
-/**
- * @author ropherpanama@gmail.com
- * Esta clase representa el proceso de trabajo; imprimir un entero cada cierto tiempo
- * se sobrescriben los metodos suspend y resume
- */
-public class Proceso implements Runnable {
-    private int currentCont;
-    private Thread t;
-    private final int sleepTime;
-    boolean suspended = false;
-    private String threadName;
-    private boolean working = true;
-    private final static Random generator = new Random();
-
-    public Proceso(String threadName) {
-        this.threadName = threadName;
-        sleepTime = generator.nextInt(5000);
-        currentCont = 0;
-    }
-
-    @Override
-    public void run() {
-        System.out.println("Running " + threadName);
-        try {
-            while (isWorking()) {
-                System.out.println(threadName + " doing : " + currentCont);
-                currentCont++;
-                Thread.sleep(sleepTime);
-
-                synchronized (this) {
-                    while (suspended) {
-                        wait();
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void start() {
-        System.out.println("Starting " + threadName);
-        if (t == null) {
-            t = new Thread(this, threadName);
-            t.start();
-        }
-    }
-
-    void suspend() {
-        System.out.println("Suspending " + threadName);
-        suspended = true;
-    }
-
-    synchronized void resume() {
-        System.out.println("Resuming " + threadName);
-        suspended = false;
-        notify();
-    }
-
-    public boolean isWorking() {
-        return working;
-    }
-
-    public void setWorking(boolean working) {
-        this.working = working;
-    }
-}
-</code></pre>
-
-<p>Notar que el propio hilo se sincroniza y si se cumple que el hilo entra en estado <code>suspend</code> se llama al método <code>wait()</code>, esto provocará que el hilo se mantenga pausado hasta que alguien llame al método <code>notify();</code> que precisamente se llama en el método <code>resume()</code> y se niega que el estado del hilo es <code>suspend (suspend = false)</code>. Otro punto importante es que al tener un proceso que podría ejecutarse hasta el final de los tiempos, podríamos querer algún día detenerlo, para eso usamos el <code>while</code> con la variable <code>working</code>, que en primera instancia tendra un valor <code>true</code>.</p>
-
-<h3>Interactuar por consola con tu Thread</h3>
-
-<p>Lo divertido del caso era que se pudiera; mediante el teclado decirle al <code>Thread</code> lo que tenía que hacer, no simplemente escribirlo y no poder interactuar con el programa. Para eso, pensé en un &ldquo;monitor&rdquo; de entrada de teclado (<code>Thread</code> también por cierto) que en base a lo que escribas en el teclado defina el estado del <code>Thread</code> que está realizando el proceso principal. Entonces puedo escribir S (suspender), D (detener), R (reanudar) y B (salir) y con esto podré controlar los estados de mi hilo <code>Proceso</code>. Para este ejemplo simple solo estoy vigilando un solo <code>Thread</code> pero pueden ser cuantos se requieran.</p>
-
-<h4>Clase <code>Entrada.java</code></h4>
-
-<p>import java.util.Scanner;</p>
-
-<pre><code>/**
- * @author ropherpanama@gmail.com
- * Esta clase esta pendiente de la entrada del usuario, la misma actua
- * como monitor de entrada por teclado y dependiendo de ello ajustara el estado
- * del Hilo al cual controla
- *
- */
-public class Entrada implements Runnable {
-    private Scanner sc = new Scanner(System.in);
-    private String command = "";
-    private Proceso p1;
-
-    public Entrada(Proceso p1) {
-        this.p1 = p1;
-    }
-
-    @Override
-    public void run() {
-        while (true) {
-            System.out.println("Waiting input:");
-            command = sc.nextLine();
-
-            if (this.getCommand().toUpperCase().equals("S")) {
-                p1.suspend();
-            } else if (this.getCommand().toUpperCase().equals("R")) {
-                p1.resume();
-            } else if (this.getCommand().toUpperCase().equals("D")) {
-                p1.setWorking(false);
-                System.out.println("Fin de trabajo");
-            } else if (this.getCommand().toUpperCase().equals("B")) {
-                System.out.println("Saliendo");
-                System.exit(0);
-            } else
-                System.out.println("No input");
-        }
-    }
-
-    public String getCommand() {
-        return command;
-    }
-
-    public void setCommand(String command) {
-        this.command = command;
-    }
-}
-</code></pre>
-
-<p>Vemos que esta clase, al igual que <code>Proceso</code> implementa a la clase <code>Runnable</code>, por ende tambien es un <code>Thread</code>. Este hilo va a estar pendiente de lo que escribas en el teclado y según ello actuará sobre el <code>Thread</code> que este monitorizando.</p>
-
-<h4>Vamos a probar!</h4>
-
-<p>Ahora vamos a probar esto, creamos la clase <code>Test.java</code> que contiene el main y lo ponemos todo a interactuar.</p>
-
-<h4>Clase <code>Test.java</code></h4>
-
-<pre><code>public class Test {
-    public static void main(String[] args) {
-        Proceso p1 = new Proceso("Juana");
-        p1.start();
-
-        Entrada e = new Entrada(p1);
-        Thread input = new Thread(e);
-        input.start();
-    }
-}
-</code></pre>
-
-<p>Bien, he llamado a mi proceso principal &ldquo;Juana&rdquo; (no sé porqué) y le he dicho que inicie <code>(p1.start())</code>, luego; he creado una instancia de mi <code>Thread</code> monitor de entrada, para que vigile lo que escribo y opere sobre &ldquo;Juana&rdquo;. Notar que le paso a &ldquo;Juana&rdquo; (p1) como argumento de su constructor <code>Entrada e = new Entrada(p1);</code></p>
-
-<p>La salida del programa es la siguiente:</p>
-
-<pre><code>Starting Juana
-Running Juana
-Juana doing : 0
-Waiting input:
-Juana doing : 1
-Juana doing : 2
-Juana doing : 3
-Juana doing : 4
-Juana doing : 5
-Juana doing : 6
-Juana doing : 7
-Juana doing : 8
-S
-Juana doing : 9
-
-Suspending Juana
-Waiting input:
-R
-Resuming Juana
-Waiting input:
-Juana doing : 10
-Juana doing : 11
-Juana doing : 12
-Juana doing : 13
-Juana doing : 14
-Juana doing : 15
-Juana doing : 16
-B
-Juana doing : 17
-
-Saliendo
-</code></pre>
-
-<p>Juana inicio y se ejecutó, e inició a tirar sus números. Luego le dije Juana descanza un rato (S) y descanzó hasta que le dije continúa &reg;, siguió hasta el número 17 y le dije sal del programa totalmente (B)</p>
-
-<p>Si te quedan dudas te invito a ver la video demostración en Youtube, pronto pongo el link.</p>
-
-<p>Saludos!</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/09/27/some-awesome-title/">Leer m&aacutes &rarr;</a>
+    </footer>
   
 
 
@@ -828,98 +386,21 @@ Saliendo
 
 <p>Deberás añadir las librerías de iText a tu proyecto (prueba con <a href="https://maven.apache.org/">Maven</a>), para que puedas hacer uso de las clases que se detallan aquí.</p>
 
-<p>Teniendo todo esto vamos a crear nuestro archivo.</p>
-
-<p>Vamos a crear una clase con cualquier nombre, en mi caso yo le pondré <code>CreatePDF</code> y dentro de ella voy a crear un método llamado <code>writePDF</code>. También vamos
-a colocarle un método main; el esqueleto quedaria así.</p>
-
-<pre><code>public class CreatePDF {
-    public void writePDF() {...}
-
-    public static void main(String args[]) {
-        new CreatePDF().writePDF();
-    }
-}
-</code></pre>
-
-<p>Luego de esto lo primero que debemos hacer es importar los Objetos que vamos a utilizar, para nuestro básico ejemplo sólo debemos añadir los siguientes:</p>
-
-<pre><code>import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
-
-public class CreatePDF ...
-</code></pre>
-
-<p>Ahora bien, dentro del método <code>writePDF()</code> irá toda nuestra lógica para crear nuestro documento, vamos primero a crear un bloque <code>try/catch</code> y dentro de él colocaremos las siguientes líneas; las cuales iré explicando paso a paso.</p>
-
-<pre><code>Document document = new Document(PageSize.LETTER, 80, 80, 50, 50);
-FileOutputStream salida = new FileOutputStream("archivo.pdf");
-PdfWriter writer = PdfWriter.getInstance(document, salida);
-writer.setInitialLeading(0);
-</code></pre>
-
-<p>Como todo en Java debemos tener una instancia de un objeto antes de trabajar con el, por eso debemos tener una referencia a un objeto de tipo
-<code>Document</code> que es quien representa nuestra hoja en blanco para escribir. Con el atributo <code>PageSize.LETTER</code> lo que le estamos indicando es que el
-documento tendrá las dimesiones de un archivo en formato CARTA (sí, tambien hay para los demás estandares, investígalos), acompañando lo antes mencionado
-está el valor de los márgenes de nuestro documento <code>(margenIzq, margenDer, margenArriba, margenAbajo)</code>, pueden ser los valores que gustes compañero.
-Con la línea del <code>FileOutputStream</code> únicamente estamos creando físicamente nuestro archivo en disco, allí irán todos nuestros cambios al documento.
-Luego necesitamos tener una instancia de quien escribirá nuestros cambios y darle su punto de inicio para que pueda escribir, <code>writer.setInitialLeading(0);</code>.</p>
-
-<p>Hecho todo esto solo nos queda ir &ldquo;escribiendo&rdquo; dentro de nuestro papel en blanco que ya hemos preparado, vamos a añadir dos párrafos sencillos juntos a una imagen.</p>
-
-<pre><code> Paragraph paragraph = new Paragraph();
- paragraph.add("Primera linea del documento");
- paragraph.setAlignment(Paragraph.ALIGN_CENTER);
-</code></pre>
-
-<p>Para escribir texto usamos la clase <code>Paragraph</code>, como ves tiene un método <code>add</code> en el que puedes escribir lo que desees&hellip;esta clase tiene muchos métodos interesantes, como el que vemos aquí <code>paragraph.setAlignment(Paragraph.ALIGN_CENTER)</code> que como lo
-adivinaste es para alinear en donde queramos.</p>
-
-<pre><code> Image image = Image.getInstance("imagen.png");
- image.scaleToFit(150, 150);
- image.setAlignment(Chunk.ALIGN_CENTER);
-</code></pre>
-
-<p>Para colocar imégenes debemos instanciar un objeto de tipo <code>Image</code>, darle la ubicación de nuestra imagen al constructor, darle el tamaño que gustemos y alinearla.</p>
-
-<pre><code> Paragraph paragraph_2 = new Paragraph();
- paragraph_2.setFont(new Font(FontFactory.getFont("Courier", 12, Font.BOLD, BaseColor.ORANGE)));
- paragraph_2.add("Ultima linea del documento");
- paragraph_2.setAlignment(Paragraph.ALIGN_LEFT);
-</code></pre>
-
-<p>En este parrafo lo único que hemos hecho diferente es darle una fuente y color especifico a nuestro texto, hay otras formas de hacerlo
-incluso si tienes fuentes extrañas instaladas en su carpeta Fonts de Windows puedes crear una nueva fuente a partir de esa, ya que por lo
-general las fuentes &ldquo;extrañas&rdquo; no las reconoce, hagan la prueba y me comentan (si si si, tengo la solución si les llega a pasar..)</p>
-
-<p>Antes de añadir todo nuestro contenido debemos abrir el documento para poder usarlo <code>document.open();</code> luego ir añadiendo en el orden en que queremos que aparezcan todos los checheres que hemos creado</p>
-
-<pre><code>document.add(paragraph);
-document.add(image);
-document.add(paragraph_2);
-</code></pre>
-
-<p>y por lógica&hellip; si abres algo, ciérralo. <code>document.close();</code></p>
-
-<p>Eso es todo! Luego de que lo ejecutes deberás tener en tu carpeta de proyecto tu archivo PDF.
-Saludos, para dudas a la orden!!!</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/09/27/mi-primer-post/">Leer m&aacutes &rarr;</a>
+    </footer>
   
 
 
     </article>
   
   <div class="pagination">
+  <p>
     
-    <a href="/blog/archives">Blog Archives</a>
+    <!-- Por algo esto estaba aqui, no lo borro por si las <a href="/blog/archives">Rechanfle</a> -->
     
   </div>
 </div>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Linux | El blog del xobi]]></title>
-  <link href="http://localhost/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://localhost/"/>
-  <updated>2015-09-29T11:44:04-05:00</updated>
-  <id>http://localhost/</id>
+  <link href="http://ropherpanama.github.io/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://ropherpanama.github.io/"/>
+  <updated>2015-09-29T13:12:03-05:00</updated>
+  <id>http://ropherpanama.github.io/</id>
   <author>
     <name><![CDATA[Rosendo Ropher]]></name>
     
@@ -14,13 +14,14 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Comanteca Linux]]></title>
-    <link href="http://localhost/blog/2015/09/29/comanteca-linux/"/>
+    <title type="html"><![CDATA[Linux: Comandos Que Me Facilitan La Vida!]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/comanteca-linux/"/>
     <updated>2015-09-29T11:42:53-05:00</updated>
-    <id>http://localhost/blog/2015/09/29/comanteca-linux</id>
-    <content type="html"><![CDATA[<h2>Linux: comandos que me facilitan la vida!</h2>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/comanteca-linux</id>
+    <content type="html"><![CDATA[<p>En este artículo iré colocando comandos (o secuencias de ellos) <strong>válidos para Linux</strong> que de alguna manera me saquen de un apuro o sean interesantes.</p>
 
-<p>Este post es simplemente para tener a mano comandos o secuencias de comandos que son muy útiles.</p>
+<!--more-->
+
 
 <ol>
 <li><strong>Promedio del peso de los archivos en una carpeta, el peso se muestra en KB:</strong>

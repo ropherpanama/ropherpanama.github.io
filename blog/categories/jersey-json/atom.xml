@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Jersey-json | El blog del xobi]]></title>
-  <link href="http://localhost/blog/categories/jersey-json/atom.xml" rel="self"/>
-  <link href="http://localhost/"/>
-  <updated>2015-09-29T11:44:04-05:00</updated>
-  <id>http://localhost/</id>
+  <link href="http://ropherpanama.github.io/blog/categories/jersey-json/atom.xml" rel="self"/>
+  <link href="http://ropherpanama.github.io/"/>
+  <updated>2015-09-29T13:12:03-05:00</updated>
+  <id>http://ropherpanama.github.io/</id>
   <author>
     <name><![CDATA[Rosendo Ropher]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Android Unable to Execute Dex: Multiple Dex Files]]></title>
-    <link href="http://localhost/blog/2015/09/29/android-dex-multiple-libs/"/>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/android-dex-multiple-libs/"/>
     <updated>2015-09-29T11:38:22-05:00</updated>
-    <id>http://localhost/blog/2015/09/29/android-dex-multiple-libs</id>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/android-dex-multiple-libs</id>
     <content type="html"><![CDATA[<p>Este problema es bastante sencillo de solucionar, sólo hay que LEER (lo entendí después de una noche rompiendome la cabeza) en vez de GOOGLEAR.</p>
 
 <p><strong>En mi caso el mensaje era este:</strong></p>
@@ -26,6 +26,11 @@
 [2013-05-07 23:08:21 - smf-prototype] Conversion to Dalvik format failed: Unable to execute dex: Multiple dex files define Lcom/sun/jersey/api/json/JSONConfigurated;</p></blockquote>
 
 <p>Estoy trabajando en unos <strong>webservices</strong> que usan el soporte de <strong>JSON</strong> y para eso requiero un par de librerías.</p>
+
+<!--more-->
+
+
+<p></p>
 
 <p>La clave está precisamente en el mensaje :</p>
 

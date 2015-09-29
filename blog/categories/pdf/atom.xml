@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Pdf | El blog del xobi]]></title>
-  <link href="http://localhost/blog/categories/pdf/atom.xml" rel="self"/>
-  <link href="http://localhost/"/>
-  <updated>2015-09-29T11:44:04-05:00</updated>
-  <id>http://localhost/</id>
+  <link href="http://ropherpanama.github.io/blog/categories/pdf/atom.xml" rel="self"/>
+  <link href="http://ropherpanama.github.io/"/>
+  <updated>2015-09-29T13:12:03-05:00</updated>
+  <id>http://ropherpanama.github.io/</id>
   <author>
     <name><![CDATA[Rosendo Ropher]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Java : Crear Un PDF Con iText]]></title>
-    <link href="http://localhost/blog/2015/09/27/mi-primer-post/"/>
+    <link href="http://ropherpanama.github.io/blog/2015/09/27/mi-primer-post/"/>
     <updated>2015-09-27T19:35:05-05:00</updated>
-    <id>http://localhost/blog/2015/09/27/mi-primer-post</id>
+    <id>http://ropherpanama.github.io/blog/2015/09/27/mi-primer-post</id>
     <content type="html"><![CDATA[<blockquote><p>Atención: Este proyecto puedes realizarlo con Eclipse, Netbeans, etc.</p></blockquote>
 
 <p>En un par de pasos vamos a crear un archivo PDF en JAVA</p>
@@ -31,6 +31,9 @@
 
 
 <p>Deberás añadir las librerías de iText a tu proyecto (prueba con <a href="https://maven.apache.org/">Maven</a>), para que puedas hacer uso de las clases que se detallan aquí.</p>
+
+<!--more-->
+
 
 <p>Teniendo todo esto vamos a crear nuestro archivo.</p>
 

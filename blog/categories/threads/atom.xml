@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Threads | El blog del xobi]]></title>
-  <link href="http://localhost/blog/categories/threads/atom.xml" rel="self"/>
-  <link href="http://localhost/"/>
-  <updated>2015-09-29T11:44:04-05:00</updated>
-  <id>http://localhost/</id>
+  <link href="http://ropherpanama.github.io/blog/categories/threads/atom.xml" rel="self"/>
+  <link href="http://ropherpanama.github.io/"/>
+  <updated>2015-09-29T13:12:03-05:00</updated>
+  <id>http://ropherpanama.github.io/</id>
   <author>
     <name><![CDATA[Rosendo Ropher]]></name>
     
@@ -15,13 +15,16 @@
   
   <entry>
     <title type="html"><![CDATA[Threads Java: Iniciarlos, Detenerlos Y Reanudarlos (Básico)]]></title>
-    <link href="http://localhost/blog/2015/09/27/some-awesome-title/"/>
+    <link href="http://ropherpanama.github.io/blog/2015/09/27/some-awesome-title/"/>
     <updated>2015-09-27T20:51:29-05:00</updated>
-    <id>http://localhost/blog/2015/09/27/some-awesome-title</id>
+    <id>http://ropherpanama.github.io/blog/2015/09/27/some-awesome-title</id>
     <content type="html"><![CDATA[<p>Bien, primero que nada explicar de que vá el asunto.</p>
 
 <p>La idea es controlar la ejecución de un <code>Thread</code>; es decir, poder detenerlo y reanudarlo. De plano que para iniciarlo lo iniciamos en el main y que también podamos detener del todo el proceso (para no poder levantarlo más).
 Explico un poco el enfoque de la solución, implementé un <code>Proceso</code> principal, este es el trabajo que debe hacer el <code>Thread</code>; simplemente consiste en imprimir un número cada cierto tiempo, un tiempo random no mayor a 5 segundos.</p>
+
+<!--more-->
+
 
 <blockquote><p>Decir que esto se ejecutará infinitamente.</p></blockquote>
 

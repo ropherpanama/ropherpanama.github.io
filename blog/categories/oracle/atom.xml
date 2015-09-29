@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Oracle | El blog del xobi]]></title>
-  <link href="http://localhost/blog/categories/oracle/atom.xml" rel="self"/>
-  <link href="http://localhost/"/>
-  <updated>2015-09-29T11:44:04-05:00</updated>
-  <id>http://localhost/</id>
+  <link href="http://ropherpanama.github.io/blog/categories/oracle/atom.xml" rel="self"/>
+  <link href="http://ropherpanama.github.io/"/>
+  <updated>2015-09-29T13:12:03-05:00</updated>
+  <id>http://ropherpanama.github.io/</id>
   <author>
     <name><![CDATA[Rosendo Ropher]]></name>
     
@@ -15,14 +15,17 @@
   
   <entry>
     <title type="html"><![CDATA[Apuntes - Tuning Glassfish (Optimización Para Producción)]]></title>
-    <link href="http://localhost/blog/2015/09/29/tuning-de-glassfish/"/>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/tuning-de-glassfish/"/>
     <updated>2015-09-29T11:20:00-05:00</updated>
-    <id>http://localhost/blog/2015/09/29/tuning-de-glassfish</id>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/tuning-de-glassfish</id>
     <content type="html"><![CDATA[<h3>Ajuste de JVM</h3>
 
 <p>Ya que Glassfish está hecho sobre Java, muchas de las optimizaciones pueden hacerse a través de la Java Virtual Machine</p>
 
 <p>En el fichero <code>domain.xml</code> ubicado en <code>%GLASSFISH_HOME%/glassfish/domains/&lt;DOMAIN_NAME/config</code> se deben editar los parametro <code>Xms</code> y <code>Xmx</code>, esto para reservar más memoria para el GF.</p>
+
+<!--more-->
+
 
 <p>Ubica los siguientes parámetros y modifícalos según la necesidad y capacidad del servervidor que aloja tu aplicación:</p>
 
