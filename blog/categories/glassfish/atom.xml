@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Glassfish | El blog del xobi]]></title>
+  <link href="http://localhost/blog/categories/glassfish/atom.xml" rel="self"/>
+  <link href="http://localhost/"/>
+  <updated>2015-09-29T11:44:02-05:00</updated>
+  <id>http://localhost/</id>
+  <author>
+    <name><![CDATA[Rosendo Ropher]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Apuntes - Tuning Glassfish (Optimización Para Producción)]]></title>
+    <link href="http://localhost/blog/2015/09/29/tuning-de-glassfish/"/>
+    <updated>2015-09-29T11:20:00-05:00</updated>
+    <id>http://localhost/blog/2015/09/29/tuning-de-glassfish</id>
+    <content type="html"><![CDATA[<h3>Ajuste de JVM</h3>
+
+<p>Ya que Glassfish está hecho sobre Java, muchas de las optimizaciones pueden hacerse a través de la Java Virtual Machine</p>
+
+<p>En el fichero <code>domain.xml</code> ubicado en <code>%GLASSFISH_HOME%/glassfish/domains/&lt;DOMAIN_NAME/config</code> se deben editar los parametro <code>Xms</code> y <code>Xmx</code>, esto para reservar más memoria para el GF.</p>
+
+<p>Ubica los siguientes parámetros y modifícalos según la necesidad y capacidad del servervidor que aloja tu aplicación:</p>
+
+<p><code>&lt;jvm-options&gt;-Xmx1024m&lt;/jvm-options&gt;</code> y <code>&lt;jvm-options&gt;-Xms1024m&lt;/jvm-options&gt;</code></p>
+
+<p>En este caso se está asignando 1GB de RAM, ambos parámetros se colocan igual para asignar la memoria en el arranque del servicio, de esta forma no se pierde tiempo haciéndolo después.</p>
+
+<p>Modificar la opción <code>-client</code> por <code>-server</code> de la siguiente manera, si el servidor que ejecuta el GF es 64bits entonces por default tomará la opción correcta, pero nada se pierde con “asegurarnos":<code>&lt;jvm-options&gt;-server&lt;/jvm-options&gt;</code></p>
+
+<p>También incluir estas configuraciones <code>-Xss128k</code>, <code>-XX:+DisableExplicitGC</code>, <code>-XX:ParallelGCThreads=N</code> (en donde N es el número de CPU&rsquo;s del servidor si la cantidad es menor a 8, en caso contrario N es igual #CPU&rsquo;s/2)</p>
+
+<p><code>-XX:+UseParallelOldGC</code></p>
+
+<p>Si la aplicación está haciendo una gran cantidad de operaciones de E/S como escritura, también se le puede decir a <code>Grizzly</code> que utilice una estrategia asíncrona:</p>
+
+<p><code>-Dcom.sun.grizzly.http.asyncwrite.enabled=true</code></p>
+
+<p>Una alternativa que podría considerarse también si se está notando que algunas operaciones de escritura parecen tomar más tiempo de lo esperado.  Se puede aumentar el número de procesadores de escritura al aumentar el número Selectors NIO:</p>
+
+<p><code>-Dcom.sun.grizzly.maxSelectors=XXX</code></p>
+
+<p>Si la aplicación será utilizada por dispostivos móviles o a través de redes lentas puede configurar:</p>
+
+<p><code>-Dcom.sun.grizzly.readTimeout</code>
+o
+<code>network-config&gt;network-listeners&gt;network-listener&gt;transport#read-timeout</code> para las operaciones read y <code>com.sun.grizzly.writeTimeout o network-config&gt;network-listeners&gt;network-listener&gt;transport#write-timeout</code> para las operaciones write.</p>
+
+<p>Para que un hilo no bloquee otros posibles procesos de I/O durante mucho tiempo puede configurar la opción:</p>
+
+<p><code>-Dcom.sun.grizzly.useKeepAliveAlgorithm=true</code></p>
+
+<p>Esto le dará oportunidad de ejecución a otras peticiones.</p>
+
+<h3>GlassFish Tuning</h3>
+
+<p>Algunas configuraciones en el servidor de aplicaciones en sí, pueden ser las siguientes:</p>
+
+<p>En el mismo fichero <code>domain.xml</code> modificar las siguientes opciones como se muestra a continuación:</p>
+
+<ol>
+<li>Evitemos el autodeploy y la recarga dinámica, esto toma tiempo y no es deseable, configuramos lo siguiente: <code>&lt;das-config autodeploy-enabled="false" dynamic-reload-enabled="false"&gt;&lt;/das-config&gt;</code></li>
+<li>Aceptor Threads: Si se tiene por ejemplo, un servidor con 2 CPU&rsquo;s de 4 núcleos cada uno, el valor de este parámetro debe ser 8. Para configurarlo ve a la consola de administración y busca la siguiente direccion <code>Configuration -&gt; Network Config -&gt; Transports -&gt; tcp -&gt; Acceptor threads</code></li>
+<li>Cacheo de recursos estáticos: <code>Configuration -&gt; Network Config -&gt; Protocols -&gt; http-listener-1 -&gt; File Cache -&gt; Enabled</code>. De tener conexiones HTTPS habilitarlo también para el listener seguro.</li>
+<li>Si el servidor solo posee un Network Interface Card (NIC) reemplaza todos los valores <code>0.0.0.0</code> de  los http listeners con el IP del servidor, como se muestra <code>Configuration -&gt; Network Config -&gt; Network Listeners -&gt; &lt;listener_name&gt; -&gt; Address</code></li>
+<li><p>Modificar el fichero <code>default-web.xml</code> ubicado en <code>%GLASSFISH_HOME%/glassfish/domains/&lt;DOMAIN_NAME&gt;/config</code> como se muestra:</p>
+
+<pre><code> &lt;servlet&gt;
+ &lt;servlet-name&gt;jsp&lt;/servlet-name&gt;
+ &lt;servlet-class&gt;org.apache.jasper.servlet.JspServlet&lt;/servlet-class&gt;
+     &lt;init-param&gt;
+         &lt;param-name&gt;development&lt;/param-name&gt;
+         &lt;param-value&gt;false&lt;/param-value&gt;
+     &lt;/init-param&gt;
+     &lt;init-param&gt;
+         &lt;param-name&gt;genStrAsCharArray&lt;/param-name&gt;
+         &lt;param-value&gt;true&lt;/param-value&gt;
+     &lt;/init-param&gt;
+     ...
+ &lt;/servlet&gt;
+</code></pre></li>
+</ol>
+
+
+<h3>Optimizaciones para JDBC</h3>
+
+<p>Para drivers JDBC de Oracle pueden configurarse las siguientes opciones:</p>
+
+<ul>
+<li><code>ImplicitCachingEnabled=true</code></li>
+<li><code>MaxStatements=200</code></li>
+<li>Configurar los valores del Pool de conexiones <code>steady-pool-size</code> y <code>max-pool-size</code> con el mismo valor. Una regla general es configurar estos valores con el mismo número que se ha configurado en los <code>HTTP request processing threads</code></li>
+</ul>
+
+
+<p>Sobre la marcha seguimos trabajando con Glassfish (ahora en su versión 4) y estos ajustes seguro que se irán actualizando.</p>
+
+<p>A todos un saludo!</p>
+]]></content>
+  </entry>
+  
+</feed>

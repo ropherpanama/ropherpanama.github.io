@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Java : Crear Un PDF Con iText - El blog del xobi</title>
+  <meta name="author" content="Rosendo Ropher">
+
+  
+  <meta name="description" content="Java : Crear Un PDF Con iText Sep 27th, 2015 7:35 pm Atención: Este proyecto puedes realizarlo con Eclipse, Netbeans, etc. En un par de pasos vamos &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://localhost/blog/2015/09/27/mi-primer-post/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="El blog del xobi" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">-->
+<!--<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">-->
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><!--<hgroup>                                                      -->
+<!--  <h1><a href="/">El blog del xobi</a></h1>     -->
+<!--                                        -->
+<!--    <h2>Mi diario vivir sobre Java, Android, Ruby, Python, Oracle, JavaScript y mucho más ...</h2>                              -->
+<!--                                                   -->
+<!--</hgroup>                                                     -->
+
+<hgroup>
+<header class="section section-primary section-header">
+	<!--<header class="logo">
+		<img src="http://leveluplunch.com/images/leveluplunch.svg" alt="Level Up Lunch">
+		<h2 class="logo-slogan">learn. code. eat.</h2>
+	</header> -->
+ 
+	<div class="container">
+		<h1 class="title">El blog del xobi</h1>
+		<div class="subtitle">Mi diario vivir sobre Java, Android, Ruby, Python, Oracle, JavaScript y mucho más ...</div>
+	</div>
+</header>
+</hgroup>
+</header>
+  <main class="container">
+		<nav role="navigation"><!-- <ul class="subscription" data-subscription="rss">                       -->
+<!--   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>                   -->
+<!--                                                                                                            -->
+<!-- </ul>                                                                                                                 -->
+<!--                                                                                           -->
+<!-- <form action="https://www.google.com/search" method="get">                                                                -->
+<!--   <fieldset role="search">                                                                                           -->
+<!--     <input type="hidden" name="sitesearch" value="localhost">                                   -->
+<!--     <input class="search" type="text" name="q" results="0" placeholder="Buscar"/>                                    -->
+<!--   </fieldset>                                                                                                        -->
+<!-- </form>                                                                                                              -->
+<!--                                                                                                           -->
+<!--<ul class="nav">                                                  -->
+<!--  <li><a href="/">Blog</a></li>                     -->
+<!--  <li><a href="/blog/archives">Archivos</a></li>    -->
+<!--</ul>                                                             -->
+
+<div class="nav">
+      <ul>
+        <li><a href="/">Blog</a></li>
+		<li><a href="/blog/archives">Archivos</a></li>
+        <li class="contact"><a href="/about">Sobre mí</a></li>
+      </ul>
+</div>
+</nav>
+		<div id="main">
+			<div id="content">
+				<div>
+<article class="post" role="article">
+  
+  <header>
+    
+      <h1 class="post-title">Java : Crear Un PDF Con iText</h1>
+    
+    
+      <p class="post-info">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-27T19:35:05-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:35 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="post-excerpt"><blockquote><p>Atención: Este proyecto puedes realizarlo con Eclipse, Netbeans, etc.</p></blockquote>
+
+<p>En un par de pasos vamos a crear un archivo PDF en JAVA</p>
+
+<p>Materiales:</p>
+
+<ul>
+<li> Libreria iText (<a href="http://sourceforge.net/projects/itext/files/iText/iText5.2.0/">http://sourceforge.net/projects/itext/files/iText/iText5.2.0/</a>) Para este ejemplo usé la version 5.2.0 (seguro que ya hay una más nueva)</li>
+<li> Una pequeña imagen: Para este ejemplo usé una imagen en formato PNG, puede ser cualquiera.</li>
+</ul>
+
+
+<p>Deberás añadir las librerías de iText a tu proyecto (prueba con <a href="https://maven.apache.org/">Maven</a>), para que puedas hacer uso de las clases que se detallan aquí.</p>
+
+<p>Teniendo todo esto vamos a crear nuestro archivo.</p>
+
+<p>Vamos a crear una clase con cualquier nombre, en mi caso yo le pondré <code>CreatePDF</code> y dentro de ella voy a crear un método llamado <code>writePDF</code>. También vamos
+a colocarle un método main; el esqueleto quedaria así.</p>
+
+<pre><code>public class CreatePDF {
+    public void writePDF() {...}
+
+    public static void main(String args[]) {
+        new CreatePDF().writePDF();
+    }
+}
+</code></pre>
+
+<p>Luego de esto lo primero que debemos hacer es importar los Objetos que vamos a utilizar, para nuestro básico ejemplo sólo debemos añadir los siguientes:</p>
+
+<pre><code>import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
+public class CreatePDF ...
+</code></pre>
+
+<p>Ahora bien, dentro del método <code>writePDF()</code> irá toda nuestra lógica para crear nuestro documento, vamos primero a crear un bloque <code>try/catch</code> y dentro de él colocaremos las siguientes líneas; las cuales iré explicando paso a paso.</p>
+
+<pre><code>Document document = new Document(PageSize.LETTER, 80, 80, 50, 50);
+FileOutputStream salida = new FileOutputStream("archivo.pdf");
+PdfWriter writer = PdfWriter.getInstance(document, salida);
+writer.setInitialLeading(0);
+</code></pre>
+
+<p>Como todo en Java debemos tener una instancia de un objeto antes de trabajar con el, por eso debemos tener una referencia a un objeto de tipo
+<code>Document</code> que es quien representa nuestra hoja en blanco para escribir. Con el atributo <code>PageSize.LETTER</code> lo que le estamos indicando es que el
+documento tendrá las dimesiones de un archivo en formato CARTA (sí, tambien hay para los demás estandares, investígalos), acompañando lo antes mencionado
+está el valor de los márgenes de nuestro documento <code>(margenIzq, margenDer, margenArriba, margenAbajo)</code>, pueden ser los valores que gustes compañero.
+Con la línea del <code>FileOutputStream</code> únicamente estamos creando físicamente nuestro archivo en disco, allí irán todos nuestros cambios al documento.
+Luego necesitamos tener una instancia de quien escribirá nuestros cambios y darle su punto de inicio para que pueda escribir, <code>writer.setInitialLeading(0);</code>.</p>
+
+<p>Hecho todo esto solo nos queda ir &ldquo;escribiendo&rdquo; dentro de nuestro papel en blanco que ya hemos preparado, vamos a añadir dos párrafos sencillos juntos a una imagen.</p>
+
+<pre><code> Paragraph paragraph = new Paragraph();
+ paragraph.add("Primera linea del documento");
+ paragraph.setAlignment(Paragraph.ALIGN_CENTER);
+</code></pre>
+
+<p>Para escribir texto usamos la clase <code>Paragraph</code>, como ves tiene un método <code>add</code> en el que puedes escribir lo que desees&hellip;esta clase tiene muchos métodos interesantes, como el que vemos aquí <code>paragraph.setAlignment(Paragraph.ALIGN_CENTER)</code> que como lo
+adivinaste es para alinear en donde queramos.</p>
+
+<pre><code> Image image = Image.getInstance("imagen.png");
+ image.scaleToFit(150, 150);
+ image.setAlignment(Chunk.ALIGN_CENTER);
+</code></pre>
+
+<p>Para colocar imégenes debemos instanciar un objeto de tipo <code>Image</code>, darle la ubicación de nuestra imagen al constructor, darle el tamaño que gustemos y alinearla.</p>
+
+<pre><code> Paragraph paragraph_2 = new Paragraph();
+ paragraph_2.setFont(new Font(FontFactory.getFont("Courier", 12, Font.BOLD, BaseColor.ORANGE)));
+ paragraph_2.add("Ultima linea del documento");
+ paragraph_2.setAlignment(Paragraph.ALIGN_LEFT);
+</code></pre>
+
+<p>En este parrafo lo único que hemos hecho diferente es darle una fuente y color especifico a nuestro texto, hay otras formas de hacerlo
+incluso si tienes fuentes extrañas instaladas en su carpeta Fonts de Windows puedes crear una nueva fuente a partir de esa, ya que por lo
+general las fuentes &ldquo;extrañas&rdquo; no las reconoce, hagan la prueba y me comentan (si si si, tengo la solución si les llega a pasar..)</p>
+
+<p>Antes de añadir todo nuestro contenido debemos abrir el documento para poder usarlo <code>document.open();</code> luego ir añadiendo en el orden en que queremos que aparezcan todos los checheres que hemos creado</p>
+
+<pre><code>document.add(paragraph);
+document.add(image);
+document.add(paragraph_2);
+</code></pre>
+
+<p>y por lógica&hellip; si abres algo, ciérralo. <code>document.close();</code></p>
+
+<p>Eso es todo! Luego de que lo ejecutes deberás tener en tu carpeta de proyecto tu archivo PDF.
+Saludos, para dudas a la orden!!!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Escrito por <span class="fn">Rosendo Ropher</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-09-27T19:35:05-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:35 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/java/'>java</a>, <a class='category' href='/blog/categories/pdf/'>pdf</a>
+  
+</span>
+
+
+    </p>
+    
+      <!-- <div class="sharing">                                                                                                                                                                                -->
+<!--                                                                                                                                                                    -->
+<!--   <a href="//twitter.com/share" class="twitter-share-button" data-url="http://localhost/blog/2015/09/27/mi-primer-post/" data-via="ropherpanama" data-counturl="http://localhost/blog/2015/09/27/mi-primer-post/" >Tweet</a>      -->
+<!--                                                                                                                                                                                           -->
+<!--                                                                                                                                                                         -->
+<!--   <div class="g-plusone" data-size="medium"></div>                                                                                                                          -->
+<!--                                                                                                                                                                                           -->
+<!--                                                                                                                                                                                           -->
+<!-- </div>                                                                                                                                                                                               -->
+
+<footer class=sharing>
+	<p>
+		<b>Compártelo:</b> 
+			<a href="https://twitter.com/share" class="btn btn-social btn-twitter" data-url="http://localhost/blog/2015/09/27/mi-primer-post/" data-via="ropherpanama" data-counturl="http://localhost/blog/2015/09/27/mi-primer-post/"><i class=icon-twitter></i> Twitter</a> 
+			<a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/blog/2015/09/27/mi-primer-post/" class="btn btn-social btn-facebook" ><i class=icon-facebook></i> Facebook</a> 
+			<a href="https://plus.google.com/share?url=http://localhost/blog/2015/09/27/mi-primer-post/" class="btn btn-social btn-google"><i class=icon-google></i> Google+</a>
+	</p>
+</footer>
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/09/27/some-awesome-title/" title="Next Post: Threads Java: iniciarlos, detenerlos y reanudarlos (básico)">Threads Java: iniciarlos, detenerlos y reanudarlos (básico) &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+
+
+
+
+  
+</aside>
+
+
+			</div>
+		</div>
+	</main>
+  <footer role="contentinfo"><footer class="section section-dark">
+	<div class=container>
+		
+		<div class=row>
+			<div class="col col-half footer-area footer-area-left">
+				<ul class=nav-inline>
+					<li><a href="/">Blog</a></li>
+					<li><a href="/blog/archives">Archivos</a></li>
+					<li><a href="/about">Sobre mí</a></li>
+					<li><a href="http://www.leveluplunch.com/styleguide/" target="_blank">Style Guide</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class=row>
+			<div class="col col-half footer-area footer-area-left">
+				<p style="color:#000000;">
+					Copyright &copy; 2015 - Rosendo Ropher -
+					<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+				</p>
+			</div>
+			<div class="col col-half footer-area footer-area-right">
+				<a href=https://twitter.com/ropherpanama class=social-link title=Twitter><span class=sr-only>Twitter</span> <i class=icon-twitter-white></i></a> 
+				<a href=https://www.facebook.com/RosendoRopher class=social-link title=Facebook><span class=sr-only>Facebook</span> <i class=icon-facebook-white></i></a> 
+				<a href=https://google.com/+RosendoRopher rel=publisher class=social-link title=Google+><span class=sr-only>google+</span> <i class=icon-google-white></i></a> 
+				<a href=https://github.com/ropherpanama class=social-link title=GitHub><span class=sr-only>GitHub</span> <i class=icon-github></i></a> 
+				<a href=http://www.youtube.com/user/RosendoRopher class=social-link title=YouTube><span class=sr-only>YouTube</span> <i class=icon-youtube></i></a>
+			</div>
+		</div>
+	</div>
+</footer>
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

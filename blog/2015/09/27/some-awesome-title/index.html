@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Threads Java: Iniciarlos, Detenerlos Y Reanudarlos (Básico) - El blog del xobi</title>
+  <meta name="author" content="Rosendo Ropher">
+
+  
+  <meta name="description" content="Threads Java: Iniciarlos, Detenerlos Y Reanudarlos (Básico) Sep 27th, 2015 8:51 pm Bien, primero que nada explicar de que vá el asunto. La idea es &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://localhost/blog/2015/09/27/some-awesome-title/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="El blog del xobi" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">-->
+<!--<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">-->
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><!--<hgroup>                                                      -->
+<!--  <h1><a href="/">El blog del xobi</a></h1>     -->
+<!--                                        -->
+<!--    <h2>Mi diario vivir sobre Java, Android, Ruby, Python, Oracle, JavaScript y mucho más ...</h2>                              -->
+<!--                                                   -->
+<!--</hgroup>                                                     -->
+
+<hgroup>
+<header class="section section-primary section-header">
+	<!--<header class="logo">
+		<img src="http://leveluplunch.com/images/leveluplunch.svg" alt="Level Up Lunch">
+		<h2 class="logo-slogan">learn. code. eat.</h2>
+	</header> -->
+ 
+	<div class="container">
+		<h1 class="title">El blog del xobi</h1>
+		<div class="subtitle">Mi diario vivir sobre Java, Android, Ruby, Python, Oracle, JavaScript y mucho más ...</div>
+	</div>
+</header>
+</hgroup>
+</header>
+  <main class="container">
+		<nav role="navigation"><!-- <ul class="subscription" data-subscription="rss">                       -->
+<!--   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>                   -->
+<!--                                                                                                            -->
+<!-- </ul>                                                                                                                 -->
+<!--                                                                                           -->
+<!-- <form action="https://www.google.com/search" method="get">                                                                -->
+<!--   <fieldset role="search">                                                                                           -->
+<!--     <input type="hidden" name="sitesearch" value="localhost">                                   -->
+<!--     <input class="search" type="text" name="q" results="0" placeholder="Buscar"/>                                    -->
+<!--   </fieldset>                                                                                                        -->
+<!-- </form>                                                                                                              -->
+<!--                                                                                                           -->
+<!--<ul class="nav">                                                  -->
+<!--  <li><a href="/">Blog</a></li>                     -->
+<!--  <li><a href="/blog/archives">Archivos</a></li>    -->
+<!--</ul>                                                             -->
+
+<div class="nav">
+      <ul>
+        <li><a href="/">Blog</a></li>
+		<li><a href="/blog/archives">Archivos</a></li>
+        <li class="contact"><a href="/about">Sobre mí</a></li>
+      </ul>
+</div>
+</nav>
+		<div id="main">
+			<div id="content">
+				<div>
+<article class="post" role="article">
+  
+  <header>
+    
+      <h1 class="post-title">Threads Java: Iniciarlos, Detenerlos Y Reanudarlos (Básico)</h1>
+    
+    
+      <p class="post-info">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-27T20:51:29-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:51 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="post-excerpt"><p>Bien, primero que nada explicar de que vá el asunto.</p>
+
+<p>La idea es controlar la ejecución de un <code>Thread</code>; es decir, poder detenerlo y reanudarlo. De plano que para iniciarlo lo iniciamos en el main y que también podamos detener del todo el proceso (para no poder levantarlo más).
+Explico un poco el enfoque de la solución, implementé un <code>Proceso</code> principal, este es el trabajo que debe hacer el <code>Thread</code>; simplemente consiste en imprimir un número cada cierto tiempo, un tiempo random no mayor a 5 segundos.</p>
+
+<blockquote><p>Decir que esto se ejecutará infinitamente.</p></blockquote>
+
+<h4>Clase <code>Proceso.java</code></h4>
+
+<pre><code>import java.util.Random;
+
+/**
+ * @author ropherpanama@gmail.com
+ * Esta clase representa el proceso de trabajo; imprimir un entero cada cierto tiempo
+ * se sobrescriben los metodos suspend y resume
+ */
+public class Proceso implements Runnable {
+    private int currentCont;
+    private Thread t;
+    private final int sleepTime;
+    boolean suspended = false;
+    private String threadName;
+    private boolean working = true;
+    private final static Random generator = new Random();
+
+    public Proceso(String threadName) {
+        this.threadName = threadName;
+        sleepTime = generator.nextInt(5000);
+        currentCont = 0;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Running " + threadName);
+        try {
+            while (isWorking()) {
+                System.out.println(threadName + " doing : " + currentCont);
+                currentCont++;
+                Thread.sleep(sleepTime);
+
+                synchronized (this) {
+                    while (suspended) {
+                        wait();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void start() {
+        System.out.println("Starting " + threadName);
+        if (t == null) {
+            t = new Thread(this, threadName);
+            t.start();
+        }
+    }
+
+    void suspend() {
+        System.out.println("Suspending " + threadName);
+        suspended = true;
+    }
+
+    synchronized void resume() {
+        System.out.println("Resuming " + threadName);
+        suspended = false;
+        notify();
+    }
+
+    public boolean isWorking() {
+        return working;
+    }
+
+    public void setWorking(boolean working) {
+        this.working = working;
+    }
+}
+</code></pre>
+
+<p>Notar que el propio hilo se sincroniza y si se cumple que el hilo entra en estado <code>suspend</code> se llama al método <code>wait()</code>, esto provocará que el hilo se mantenga pausado hasta que alguien llame al método <code>notify();</code> que precisamente se llama en el método <code>resume()</code> y se niega que el estado del hilo es <code>suspend (suspend = false)</code>. Otro punto importante es que al tener un proceso que podría ejecutarse hasta el final de los tiempos, podríamos querer algún día detenerlo, para eso usamos el <code>while</code> con la variable <code>working</code>, que en primera instancia tendra un valor <code>true</code>.</p>
+
+<h3>Interactuar por consola con tu Thread</h3>
+
+<p>Lo divertido del caso era que se pudiera; mediante el teclado decirle al <code>Thread</code> lo que tenía que hacer, no simplemente escribirlo y no poder interactuar con el programa. Para eso, pensé en un &ldquo;monitor&rdquo; de entrada de teclado (<code>Thread</code> también por cierto) que en base a lo que escribas en el teclado defina el estado del <code>Thread</code> que está realizando el proceso principal. Entonces puedo escribir S (suspender), D (detener), R (reanudar) y B (salir) y con esto podré controlar los estados de mi hilo <code>Proceso</code>. Para este ejemplo simple solo estoy vigilando un solo <code>Thread</code> pero pueden ser cuantos se requieran.</p>
+
+<h4>Clase <code>Entrada.java</code></h4>
+
+<p>import java.util.Scanner;</p>
+
+<pre><code>/**
+ * @author ropherpanama@gmail.com
+ * Esta clase esta pendiente de la entrada del usuario, la misma actua
+ * como monitor de entrada por teclado y dependiendo de ello ajustara el estado
+ * del Hilo al cual controla
+ *
+ */
+public class Entrada implements Runnable {
+    private Scanner sc = new Scanner(System.in);
+    private String command = "";
+    private Proceso p1;
+
+    public Entrada(Proceso p1) {
+        this.p1 = p1;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            System.out.println("Waiting input:");
+            command = sc.nextLine();
+
+            if (this.getCommand().toUpperCase().equals("S")) {
+                p1.suspend();
+            } else if (this.getCommand().toUpperCase().equals("R")) {
+                p1.resume();
+            } else if (this.getCommand().toUpperCase().equals("D")) {
+                p1.setWorking(false);
+                System.out.println("Fin de trabajo");
+            } else if (this.getCommand().toUpperCase().equals("B")) {
+                System.out.println("Saliendo");
+                System.exit(0);
+            } else
+                System.out.println("No input");
+        }
+    }
+
+    public String getCommand() {
+        return command;
+    }
+
+    public void setCommand(String command) {
+        this.command = command;
+    }
+}
+</code></pre>
+
+<p>Vemos que esta clase, al igual que <code>Proceso</code> implementa a la clase <code>Runnable</code>, por ende tambien es un <code>Thread</code>. Este hilo va a estar pendiente de lo que escribas en el teclado y según ello actuará sobre el <code>Thread</code> que este monitorizando.</p>
+
+<h4>Vamos a probar!</h4>
+
+<p>Ahora vamos a probar esto, creamos la clase <code>Test.java</code> que contiene el main y lo ponemos todo a interactuar.</p>
+
+<h4>Clase <code>Test.java</code></h4>
+
+<pre><code>public class Test {
+    public static void main(String[] args) {
+        Proceso p1 = new Proceso("Juana");
+        p1.start();
+
+        Entrada e = new Entrada(p1);
+        Thread input = new Thread(e);
+        input.start();
+    }
+}
+</code></pre>
+
+<p>Bien, he llamado a mi proceso principal &ldquo;Juana&rdquo; (no sé porqué) y le he dicho que inicie <code>(p1.start())</code>, luego; he creado una instancia de mi <code>Thread</code> monitor de entrada, para que vigile lo que escribo y opere sobre &ldquo;Juana&rdquo;. Notar que le paso a &ldquo;Juana&rdquo; (p1) como argumento de su constructor <code>Entrada e = new Entrada(p1);</code></p>
+
+<p>La salida del programa es la siguiente:</p>
+
+<pre><code>Starting Juana
+Running Juana
+Juana doing : 0
+Waiting input:
+Juana doing : 1
+Juana doing : 2
+Juana doing : 3
+Juana doing : 4
+Juana doing : 5
+Juana doing : 6
+Juana doing : 7
+Juana doing : 8
+S
+Juana doing : 9
+
+Suspending Juana
+Waiting input:
+R
+Resuming Juana
+Waiting input:
+Juana doing : 10
+Juana doing : 11
+Juana doing : 12
+Juana doing : 13
+Juana doing : 14
+Juana doing : 15
+Juana doing : 16
+B
+Juana doing : 17
+
+Saliendo
+</code></pre>
+
+<p>Juana inicio y se ejecutó, e inició a tirar sus números. Luego le dije Juana descanza un rato (S) y descanzó hasta que le dije continúa &reg;, siguió hasta el número 17 y le dije sal del programa totalmente (B)</p>
+
+<p>Si te quedan dudas te invito a ver la video demostración en Youtube, pronto pongo el link.</p>
+
+<p>Saludos!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Escrito por <span class="fn">Rosendo Ropher</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-09-27T20:51:29-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:51 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/java/'>java</a>, <a class='category' href='/blog/categories/threads/'>threads</a>
+  
+</span>
+
+
+    </p>
+    
+      <!-- <div class="sharing">                                                                                                                                                                                -->
+<!--                                                                                                                                                                    -->
+<!--   <a href="//twitter.com/share" class="twitter-share-button" data-url="http://localhost/blog/2015/09/27/some-awesome-title/" data-via="ropherpanama" data-counturl="http://localhost/blog/2015/09/27/some-awesome-title/" >Tweet</a>      -->
+<!--                                                                                                                                                                                           -->
+<!--                                                                                                                                                                         -->
+<!--   <div class="g-plusone" data-size="medium"></div>                                                                                                                          -->
+<!--                                                                                                                                                                                           -->
+<!--                                                                                                                                                                                           -->
+<!-- </div>                                                                                                                                                                                               -->
+
+<footer class=sharing>
+	<p>
+		<b>Compártelo:</b> 
+			<a href="https://twitter.com/share" class="btn btn-social btn-twitter" data-url="http://localhost/blog/2015/09/27/some-awesome-title/" data-via="ropherpanama" data-counturl="http://localhost/blog/2015/09/27/some-awesome-title/"><i class=icon-twitter></i> Twitter</a> 
+			<a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/blog/2015/09/27/some-awesome-title/" class="btn btn-social btn-facebook" ><i class=icon-facebook></i> Facebook</a> 
+			<a href="https://plus.google.com/share?url=http://localhost/blog/2015/09/27/some-awesome-title/" class="btn btn-social btn-google"><i class=icon-google></i> Google+</a>
+	</p>
+</footer>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/09/27/mi-primer-post/" title="Previous Post: Java : crear un PDF con iText">&laquo; Java : crear un PDF con iText</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/09/29/tuning-de-glassfish/" title="Next Post: Apuntes - Tuning Glassfish (Optimización para producción)">Apuntes - Tuning Glassfish (Optimización para producción) &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+
+
+
+
+  
+</aside>
+
+
+			</div>
+		</div>
+	</main>
+  <footer role="contentinfo"><footer class="section section-dark">
+	<div class=container>
+		
+		<div class=row>
+			<div class="col col-half footer-area footer-area-left">
+				<ul class=nav-inline>
+					<li><a href="/">Blog</a></li>
+					<li><a href="/blog/archives">Archivos</a></li>
+					<li><a href="/about">Sobre mí</a></li>
+					<li><a href="http://www.leveluplunch.com/styleguide/" target="_blank">Style Guide</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class=row>
+			<div class="col col-half footer-area footer-area-left">
+				<p style="color:#000000;">
+					Copyright &copy; 2015 - Rosendo Ropher -
+					<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+				</p>
+			</div>
+			<div class="col col-half footer-area footer-area-right">
+				<a href=https://twitter.com/ropherpanama class=social-link title=Twitter><span class=sr-only>Twitter</span> <i class=icon-twitter-white></i></a> 
+				<a href=https://www.facebook.com/RosendoRopher class=social-link title=Facebook><span class=sr-only>Facebook</span> <i class=icon-facebook-white></i></a> 
+				<a href=https://google.com/+RosendoRopher rel=publisher class=social-link title=Google+><span class=sr-only>google+</span> <i class=icon-google-white></i></a> 
+				<a href=https://github.com/ropherpanama class=social-link title=GitHub><span class=sr-only>GitHub</span> <i class=icon-github></i></a> 
+				<a href=http://www.youtube.com/user/RosendoRopher class=social-link title=YouTube><span class=sr-only>YouTube</span> <i class=icon-youtube></i></a>
+			</div>
+		</div>
+	</div>
+</footer>
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Comanteca Linux - El blog del xobi</title>
+  <meta name="author" content="Rosendo Ropher">
+
+  
+  <meta name="description" content="Comanteca Linux Sep 29th, 2015 11:42 am Linux: comandos que me facilitan la vida! Este post es simplemente para tener a mano comandos o secuencias &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://localhost/blog/2015/09/29/comanteca-linux/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="El blog del xobi" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">-->
+<!--<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">-->
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><!--<hgroup>                                                      -->
+<!--  <h1><a href="/">El blog del xobi</a></h1>     -->
+<!--                                        -->
+<!--    <h2>Mi diario vivir sobre Java, Android, Ruby, Python, Oracle, JavaScript y mucho más ...</h2>                              -->
+<!--                                                   -->
+<!--</hgroup>                                                     -->
+
+<hgroup>
+<header class="section section-primary section-header">
+	<!--<header class="logo">
+		<img src="http://leveluplunch.com/images/leveluplunch.svg" alt="Level Up Lunch">
+		<h2 class="logo-slogan">learn. code. eat.</h2>
+	</header> -->
+ 
+	<div class="container">
+		<h1 class="title">El blog del xobi</h1>
+		<div class="subtitle">Mi diario vivir sobre Java, Android, Ruby, Python, Oracle, JavaScript y mucho más ...</div>
+	</div>
+</header>
+</hgroup>
+</header>
+  <main class="container">
+		<nav role="navigation"><!-- <ul class="subscription" data-subscription="rss">                       -->
+<!--   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>                   -->
+<!--                                                                                                            -->
+<!-- </ul>                                                                                                                 -->
+<!--                                                                                           -->
+<!-- <form action="https://www.google.com/search" method="get">                                                                -->
+<!--   <fieldset role="search">                                                                                           -->
+<!--     <input type="hidden" name="sitesearch" value="localhost">                                   -->
+<!--     <input class="search" type="text" name="q" results="0" placeholder="Buscar"/>                                    -->
+<!--   </fieldset>                                                                                                        -->
+<!-- </form>                                                                                                              -->
+<!--                                                                                                           -->
+<!--<ul class="nav">                                                  -->
+<!--  <li><a href="/">Blog</a></li>                     -->
+<!--  <li><a href="/blog/archives">Archivos</a></li>    -->
+<!--</ul>                                                             -->
+
+<div class="nav">
+      <ul>
+        <li><a href="/">Blog</a></li>
+		<li><a href="/blog/archives">Archivos</a></li>
+        <li class="contact"><a href="/about">Sobre mí</a></li>
+      </ul>
+</div>
+</nav>
+		<div id="main">
+			<div id="content">
+				<div>
+<article class="post" role="article">
+  
+  <header>
+    
+      <h1 class="post-title">Comanteca Linux</h1>
+    
+    
+      <p class="post-info">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-29T11:42:53-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:42 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="post-excerpt"><h2>Linux: comandos que me facilitan la vida!</h2>
+
+<p>Este post es simplemente para tener a mano comandos o secuencias de comandos que son muy útiles.</p>
+
+<ol>
+<li><strong>Promedio del peso de los archivos en una carpeta, el peso se muestra en KB:</strong>
+<em><em>* </em>ls -l | gawk &lsquo;{sum += $5; n++;} END {print sum/n/1024 &ldquo; KB&rdquo;}</em></li>
+<li><strong>Listar archivos con su peso en KB:</strong>
+<em><em>* </em>ls -lh</em></li>
+<li><strong>Mostrar el total de archivos de una carpeta:</strong>
+<em><em>* </em>ls | wc -l</em></li>
+<li><strong>Ejecutar un comando, ver la salida por terminal y a la vez guardarla en un archivo:</strong>
+<em><em>* </em>{comando} | tee salida.log</em></li>
+<li><strong>Buscar archivo a partir de un directorio en sus subdirectorios:</strong>
+<em><em>* </em>find . -name FILE.ext</em></li>
+</ol>
+
+
+<p>Esta lista se irá actualizando con más comandos útiles.
+Saludos!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Escrito por <span class="fn">Rosendo Ropher</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-09-29T11:42:53-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:42 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/scripts/'>scripts</a>
+  
+</span>
+
+
+    </p>
+    
+      <!-- <div class="sharing">                                                                                                                                                                                -->
+<!--                                                                                                                                                                    -->
+<!--   <a href="//twitter.com/share" class="twitter-share-button" data-url="http://localhost/blog/2015/09/29/comanteca-linux/" data-via="ropherpanama" data-counturl="http://localhost/blog/2015/09/29/comanteca-linux/" >Tweet</a>      -->
+<!--                                                                                                                                                                                           -->
+<!--                                                                                                                                                                         -->
+<!--   <div class="g-plusone" data-size="medium"></div>                                                                                                                          -->
+<!--                                                                                                                                                                                           -->
+<!--                                                                                                                                                                                           -->
+<!-- </div>                                                                                                                                                                                               -->
+
+<footer class=sharing>
+	<p>
+		<b>Compártelo:</b> 
+			<a href="https://twitter.com/share" class="btn btn-social btn-twitter" data-url="http://localhost/blog/2015/09/29/comanteca-linux/" data-via="ropherpanama" data-counturl="http://localhost/blog/2015/09/29/comanteca-linux/"><i class=icon-twitter></i> Twitter</a> 
+			<a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/blog/2015/09/29/comanteca-linux/" class="btn btn-social btn-facebook" ><i class=icon-facebook></i> Facebook</a> 
+			<a href="https://plus.google.com/share?url=http://localhost/blog/2015/09/29/comanteca-linux/" class="btn btn-social btn-google"><i class=icon-google></i> Google+</a>
+	</p>
+</footer>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/09/29/android-dex-multiple-libs/" title="Previous Post: Android Unable to execute dex: Multiple dex files">&laquo; Android Unable to execute dex: Multiple dex files</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+
+
+
+
+  
+</aside>
+
+
+			</div>
+		</div>
+	</main>
+  <footer role="contentinfo"><footer class="section section-dark">
+	<div class=container>
+		
+		<div class=row>
+			<div class="col col-half footer-area footer-area-left">
+				<ul class=nav-inline>
+					<li><a href="/">Blog</a></li>
+					<li><a href="/blog/archives">Archivos</a></li>
+					<li><a href="/about">Sobre mí</a></li>
+					<li><a href="http://www.leveluplunch.com/styleguide/" target="_blank">Style Guide</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class=row>
+			<div class="col col-half footer-area footer-area-left">
+				<p style="color:#000000;">
+					Copyright &copy; 2015 - Rosendo Ropher -
+					<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+				</p>
+			</div>
+			<div class="col col-half footer-area footer-area-right">
+				<a href=https://twitter.com/ropherpanama class=social-link title=Twitter><span class=sr-only>Twitter</span> <i class=icon-twitter-white></i></a> 
+				<a href=https://www.facebook.com/RosendoRopher class=social-link title=Facebook><span class=sr-only>Facebook</span> <i class=icon-facebook-white></i></a> 
+				<a href=https://google.com/+RosendoRopher rel=publisher class=social-link title=Google+><span class=sr-only>google+</span> <i class=icon-google-white></i></a> 
+				<a href=https://github.com/ropherpanama class=social-link title=GitHub><span class=sr-only>GitHub</span> <i class=icon-github></i></a> 
+				<a href=http://www.youtube.com/user/RosendoRopher class=social-link title=YouTube><span class=sr-only>YouTube</span> <i class=icon-youtube></i></a>
+			</div>
+		</div>
+	</div>
+</footer>
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

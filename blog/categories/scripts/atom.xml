@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Scripts | El blog del xobi]]></title>
+  <link href="http://localhost/blog/categories/scripts/atom.xml" rel="self"/>
+  <link href="http://localhost/"/>
+  <updated>2015-09-29T11:44:02-05:00</updated>
+  <id>http://localhost/</id>
+  <author>
+    <name><![CDATA[Rosendo Ropher]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Comanteca Linux]]></title>
+    <link href="http://localhost/blog/2015/09/29/comanteca-linux/"/>
+    <updated>2015-09-29T11:42:53-05:00</updated>
+    <id>http://localhost/blog/2015/09/29/comanteca-linux</id>
+    <content type="html"><![CDATA[<h2>Linux: comandos que me facilitan la vida!</h2>
+
+<p>Este post es simplemente para tener a mano comandos o secuencias de comandos que son muy útiles.</p>
+
+<ol>
+<li><strong>Promedio del peso de los archivos en una carpeta, el peso se muestra en KB:</strong>
+<em><em>* </em>ls -l | gawk &lsquo;{sum += $5; n++;} END {print sum/n/1024 &ldquo; KB&rdquo;}</em></li>
+<li><strong>Listar archivos con su peso en KB:</strong>
+<em><em>* </em>ls -lh</em></li>
+<li><strong>Mostrar el total de archivos de una carpeta:</strong>
+<em><em>* </em>ls | wc -l</em></li>
+<li><strong>Ejecutar un comando, ver la salida por terminal y a la vez guardarla en un archivo:</strong>
+<em><em>* </em>{comando} | tee salida.log</em></li>
+<li><strong>Buscar archivo a partir de un directorio en sus subdirectorios:</strong>
+<em><em>* </em>find . -name FILE.ext</em></li>
+</ol>
+
+
+<p>Esta lista se irá actualizando con más comandos útiles.
+Saludos!</p>
+]]></content>
+  </entry>
+  
+</feed>
