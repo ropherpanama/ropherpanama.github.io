@@ -4,14 +4,360 @@
   <title><![CDATA[El blog del xobi]]></title>
   <link href="http://ropherpanama.github.io/atom.xml" rel="self"/>
   <link href="http://ropherpanama.github.io/"/>
-  <updated>2015-09-29T13:12:03-05:00</updated>
+  <updated>2015-09-29T17:34:53-05:00</updated>
   <id>http://ropherpanama.github.io/</id>
   <author>
-    <name><![CDATA[Rosendo Ropher]]></name>
+    <name><![CDATA[Rosendo Peña Hernández]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[3 Python: Listas, Tuplas Y Diccionarios]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/"/>
+    <updated>2015-09-29T16:17:16-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres</id>
+    <content type="html"><![CDATA[<p>Para el segundo programa vamos a ver las listas, tuplas y diccionarios.
+En este punto existen varias cosas interesantes, como la <strong>búsqueda por rangos</strong>, la <strong>búsqueda de atrás hacia adelante</strong> en una lista, y la <strong>búsqueda con saltos</strong> (no sé como decirle exactamente).</p>
+
+<p>Vamos a verlo en el siguiente código.</p>
+
+<!--more-->
+
+
+<p>Cópialo y pégalo en el IDLE de Python y pínchale a F5.</p>
+
+<pre><code>#****************************************************************
+#Mi segundo programa Python
+#Si se abre con IDLE, ejecutar con la tecla F5
+
+#Listas (arrays o vectores)
+lista1 = [1, 2, "tres", 4, "cinco", [2,3], 7, "ocho", "nueve", 10]
+
+print("Accediendo a la lista:", lista1[2])
+#La sublista esta en el index 5 de la lista principal, accedemos al primer valor
+#de ella (sublista)
+print("Accediendo a la sublista:", lista1[5][0])
+
+print("Lista original:", lista1)
+lista1[0] = 100
+print("Modifico 1er elemento (1 por 100):", lista1)
+
+#Uso de numero negativo (busqueda inversa)
+#Buscará la 3 posicion de atras hacia adelante de la lista
+print(lista1[-3])
+
+#Uso de Slicing (particionado) o busqueda por rango
+print(lista1[0:4])
+
+#Uso de saltos (cada n cantidad)
+#Buscara solo en la posicion 0 a la 8, saltando 3 elementos en cada item encontrado
+print(lista1[0:8:3])
+
+#Tuplas
+#Se pueden manejar a las listas
+#La gran diferencia es que las tuplas son inmutables
+#tupla1[1] = 100 (TypeError: 'tuple' object does not support item assignment) #este es el error que dá si intentas cambir algo, lo puedes descomentar para que lo vivas :)
+tupla1 = (1,2,3,4,5)
+print("Tupla:", tupla1[:3])
+
+#Diccionarios, la misma vaina que los HashMaps de JAVA :)
+diccionario = {"uno":1, "dos":2, "tres":3}
+print("Diccionario:", diccionario["uno"])
+
+#****************************************************************
+</code></pre>
+
+<p><strong>En resumen:</strong></p>
+
+<p>Crear una lista es bastante sencillo, de igual forma acceder a sus elementos.</p>
+
+<p>Si bien las tuplas pueden ser manipuladas como una lista para su consulta, la gran diferencia es que las tuplas son <strong>inmutables</strong>, es decir; que son como una especie de <strong>constante</strong>, no podemos cambiar los valores que les asignemos al crearlas.</p>
+
+<p>Listas se crean con [], las tuplas se crean con ()</p>
+
+<p>Y pues los diccionarios son una estructura de <strong>clave = valor</strong> en la que los valores se acceden por el nombre de la clave, similar a los <strong>HashMaps</strong> de <strong>Java</strong>.
+De igual manera, aunque no lo puse aquí (y obviamente) podemos hacer pruebas de recorridos con un for, que por cierto lleva abreviadas muchas cosas para los que estamos acostumbrados a los <strong>for</strong> de <strong>C</strong> o los antiguos de <strong>Java</strong>.</p>
+
+<p>Un saludo a todos!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[2 Python: Primer Contacto]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/python-dia-dos/"/>
+    <updated>2015-09-29T16:14:29-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/python-dia-dos</id>
+    <content type="html"><![CDATA[<p>Este fué mi primer programa con <strong>Python</strong>, muy simple realmente. Comento entre líneas lo que estaba haciendo (recordar que los comentarios inician con #)
+Copia el contenido a continuación (te sería más instructivo escribirlo pero bueno &hellip;) y pégalo en el <strong>IDLE</strong>, ejecútalo con <strong>F5</strong></p>
+
+<!--more-->
+
+
+<pre><code>#*****************************************************************************
+#Mi primer programa Python
+#El print recibe cualquier cantidad de parametros separados por coma (,)
+#incluyendo expresiones aritmeticas como se muestra a continuacion.
+#Si se abre con IDLE, ejecutar con la tecla F5
+
+print ("Si sumas 2 + 3 el resultdo es ",
+       2 + 3,
+       "\nPero si los restas el resultado es ",
+       2 - 3,
+       "\nQue cosa no?")
+
+#Variables
+#No necesitas declarar de qué tipo son, sólo se declaran (tipo dinamico)
+a = "Soy una cadena de texto"
+b = 50
+c = 25
+
+print(a, "\nOperacion:", b + c)
+
+c = "Como los tipo son dinamicos, puedes cambiar el tipo de dato de tu variable en tiempo de ejecución"
+print(c) #Notar que c era un entero (25)
+
+multilinea = """ Esto es cool
+                 puedo escribir lineas sin usar carracteres de escape
+                 solamente usando las comillas triples :)"""
+
+print(multilinea)
+
+#Las cadenas tambien aceptan operaciones aritmeticas
+#Es decir que puedes multiplicar o sumar cadenas de texto
+d = "eco"
+e = d * 3
+f = "sistema"
+print("Multiplicacion de cadenas:", e)
+
+e = d + f
+print("Suma de cadenas:", e)
+#*****************************************************************************
+</code></pre>
+
+<p><strong>En resumen:</strong></p>
+
+<p>Es bastante agradable el método <strong>print</strong>, ya que acepta lo que le pongas y como lo pongas (salvo el caso de los enteros y lo que no sea string.</p>
+
+<p>Pero tranquilo! tenemos el método <strong>str()</strong> que transforma a <strong>string</strong> lo que le pongas :)</p>
+
+<blockquote><p>Ej.: print(str(25))</p></blockquote>
+
+<p>Vimos que los tipos de datos son dinámicos (<strong>c</strong> era un entero y luego era un string)</p>
+
+<p>Vimos los textos multilínea con <code>""" """"</code>, útil si no se quiere usar el clásico <code>\n</code> (que puede ser usado).
+Y vimos la multiplicación de cadenas, por aquí nos vamos a ver que más encontramos con <strong>Python</strong>.</p>
+
+<p>Un saludo! Cualquier duda, pues a la orden!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Python: Día 1]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/python-dia-uno/"/>
+    <updated>2015-09-29T16:12:06-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/python-dia-uno</id>
+    <content type="html"><![CDATA[<h3>Aprender Python</h3>
+
+<p>Bueno, hace algunos días decidí hacer cosas con <strong>Python</strong> para ver que tal, ya que quería aprender un nuevo lenguaje y me decidí por él.
+En mi caso venía de trabajar puramente con <strong>Java</strong> y para mi sorpresa las diferencias son muchas (jejeje lógico no?), pero hay unas que me agradaron muchas.</p>
+
+<p>Visto desde el punto de vista de la <strong>línea</strong> de aprendizaje pues hacer un programa algo complejo (Conexión a base de datos con Oracle usando <strong>ORM SQLAlchemy</strong>) no me tardó mucho.</p>
+
+<!--more-->
+
+
+<p>Aunque atribuyo eso a que ya conocía un lenguaje orientado a objetos y que algunas cosas; pues son muy similares funcionalmente.</p>
+
+<p>Si me percaté de <strong>ciertas diferencias</strong> muy notables que dejo a continuación:</p>
+
+<ol>
+<li><strong>No tienes que &ldquo;tipar&rdquo;</strong> (definir un tipo de dato) tus variables, el tipo de datos de las mismas es dinámico, es decir que según como la uses el tipo de dato de tu variable cambiará.</li>
+<li>Los bloques de código <strong>no se cierran con llaves</strong>, en el caso del <code>for</code> y demás cosas por el estilo, se debe tabular el código (perfecto para mí porque tengo la tecla de la llave cerrando dañada :D)</li>
+<li>Las funciones se declaran con la palabra <strong>def</strong> y aunque la función o método retorne datos no necesitas especificarlo en la definición de la función.</li>
+<li>Debido a lo anterior y a lo del tipo dinámico de datos, la característica de POO sobre polimorfismo pierde un poco su lugar jejejjeeje.</li>
+<li>Hablando de <strong>métodos y constructores</strong> todos (nunca se te olvide) llevan el parametro <strong>self</strong>, que es una forma como de <strong>this</strong> (de Java)</li>
+<li>Para imprimir solo usa <strong>print</strong>!!! (no como ese largo <code>System.out.println</code> balalalalala &hellip;. )</li>
+<li>Existe el <strong>try/except</strong> en vez de <strong>try/catch</strong></li>
+<li>Leer y escribir archivos &hellip; qué les puedo decir &hellip; <strong>es muy fácil!</strong></li>
+<li>Conectarte a una base de datos también es muy fácil, solo debes buscar los módulos indicados :)</li>
+<li>La herencia es <strong>multiple</strong>!!!</li>
+<li><strong>No!</strong> Los comentarios no inician con <strong>//</strong>, inician con <strong>#</strong></li>
+</ol>
+
+
+<p>Bueno y sobre eso un montón de cosas más que aún voy descubriendo, pero por lo general han sido cosas muy buenas e interesantes y se puede decir que ya le tengo cariño.</p>
+
+<p>Antes de iniciar, pues lógicamente debemos <a href="https://www.python.org/downloads/">instalar</a> <strong>Python</strong> en nuestra máquina para poder usar la <strong>consola interactiva</strong> (!Si, consola interactiva!)</p>
+
+<p>Partí con <strong>Python 3.3</strong>, entiendo que va por la 3.4 (o quizá más adelante) pero bueno habrá que revisar, ya que mi primer tropiezo fué leer la documentación de <strong>Python 2.x</strong> y darme cuenta que el <strong>print</strong> se convirtió en un <strong>método</strong>, por ende se debía llamar con parentesis <strong>print()</strong>.</p>
+
+<p>Para <strong>Windows</strong> es fácil, solo descárgate el instalador, lo instalas (valga la redundancia) y en tu menú de programas aparecerá <strong>Python 3.3</strong> (o la versión que instales), para mi fué más bonito usar la opción <strong>IDLE</strong> (Python GUI) que está dentro del menú <strong>Python 3.3</strong>, con este puedes ejecutar tu código presionando la tecla <strong>F5</strong></p>
+
+<p>Si te gustaría empezar con un IDE, pues <a href="https://www.jetbrains.com/pycharm/download/">PyCharm</a> está muy bien.</p>
+
+<p>Saludos!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Llamando Un Programa en Java Desde Un Programa en C]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/llamar-java-desde-c/"/>
+    <updated>2015-09-29T16:05:15-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/llamar-java-desde-c</id>
+    <content type="html"><![CDATA[<blockquote><p>Vamos a usar un script para Linux/Unix, prueba con Windows y un bat a ver que tal</p></blockquote>
+
+<p>Intenté varias formas, al final me incliné por hacer un script de Unix y que éste contenga la serie de configuraciones que requiere mi programa Java; desde un programa en C, llamaremos al Script de Unix y éste llamará al programa Java.</p>
+
+<!--more-->
+
+
+<h3>Paso 1: Crear una clase</h3>
+
+<pre><code>public class Hola
+{
+  public static void main(String []args)
+  {
+    System.out.println("I'm saying Helloooo!!!");
+  }
+}
+</code></pre>
+
+<h3>Paso 2: Crear un Script (lo llamaremos &ldquo;exe&rdquo;)</h3>
+
+<pre><code>url=`which java`
+
+$url Hola &gt; salida
+
+if [ $? -eq 0 ]
+then
+   echo 'El programa se ejecuto...'
+else
+   echo 'El programa no se ejecuto'
+fi
+
+more salida
+</code></pre>
+
+<p>Guardar el archivo (yo le puse &ldquo;exe&rdquo;) y darle sus respectivos permisos de ejecución <code>(chmod +x exe)</code></p>
+
+<h3>Paso 3: Crear el programa en C</h3>
+
+<pre><code>#include &lt;stdlib.h&gt;
+
+int main(void)
+{
+   int result;
+   result = system("exe");
+}
+</code></pre>
+
+<p>Como vemos, el programa en C ejecuta (con la función <code>system</code> ) el script <code>exe</code>, que es quién configura todo para que se ejecute nuestro programa java.</p>
+
+<p>Compilar el programa java:</p>
+
+<pre><code>javac Hola.java
+</code></pre>
+
+<p>Compilar el C, <strong>cc</strong> es el compilador de C por defecto en sistemas <strong>Linux</strong>:</p>
+
+<pre><code>cc callJava.c (o el nombre que ustedes le pongan)
+</code></pre>
+
+<p>Salida de los programas:</p>
+
+<pre><code>userhome/user/ejemplo&gt; a.out
+El programa se ejecuto...
+I'm saying Helloooo!!!
+userhome/user/ejemplo&gt;
+</code></pre>
+
+<p>A todos un saludo!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Píldoras De Oracle]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/pildoras-de-oracle/"/>
+    <updated>2015-09-29T15:20:01-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/pildoras-de-oracle</id>
+    <content type="html"><![CDATA[<p>En este artículo publico pequeños tips relacionados a Oracle, PLSQL, configuraciones, etc. En fín, todo lo interesante que vaya encontrando.</p>
+
+<!--more-->
+
+
+<h2>1. PLSQL SELECT INSERT</h2>
+
+<p>Hace algunos días tuve un apuro y me solicitaron crear un codigo en PLSQL para seleccionar datos de varias tablas y sintetizarlos (insertarlos) en otra.
+Les muestro lo que me saco del apuro, saludos!</p>
+
+<blockquote><p>Script válido para Oracle</p></blockquote>
+
+<pre><code>    Declare
+       Cursor NOMBRE_CURSOR Is
+            Select  
+            SCAMPO_1, SCAMPO_2, SCAMPO_3
+            From TABLA
+            Where ... SI LO NECESITAN
+            And ... SI LO NECESITAN
+            .... MAS VALIDACIONES
+       CUALQUIER_NOMBRE NOMBRE_CURSOR%Rowtype;
+     Begin
+       For CUALQUIER_NOMBRE In NOMBRE_CURSOR
+       Loop
+         Insert Into TABLA_DESTINO (CAMPO_1, CAMPO_2, CAMPO_3 ...) Values
+           (CUALQUIER_NOMBRE.SCAMPO_1 , CUALQUIER_NOMBRE.SCAMPO_2, CUALQUIER_NOMBRE.SCAMPO_3 ...);
+       End Loop;
+     End;
+</code></pre>
+
+<p>Esto se puede ejecutar en algún SGDBD o desde un terminal.</p>
+
+<h2>2. ORA-01843: not a valid month</h2>
+
+<p>Si lo has intentado todo y nada te funciona, si revisas y revisas y todo está bien&hellip; haz esto:
+Véte al <code>regedit</code>, en <code>Software</code> busca <code>ORACLE</code>, estando allí dale click a <code>KEY_XE</code> y según tu caso editarás el campo <code>NLS_LANG</code>.</p>
+
+<p>Mi error se daba por esto:</p>
+
+<pre><code>TO_DATE('1-Dec-2011 00:00:00','DD-MON-YYYY HH24:MI:SS')
+</code></pre>
+
+<p>Oracle no entendia el <code>Dec</code> (es que el mío no es gringo), el entiende <code>Dic</code>.</p>
+
+<p>Puesto que en esa clave tenía este valor:</p>
+
+<p><code>LATIN AMERICAN SPANISH_PANAMA.WE8MSWIN1252</code></p>
+
+<p>Para &ldquo;americanizarlo&rdquo; coloca en <code>NLS_LANG</code> esto:</p>
+
+<p><code>AMERICAN_AMERICA.WE8ISO8859P1</code></p>
+
+<h2>3. Exports Oracle</h2>
+
+<p>Podemos exportar datos con Oracle utilizando esta secuencia de comandos; solo debes reemplazar los valores <code>user</code>, <code>passwd</code>, <code>owner</code>, <code>file</code> y <code>log</code>.</p>
+
+<p>En este caso solo estamos exportando los objetos de un esquema en particular (<code>owner</code>).</p>
+
+<p><code>exp user/passwd@sid owner=esquema file = nombre_archivo.dmp log=arch_log.log</code></p>
+
+<p><strong>En donde:</strong></p>
+
+<ul>
+<li><strong>user</strong>: usuario de base de datos</li>
+<li><strong>passwd</strong>: contraseña del usuario</li>
+<li><strong>owner</strong>: dueño del esquema que vamos a exportar</li>
+<li><strong>file</strong>: nombre del archivo de salida producto del export</li>
+<li><strong>log</strong>: archivo en donde se almacenará toda la salida (debug) del proceso</li>
+</ul>
+
+
+<p>Más info aquí: <a href="http://www.oracle-dba-online.com/export_and_import.htm" title="Import y Exports">&ldquo;Artículo&rdquo;</a></p>
+
+<p>Seguro que esto va a ir creciendo. <strong>Un saludo a todos!</strong></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Linux: Comandos Que Me Facilitan La Vida!]]></title>

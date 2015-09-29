@@ -4,14 +4,96 @@
   <title><![CDATA[Category: Oracle | El blog del xobi]]></title>
   <link href="http://ropherpanama.github.io/blog/categories/oracle/atom.xml" rel="self"/>
   <link href="http://ropherpanama.github.io/"/>
-  <updated>2015-09-29T13:12:03-05:00</updated>
+  <updated>2015-09-29T17:34:53-05:00</updated>
   <id>http://ropherpanama.github.io/</id>
   <author>
-    <name><![CDATA[Rosendo Ropher]]></name>
+    <name><![CDATA[Rosendo Peña Hernández]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Píldoras De Oracle]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/pildoras-de-oracle/"/>
+    <updated>2015-09-29T15:20:01-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/pildoras-de-oracle</id>
+    <content type="html"><![CDATA[<p>En este artículo publico pequeños tips relacionados a Oracle, PLSQL, configuraciones, etc. En fín, todo lo interesante que vaya encontrando.</p>
+
+<!--more-->
+
+
+<h2>1. PLSQL SELECT INSERT</h2>
+
+<p>Hace algunos días tuve un apuro y me solicitaron crear un codigo en PLSQL para seleccionar datos de varias tablas y sintetizarlos (insertarlos) en otra.
+Les muestro lo que me saco del apuro, saludos!</p>
+
+<blockquote><p>Script válido para Oracle</p></blockquote>
+
+<pre><code>    Declare
+       Cursor NOMBRE_CURSOR Is
+            Select  
+            SCAMPO_1, SCAMPO_2, SCAMPO_3
+            From TABLA
+            Where ... SI LO NECESITAN
+            And ... SI LO NECESITAN
+            .... MAS VALIDACIONES
+       CUALQUIER_NOMBRE NOMBRE_CURSOR%Rowtype;
+     Begin
+       For CUALQUIER_NOMBRE In NOMBRE_CURSOR
+       Loop
+         Insert Into TABLA_DESTINO (CAMPO_1, CAMPO_2, CAMPO_3 ...) Values
+           (CUALQUIER_NOMBRE.SCAMPO_1 , CUALQUIER_NOMBRE.SCAMPO_2, CUALQUIER_NOMBRE.SCAMPO_3 ...);
+       End Loop;
+     End;
+</code></pre>
+
+<p>Esto se puede ejecutar en algún SGDBD o desde un terminal.</p>
+
+<h2>2. ORA-01843: not a valid month</h2>
+
+<p>Si lo has intentado todo y nada te funciona, si revisas y revisas y todo está bien&hellip; haz esto:
+Véte al <code>regedit</code>, en <code>Software</code> busca <code>ORACLE</code>, estando allí dale click a <code>KEY_XE</code> y según tu caso editarás el campo <code>NLS_LANG</code>.</p>
+
+<p>Mi error se daba por esto:</p>
+
+<pre><code>TO_DATE('1-Dec-2011 00:00:00','DD-MON-YYYY HH24:MI:SS')
+</code></pre>
+
+<p>Oracle no entendia el <code>Dec</code> (es que el mío no es gringo), el entiende <code>Dic</code>.</p>
+
+<p>Puesto que en esa clave tenía este valor:</p>
+
+<p><code>LATIN AMERICAN SPANISH_PANAMA.WE8MSWIN1252</code></p>
+
+<p>Para &ldquo;americanizarlo&rdquo; coloca en <code>NLS_LANG</code> esto:</p>
+
+<p><code>AMERICAN_AMERICA.WE8ISO8859P1</code></p>
+
+<h2>3. Exports Oracle</h2>
+
+<p>Podemos exportar datos con Oracle utilizando esta secuencia de comandos; solo debes reemplazar los valores <code>user</code>, <code>passwd</code>, <code>owner</code>, <code>file</code> y <code>log</code>.</p>
+
+<p>En este caso solo estamos exportando los objetos de un esquema en particular (<code>owner</code>).</p>
+
+<p><code>exp user/passwd@sid owner=esquema file = nombre_archivo.dmp log=arch_log.log</code></p>
+
+<p><strong>En donde:</strong></p>
+
+<ul>
+<li><strong>user</strong>: usuario de base de datos</li>
+<li><strong>passwd</strong>: contraseña del usuario</li>
+<li><strong>owner</strong>: dueño del esquema que vamos a exportar</li>
+<li><strong>file</strong>: nombre del archivo de salida producto del export</li>
+<li><strong>log</strong>: archivo en donde se almacenará toda la salida (debug) del proceso</li>
+</ul>
+
+
+<p>Más info aquí: <a href="http://www.oracle-dba-online.com/export_and_import.htm" title="Import y Exports">&ldquo;Artículo&rdquo;</a></p>
+
+<p>Seguro que esto va a ir creciendo. <strong>Un saludo a todos!</strong></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Apuntes - Tuning Glassfish (Optimización Para Producción)]]></title>

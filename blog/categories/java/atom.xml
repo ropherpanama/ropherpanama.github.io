@@ -4,14 +4,90 @@
   <title><![CDATA[Category: Java | El blog del xobi]]></title>
   <link href="http://ropherpanama.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://ropherpanama.github.io/"/>
-  <updated>2015-09-29T13:12:03-05:00</updated>
+  <updated>2015-09-29T17:34:53-05:00</updated>
   <id>http://ropherpanama.github.io/</id>
   <author>
-    <name><![CDATA[Rosendo Ropher]]></name>
+    <name><![CDATA[Rosendo Peña Hernández]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Llamando Un Programa en Java Desde Un Programa en C]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/llamar-java-desde-c/"/>
+    <updated>2015-09-29T16:05:15-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/llamar-java-desde-c</id>
+    <content type="html"><![CDATA[<blockquote><p>Vamos a usar un script para Linux/Unix, prueba con Windows y un bat a ver que tal</p></blockquote>
+
+<p>Intenté varias formas, al final me incliné por hacer un script de Unix y que éste contenga la serie de configuraciones que requiere mi programa Java; desde un programa en C, llamaremos al Script de Unix y éste llamará al programa Java.</p>
+
+<!--more-->
+
+
+<h3>Paso 1: Crear una clase</h3>
+
+<pre><code>public class Hola
+{
+  public static void main(String []args)
+  {
+    System.out.println("I'm saying Helloooo!!!");
+  }
+}
+</code></pre>
+
+<h3>Paso 2: Crear un Script (lo llamaremos &ldquo;exe&rdquo;)</h3>
+
+<pre><code>url=`which java`
+
+$url Hola &gt; salida
+
+if [ $? -eq 0 ]
+then
+   echo 'El programa se ejecuto...'
+else
+   echo 'El programa no se ejecuto'
+fi
+
+more salida
+</code></pre>
+
+<p>Guardar el archivo (yo le puse &ldquo;exe&rdquo;) y darle sus respectivos permisos de ejecución <code>(chmod +x exe)</code></p>
+
+<h3>Paso 3: Crear el programa en C</h3>
+
+<pre><code>#include &lt;stdlib.h&gt;
+
+int main(void)
+{
+   int result;
+   result = system("exe");
+}
+</code></pre>
+
+<p>Como vemos, el programa en C ejecuta (con la función <code>system</code> ) el script <code>exe</code>, que es quién configura todo para que se ejecute nuestro programa java.</p>
+
+<p>Compilar el programa java:</p>
+
+<pre><code>javac Hola.java
+</code></pre>
+
+<p>Compilar el C, <strong>cc</strong> es el compilador de C por defecto en sistemas <strong>Linux</strong>:</p>
+
+<pre><code>cc callJava.c (o el nombre que ustedes le pongan)
+</code></pre>
+
+<p>Salida de los programas:</p>
+
+<pre><code>userhome/user/ejemplo&gt; a.out
+El programa se ejecuto...
+I'm saying Helloooo!!!
+userhome/user/ejemplo&gt;
+</code></pre>
+
+<p>A todos un saludo!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Android Unable to Execute Dex: Multiple Dex Files]]></title>
@@ -264,216 +340,6 @@ Lo que hace nuestro botón es mostrarnos un <code>Toast</code> (un pequeño avis
 
 <p>Bien, eso es todo por ahora. En el próximo punto vamos a hacer que nuestra pantalla tenga más componentes, como <code>EditText</code> (algo así como los <code>JTextField</code> de <code>Swing</code>) y que lo que escribamos en ellos pase a otra pantalla para ser procesado.
 Ahí, nos leemos. <strong>Recuerda seguirme en las redes sociales</strong>. Preguntas y comentarios a la orden, saludos!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Threads Java: Iniciarlos, Detenerlos Y Reanudarlos (Básico)]]></title>
-    <link href="http://ropherpanama.github.io/blog/2015/09/27/some-awesome-title/"/>
-    <updated>2015-09-27T20:51:29-05:00</updated>
-    <id>http://ropherpanama.github.io/blog/2015/09/27/some-awesome-title</id>
-    <content type="html"><![CDATA[<p>Bien, primero que nada explicar de que vá el asunto.</p>
-
-<p>La idea es controlar la ejecución de un <code>Thread</code>; es decir, poder detenerlo y reanudarlo. De plano que para iniciarlo lo iniciamos en el main y que también podamos detener del todo el proceso (para no poder levantarlo más).
-Explico un poco el enfoque de la solución, implementé un <code>Proceso</code> principal, este es el trabajo que debe hacer el <code>Thread</code>; simplemente consiste en imprimir un número cada cierto tiempo, un tiempo random no mayor a 5 segundos.</p>
-
-<!--more-->
-
-
-<blockquote><p>Decir que esto se ejecutará infinitamente.</p></blockquote>
-
-<h4>Clase <code>Proceso.java</code></h4>
-
-<pre><code>import java.util.Random;
-
-/**
- * @author ropherpanama@gmail.com
- * Esta clase representa el proceso de trabajo; imprimir un entero cada cierto tiempo
- * se sobrescriben los metodos suspend y resume
- */
-public class Proceso implements Runnable {
-    private int currentCont;
-    private Thread t;
-    private final int sleepTime;
-    boolean suspended = false;
-    private String threadName;
-    private boolean working = true;
-    private final static Random generator = new Random();
-
-    public Proceso(String threadName) {
-        this.threadName = threadName;
-        sleepTime = generator.nextInt(5000);
-        currentCont = 0;
-    }
-
-    @Override
-    public void run() {
-        System.out.println("Running " + threadName);
-        try {
-            while (isWorking()) {
-                System.out.println(threadName + " doing : " + currentCont);
-                currentCont++;
-                Thread.sleep(sleepTime);
-
-                synchronized (this) {
-                    while (suspended) {
-                        wait();
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void start() {
-        System.out.println("Starting " + threadName);
-        if (t == null) {
-            t = new Thread(this, threadName);
-            t.start();
-        }
-    }
-
-    void suspend() {
-        System.out.println("Suspending " + threadName);
-        suspended = true;
-    }
-
-    synchronized void resume() {
-        System.out.println("Resuming " + threadName);
-        suspended = false;
-        notify();
-    }
-
-    public boolean isWorking() {
-        return working;
-    }
-
-    public void setWorking(boolean working) {
-        this.working = working;
-    }
-}
-</code></pre>
-
-<p>Notar que el propio hilo se sincroniza y si se cumple que el hilo entra en estado <code>suspend</code> se llama al método <code>wait()</code>, esto provocará que el hilo se mantenga pausado hasta que alguien llame al método <code>notify();</code> que precisamente se llama en el método <code>resume()</code> y se niega que el estado del hilo es <code>suspend (suspend = false)</code>. Otro punto importante es que al tener un proceso que podría ejecutarse hasta el final de los tiempos, podríamos querer algún día detenerlo, para eso usamos el <code>while</code> con la variable <code>working</code>, que en primera instancia tendra un valor <code>true</code>.</p>
-
-<h3>Interactuar por consola con tu Thread</h3>
-
-<p>Lo divertido del caso era que se pudiera; mediante el teclado decirle al <code>Thread</code> lo que tenía que hacer, no simplemente escribirlo y no poder interactuar con el programa. Para eso, pensé en un &ldquo;monitor&rdquo; de entrada de teclado (<code>Thread</code> también por cierto) que en base a lo que escribas en el teclado defina el estado del <code>Thread</code> que está realizando el proceso principal. Entonces puedo escribir S (suspender), D (detener), R (reanudar) y B (salir) y con esto podré controlar los estados de mi hilo <code>Proceso</code>. Para este ejemplo simple solo estoy vigilando un solo <code>Thread</code> pero pueden ser cuantos se requieran.</p>
-
-<h4>Clase <code>Entrada.java</code></h4>
-
-<p>import java.util.Scanner;</p>
-
-<pre><code>/**
- * @author ropherpanama@gmail.com
- * Esta clase esta pendiente de la entrada del usuario, la misma actua
- * como monitor de entrada por teclado y dependiendo de ello ajustara el estado
- * del Hilo al cual controla
- *
- */
-public class Entrada implements Runnable {
-    private Scanner sc = new Scanner(System.in);
-    private String command = "";
-    private Proceso p1;
-
-    public Entrada(Proceso p1) {
-        this.p1 = p1;
-    }
-
-    @Override
-    public void run() {
-        while (true) {
-            System.out.println("Waiting input:");
-            command = sc.nextLine();
-
-            if (this.getCommand().toUpperCase().equals("S")) {
-                p1.suspend();
-            } else if (this.getCommand().toUpperCase().equals("R")) {
-                p1.resume();
-            } else if (this.getCommand().toUpperCase().equals("D")) {
-                p1.setWorking(false);
-                System.out.println("Fin de trabajo");
-            } else if (this.getCommand().toUpperCase().equals("B")) {
-                System.out.println("Saliendo");
-                System.exit(0);
-            } else
-                System.out.println("No input");
-        }
-    }
-
-    public String getCommand() {
-        return command;
-    }
-
-    public void setCommand(String command) {
-        this.command = command;
-    }
-}
-</code></pre>
-
-<p>Vemos que esta clase, al igual que <code>Proceso</code> implementa a la clase <code>Runnable</code>, por ende tambien es un <code>Thread</code>. Este hilo va a estar pendiente de lo que escribas en el teclado y según ello actuará sobre el <code>Thread</code> que este monitorizando.</p>
-
-<h4>Vamos a probar!</h4>
-
-<p>Ahora vamos a probar esto, creamos la clase <code>Test.java</code> que contiene el main y lo ponemos todo a interactuar.</p>
-
-<h4>Clase <code>Test.java</code></h4>
-
-<pre><code>public class Test {
-    public static void main(String[] args) {
-        Proceso p1 = new Proceso("Juana");
-        p1.start();
-
-        Entrada e = new Entrada(p1);
-        Thread input = new Thread(e);
-        input.start();
-    }
-}
-</code></pre>
-
-<p>Bien, he llamado a mi proceso principal &ldquo;Juana&rdquo; (no sé porqué) y le he dicho que inicie <code>(p1.start())</code>, luego; he creado una instancia de mi <code>Thread</code> monitor de entrada, para que vigile lo que escribo y opere sobre &ldquo;Juana&rdquo;. Notar que le paso a &ldquo;Juana&rdquo; (p1) como argumento de su constructor <code>Entrada e = new Entrada(p1);</code></p>
-
-<p>La salida del programa es la siguiente:</p>
-
-<pre><code>Starting Juana
-Running Juana
-Juana doing : 0
-Waiting input:
-Juana doing : 1
-Juana doing : 2
-Juana doing : 3
-Juana doing : 4
-Juana doing : 5
-Juana doing : 6
-Juana doing : 7
-Juana doing : 8
-S
-Juana doing : 9
-
-Suspending Juana
-Waiting input:
-R
-Resuming Juana
-Waiting input:
-Juana doing : 10
-Juana doing : 11
-Juana doing : 12
-Juana doing : 13
-Juana doing : 14
-Juana doing : 15
-Juana doing : 16
-B
-Juana doing : 17
-
-Saliendo
-</code></pre>
-
-<p>Juana inicio y se ejecutó, e inició a tirar sus números. Luego le dije Juana descanza un rato (S) y descanzó hasta que le dije continúa &reg;, siguió hasta el número 17 y le dije sal del programa totalmente (B)</p>
-
-<p>Si te quedan dudas te invito a ver la video demostración en Youtube, pronto pongo el link.</p>
-
-<p>Saludos!</p>
 ]]></content>
   </entry>
   

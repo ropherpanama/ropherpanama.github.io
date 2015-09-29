@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Script | El blog del xobi]]></title>
+  <link href="http://ropherpanama.github.io/blog/categories/script/atom.xml" rel="self"/>
+  <link href="http://ropherpanama.github.io/"/>
+  <updated>2015-09-29T17:34:53-05:00</updated>
+  <id>http://ropherpanama.github.io/</id>
+  <author>
+    <name><![CDATA[Rosendo Peña Hernández]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Llamando Un Programa en Java Desde Un Programa en C]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/09/29/llamar-java-desde-c/"/>
+    <updated>2015-09-29T16:05:15-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/09/29/llamar-java-desde-c</id>
+    <content type="html"><![CDATA[<blockquote><p>Vamos a usar un script para Linux/Unix, prueba con Windows y un bat a ver que tal</p></blockquote>
+
+<p>Intenté varias formas, al final me incliné por hacer un script de Unix y que éste contenga la serie de configuraciones que requiere mi programa Java; desde un programa en C, llamaremos al Script de Unix y éste llamará al programa Java.</p>
+
+<!--more-->
+
+
+<h3>Paso 1: Crear una clase</h3>
+
+<pre><code>public class Hola
+{
+  public static void main(String []args)
+  {
+    System.out.println("I'm saying Helloooo!!!");
+  }
+}
+</code></pre>
+
+<h3>Paso 2: Crear un Script (lo llamaremos &ldquo;exe&rdquo;)</h3>
+
+<pre><code>url=`which java`
+
+$url Hola &gt; salida
+
+if [ $? -eq 0 ]
+then
+   echo 'El programa se ejecuto...'
+else
+   echo 'El programa no se ejecuto'
+fi
+
+more salida
+</code></pre>
+
+<p>Guardar el archivo (yo le puse &ldquo;exe&rdquo;) y darle sus respectivos permisos de ejecución <code>(chmod +x exe)</code></p>
+
+<h3>Paso 3: Crear el programa en C</h3>
+
+<pre><code>#include &lt;stdlib.h&gt;
+
+int main(void)
+{
+   int result;
+   result = system("exe");
+}
+</code></pre>
+
+<p>Como vemos, el programa en C ejecuta (con la función <code>system</code> ) el script <code>exe</code>, que es quién configura todo para que se ejecute nuestro programa java.</p>
+
+<p>Compilar el programa java:</p>
+
+<pre><code>javac Hola.java
+</code></pre>
+
+<p>Compilar el C, <strong>cc</strong> es el compilador de C por defecto en sistemas <strong>Linux</strong>:</p>
+
+<pre><code>cc callJava.c (o el nombre que ustedes le pongan)
+</code></pre>
+
+<p>Salida de los programas:</p>
+
+<pre><code>userhome/user/ejemplo&gt; a.out
+El programa se ejecuto...
+I'm saying Helloooo!!!
+userhome/user/ejemplo&gt;
+</code></pre>
+
+<p>A todos un saludo!</p>
+]]></content>
+  </entry>
+  
+</feed>

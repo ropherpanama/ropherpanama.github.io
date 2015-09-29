@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/</loc>
+    <lastmod>2015-09-29T16:17:16-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/2015/09/29/python-dia-dos/</loc>
+    <lastmod>2015-09-29T16:14:29-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/2015/09/29/python-dia-uno/</loc>
+    <lastmod>2015-09-29T16:12:06-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/2015/09/29/llamar-java-desde-c/</loc>
+    <lastmod>2015-09-29T16:05:15-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/2015/09/29/pildoras-de-oracle/</loc>
+    <lastmod>2015-09-29T15:20:01-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://ropherpanama.github.io/blog/2015/09/29/comanteca-linux/</loc>
     <lastmod>2015-09-29T11:42:53-05:00</lastmod>
   </url>
@@ -73,5 +93,26 @@
   </url>
   <url>
     <loc>http://ropherpanama.github.io/blog/categories/scripts/</loc>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/categories/plsql/</loc>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/categories/databases/</loc>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/categories/script/</loc>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/categories/unix/</loc>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/categories/c/</loc>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/categories/python/</loc>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/posts/2/</loc>
   </url>
 </urlset>

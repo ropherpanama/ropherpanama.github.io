@@ -395,12 +395,12 @@ ul.share-buttons li{
     }
 }
 .btn-primary {
-    background-color: #164450;
+    background-color: #444;
     color: #fff
 }
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #1c5564;
+    background-color: #339966;
     color: #fff
 }
 .btn-primary:active {
