@@ -16,6 +16,8 @@ Materiales:
 
 Deberás añadir las librerías de iText a tu proyecto (prueba con [Maven](https://maven.apache.org/)), para que puedas hacer uso de las clases que se detallan aquí.
 
+<!--more-->
+
 Teniendo todo esto vamos a crear nuestro archivo.
 
 Vamos a crear una clase con cualquier nombre, en mi caso yo le pondré `CreatePDF` y dentro de ella voy a crear un método llamado `writePDF`. También vamos

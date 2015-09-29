@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "Comanteca Linux"
+title: "Linux: comandos que me facilitan la vida!"
 date: 2015-09-29 11:42:53 -0500
 comments: true
 categories: linux scripts
 ---
-## Linux: comandos que me facilitan la vida!
 
-Este post es simplemente para tener a mano comandos o secuencias de comandos que son muy útiles.
+En este artículo iré colocando comandos (o secuencias de ellos) **válidos para Linux** que de alguna manera me saquen de un apuro o sean interesantes.
+
+<!--more-->
 
 1. **Promedio del peso de los archivos en una carpeta, el peso se muestra en KB:**
 *** *ls -l | gawk '{sum += $5; n++;} END {print sum/n/1024 " KB"}*

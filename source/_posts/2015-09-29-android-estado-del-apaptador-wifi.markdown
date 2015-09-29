@@ -12,6 +12,8 @@ Aveces es necesario conocer el estado del adaptador de red WIFI, para permitirle
 
 Como lo escribí arriba, hagamos una **clase de utilidades**, como la siguiente:
 
+<!--more-->
+
     import android.content.Context;
     
     public class SystemUtils {    

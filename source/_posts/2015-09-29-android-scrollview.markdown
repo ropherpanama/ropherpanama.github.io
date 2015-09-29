@@ -10,6 +10,8 @@ Aveces, cuando desarrollas **antes de leer las teorías** pasan cosas como esta.
 Hace algunos días, me encontré con una dificultad al desarrollar una aplicación Android; mi caso era el siguiente.
 Quería que una de las pantallas de mi aplicación respondiera a los cambios de orientación que el usuario realizara a su teléfono, esto no es mayor problema, por defecto el **manifest** de la aplicación configura todas las actividades para que esto suceda. Mi problema era que en esa pantalla tenia un `ListView` que desplegaba una lista de productos. En modo vertical se veía perfecto el `ListView`, pero al girar el teléfono; al ser el espacio vertical más pequeño, no mostraba todos los componentes de la lista, porque quedaban escondidos al girar la pantalla.
 
+<!--more-->
+
 **La solución:** Utilizar, en lugar de un `<LinearLayout/>` un `<ScrollView />`, el problema: 
 > **NO SE PUEDE TENER UN LISTVIEW DENTRO DE UN SCROLLVIEW.**
 

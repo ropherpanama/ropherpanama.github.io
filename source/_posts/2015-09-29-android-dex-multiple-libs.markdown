@@ -15,6 +15,8 @@ Este problema es bastante sencillo de solucionar, sólo hay que LEER (lo entend�
 
 Estoy trabajando en unos **webservices** que usan el soporte de **JSON** y para eso requiero un par de librerías.
 
+<!--more--> 
+
 La clave está precisamente en el mensaje :  
 > com/sun/jersey/api/json/JSONConfigurated
 

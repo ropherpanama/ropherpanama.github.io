@@ -11,6 +11,8 @@ Bien, primero que nada explicar de que vá el asunto.
 La idea es controlar la ejecución de un `Thread`; es decir, poder detenerlo y reanudarlo. De plano que para iniciarlo lo iniciamos en el main y que también podamos detener del todo el proceso (para no poder levantarlo más).
 Explico un poco el enfoque de la solución, implementé un `Proceso` principal, este es el trabajo que debe hacer el `Thread`; simplemente consiste en imprimir un número cada cierto tiempo, un tiempo random no mayor a 5 segundos.
 
+<!--more-->
+
 >Decir que esto se ejecutará infinitamente.
 
 ####Clase `Proceso.java`

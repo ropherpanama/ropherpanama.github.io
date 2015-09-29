@@ -12,6 +12,8 @@ Ya que Glassfish está hecho sobre Java, muchas de las optimizaciones pueden hac
 
 En el fichero `domain.xml` ubicado en `%GLASSFISH_HOME%/glassfish/domains/<DOMAIN_NAME/config` se deben editar los parametro `Xms` y `Xmx`, esto para reservar más memoria para el GF. 
 
+<!--more-->
+
 Ubica los siguientes parámetros y modifícalos según la necesidad y capacidad del servervidor que aloja tu aplicación: 
 
 `<jvm-options>-Xmx1024m</jvm-options>` y `<jvm-options>-Xms1024m</jvm-options>`

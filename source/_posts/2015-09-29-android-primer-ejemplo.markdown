@@ -13,6 +13,8 @@ Primero vamos a crear un nuevo proyecto de Android: **File -> New -> Android App
 Completa los datos como los ves en la siguiente imagen, los detalles de SDK van a depender de lo que tengas instalado en tu máquina, por lo general suelo definir como SDK mínimo el 2.3, para lo demás uso lo más reciente disponible que tenga; en mi caso el Target lo he colocado API 18 y compilaré
 con el API 19
 
+<!--more-->
+
 ![enter image description here](http://4.bp.blogspot.com/-_4-FO8OZOYc/UzMj5-hW6KI/AAAAAAAAAIg/2uUpH37maNY/s1600/button_events_8.PNG)
 
 Paso seguido vamos a asegurarnos de marcar las casillas que aparecen en la siguiente imagen:
