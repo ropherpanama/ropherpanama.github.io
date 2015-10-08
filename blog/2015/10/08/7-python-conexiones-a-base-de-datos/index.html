@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>3 Python: Listas, Tuplas Y Diccionarios - El blog del xobi</title>
+  <title>7 Python: Conexiones a Base De Datos - El blog del xobi</title>
   <meta name="author" content="Rosendo Peña Hernández">
 
   
-  <meta name="description" content="3 Python: Listas, Tuplas Y Diccionarios Sep 29th, 2015 4:17 pm Para el segundo programa vamos a ver las listas, tuplas y diccionarios.
-En este punto &hellip;">
+  <meta name="description" content="7 Python: Conexiones a Base De Datos Oct 8th, 2015 1:55 pm Una parte importante y lo más real en casi todo entorno de trabajo automatizado, es la &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ En este punto &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/">
+  <link rel="canonical" href="http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="El blog del xobi" type="application/atom+xml">
@@ -91,7 +90,7 @@ En este punto &hellip;">
   
   <header>
     
-      <h1 class="post-title">3 Python: Listas, Tuplas Y Diccionarios</h1>
+      <h1 class="post-title">7 Python: Conexiones a Base De Datos</h1>
     
     
       <p class="post-info">
@@ -100,76 +99,64 @@ En este punto &hellip;">
 
 
 
-<time class='entry-date' datetime='2015-09-29T16:17:16-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>4:17 pm</span></time>
+<time class='entry-date' datetime='2015-10-08T13:55:17-05:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:55 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="post-excerpt"><p>Para el segundo programa vamos a ver las listas, tuplas y diccionarios.
-En este punto existen varias cosas interesantes, como la <strong>búsqueda por rangos</strong>, la <strong>búsqueda de atrás hacia adelante</strong> en una lista, y la <strong>búsqueda con saltos</strong> (no sé como decirle exactamente).</p>
-
-<p>Vamos a verlo en el siguiente código.</p>
+<div class="post-excerpt"><p>Una parte importante y lo más real en casi todo entorno de trabajo automatizado, es la <strong>interacción con una base de datos</strong> (sea del tipo que sea).
+Para este fin <strong>Python</strong> nos ofrece una manera sencilla de trabajar con bases de datos.</p>
 
 <!--more-->
 
 
-<p>Cópialo y pégalo en el IDLE de Python y pínchale a F5.</p>
+<p>Debemos tomar en cuenta la versión de <strong>Python</strong> que estemos usando para instalar la líbreria específica para la base de datos que estemos usando.</p>
 
-<pre><code>#****************************************************************
-#Mi segundo programa Python
-#Si se abre con IDLE, ejecutar con la tecla F5
+<blockquote><p>Usé Oracle XE 11g para este ejemplo</p></blockquote>
 
-#Listas (arrays o vectores)
-lista1 = [1, 2, "tres", 4, "cinco", [2,3], 7, "ocho", "nueve", 10]
+<p>Vamos a ver un programa que realiza una tarea muy común:</p>
 
-print("Accediendo a la lista:", lista1[2])
-#La sublista esta en el index 5 de la lista principal, accedemos al primer valor
-#de ella (sublista)
-print("Accediendo a la sublista:", lista1[5][0])
+<ol>
+<li>Conectarse a una base de datos</li>
+<li>Consultar una tabla</li>
+<li>Exportar los resultados a un archivo de texto</li>
+</ol>
 
-print("Lista original:", lista1)
-lista1[0] = 100
-print("Modifico 1er elemento (1 por 100):", lista1)
 
-#Uso de numero negativo (busqueda inversa)
-#Buscará la 3 posicion de atras hacia adelante de la lista
-print(lista1[-3])
+<p><strong>Increíble</strong> que esto lo podamos hacer con tan pocas líneas. Y en esta ocasión colocaré imágenes en vez de texto (<strong>adiós copy/paste</strong>) hahaha, veamos qué tal.</p>
 
-#Uso de Slicing (particionado) o busqueda por rango
-print(lista1[0:4])
+<p><img src="http://1.bp.blogspot.com/-96Wm8t-t_zM/U4-UoRMgVwI/AAAAAAAAASA/6yCkRSNbdg8/s1600/Screenshot+-+04_06_2014+,+04_48_11+p.m..png" alt="enter image description here" /></p>
 
-#Uso de saltos (cada n cantidad)
-#Buscara solo en la posicion 0 a la 8, saltando 3 elementos en cada item encontrado
-print(lista1[0:8:3])
+<p>Vemos que en las primeras líneas estamos haciendo un <strong>import</strong> de componentes externos, en este caso tenemos que instalas el módulo <strong>cx_Oracle</strong> que nos permite trabajar con bases de datos <strong>Oracle</strong>, para casos en que uses <strong>PostgreSQL</strong>, <strong>MySQL</strong>, <strong>SQLite</strong> deberás buscar el módulo adecuado y seguir los pasos de su instalación, tomar en cuenta que los módulos de base de datos van de acuerdo a la <strong>versión de Python</strong> que estés usando.</p>
 
-#Tuplas
-#Se pueden manejar a las listas
-#La gran diferencia es que las tuplas son inmutables
-#tupla1[1] = 100 (TypeError: 'tuple' object does not support item assignment) #este es el error que dá si intentas cambir algo, lo puedes descomentar para que lo vivas :)
-tupla1 = (1,2,3,4,5)
-print("Tupla:", tupla1[:3])
+<p>Otro punto importante es notar que podemos especificar un <strong>name</strong> a nuestro gusto (<em>cx_Oracle as ora</em>) eso ayuda cuando el nombre del módulo que importamos tiene un nombre muy largo.</p>
 
-#Diccionarios, la misma vaina que los HashMaps de JAVA :)
-diccionario = {"uno":1, "dos":2, "tres":3}
-print("Diccionario:", diccionario["uno"])
+<p>Con <strong>makedsn</strong> construimos una cadena de conexión para el método <strong>connect</strong>, vemos que el primer parámetro es el <strong>IP</strong> del servidor de la BDD, segundo el <strong>puerto</strong>, y tercero el <strong>nombre de la base de datos</strong> (SID por ejemplo).</p>
 
-#****************************************************************
-</code></pre>
+<p>Una vez teniendo el <strong>dsn</strong> nos conectamos con el <strong>user/password</strong> de la base de datos.</p>
 
-<p><strong>En resumen:</strong></p>
+<p>Estando conectados podemos ejecutar <strong>DML</strong> y extraer datos, en este caso volcamos los resultados a un archivo de texto llamado <strong>&ldquo;tablares.txt&rdquo;</strong></p>
 
-<p>Crear una lista es bastante sencillo, de igual forma acceder a sus elementos.</p>
+<p>Al ejecutar el programa deberas ver lo siguiente:</p>
 
-<p>Si bien las tuplas pueden ser manipuladas como una lista para su consulta, la gran diferencia es que las tuplas son <strong>inmutables</strong>, es decir; que son como una especie de <strong>constante</strong>, no podemos cambiar los valores que les asignemos al crearlas.</p>
+<p><img src="http://4.bp.blogspot.com/-gfnG_eVufwk/U4-Uok-NRSI/AAAAAAAAAR8/LugJRMIyqzM/s1600/Screenshot+-+04_06_2014+%252C+04_48_45+p.m..png" alt="enter image description here" /></p>
 
-<p>Listas se crean con [], las tuplas se crean con ()</p>
+<p>En donde <em>11.2.0.1.0</em> es la versión de mi base de datos y seguido el tiempo que tomo el proceso en crear el archivo de texto con todos los registros.</p>
 
-<p>Y pues los diccionarios son una estructura de <strong>clave = valor</strong> en la que los valores se acceden por el nombre de la clave, similar a los <strong>HashMaps</strong> de <strong>Java</strong>.
-De igual manera, aunque no lo puse aquí (y obviamente) podemos hacer pruebas de recorridos con un for, que por cierto lleva abreviadas muchas cosas para los que estamos acostumbrados a los <strong>for</strong> de <strong>C</strong> o los antiguos de <strong>Java</strong>.</p>
+<p>Luego podremos ver que se ha creado el archivo de texto <strong>&ldquo;tableres.txt&rdquo;</strong></p>
 
-<p>Un saludo a todos!</p>
+<p><img src="http://1.bp.blogspot.com/-B4SyMowJlLA/U4-UoqNY8CI/AAAAAAAAASE/RLkL-p_fDA8/s1600/Screenshot+-+04_06_2014+%252C+04_49_08+p.m..png" alt="enter image description here" /></p>
+
+<p>Espero que les ayude, ya saben que bienvenidas son las preguntas!</p>
+
+<p>Debemos estar de acuerdo en que para ambientes productivos, realizar una tarea como esta y en esta forma puede ser vista muy <strong>&ldquo;newbie&rdquo;</strong>, es decir; no es bien visto que escribamos codigo SQL
+de plano en nuestro código y tampoco que una sola clase haga todo. Es importante modularizar, <strong>Python</strong> al igual que <strong>Java</strong> nos permite crear <strong>&ldquo;paquetes&rdquo;</strong> con diferentes módulos
+que pueden encapsular tareas muy particulares pero que también son repetitivas. Como sugerencia para este tipo de procesos (conexiones a base de datos), he visto que me
+funciona muy bien usar un componente <strong>ORM</strong> como <a href="http://www.sqlalchemy.org/">SQLAlchemy</a></p>
+
+<p>Un saludo!</p>
 </div>
 
 
@@ -185,12 +172,12 @@ De igual manera, aunque no lo puse aquí (y obviamente) podemos hacer pruebas de
 
 
 
-<time class='entry-date' datetime='2015-09-29T16:17:16-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>4:17 pm</span></time>
+<time class='entry-date' datetime='2015-10-08T13:55:17-05:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:55 pm</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/python/'>python</a>
+    <a class='category' href='/blog/categories/databases/'>databases</a>, <a class='category' href='/blog/categories/oop/'>oop</a>, <a class='category' href='/blog/categories/oracle/'>oracle</a>, <a class='category' href='/blog/categories/python/'>python</a>
   
 </span>
 
@@ -199,7 +186,7 @@ De igual manera, aunque no lo puse aquí (y obviamente) podemos hacer pruebas de
     
       <!-- <div class="sharing">                                                                                                                                                                                -->
 <!--                                                                                                                                                                    -->
-<!--   <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/" data-via="ropherpanama" data-counturl="http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/" >Tweet</a>      -->
+<!--   <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/" data-via="ropherpanama" data-counturl="http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/" >Tweet</a>      -->
 <!--                                                                                                                                                                                           -->
 <!--                                                                                                                                                                         -->
 <!--   <div class="g-plusone" data-size="medium"></div>                                                                                                                          -->
@@ -210,18 +197,16 @@ De igual manera, aunque no lo puse aquí (y obviamente) podemos hacer pruebas de
 <footer class=sharing>
 	<p>
 		<b>Compártelo:</b> 
-			<a href="https://twitter.com/share" class="btn btn-social btn-twitter" data-url="http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/" data-via="ropherpanama" data-counturl="http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/"><i class=icon-twitter></i> Twitter</a> 
-			<a href="https://www.facebook.com/sharer/sharer.php?u=http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/" class="btn btn-social btn-facebook" ><i class=icon-facebook></i> Facebook</a> 
-			<a href="https://plus.google.com/share?url=http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/" class="btn btn-social btn-google"><i class=icon-google></i> Google+</a>
+			<a href="https://twitter.com/share" class="btn btn-social btn-twitter" data-url="http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/" data-via="ropherpanama" data-counturl="http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/"><i class=icon-twitter></i> Twitter</a> 
+			<a href="https://www.facebook.com/sharer/sharer.php?u=http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/" class="btn btn-social btn-facebook" ><i class=icon-facebook></i> Facebook</a> 
+			<a href="https://plus.google.com/share?url=http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/" class="btn btn-social btn-google"><i class=icon-google></i> Google+</a>
 	</p>
 </footer>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/09/29/python-dia-dos/" title="Previous Post: 2 Python: Primer contacto">&laquo; 2 Python: Primer contacto</a>
+        <a class="basic-alignment left" href="/blog/2015/10/08/6-python-definiendo-clases/" title="Previous Post: 6 Python: Definiendo Clases">&laquo; 6 Python: Definiendo Clases</a>
       
-      
-        | <a class="basic-alignment right" href="/blog/2015/10/08/4-python-sentencias-de-flujo/" title="Next Post: 4 Python: Sentencias de flujo">4 Python: Sentencias de flujo &raquo;</a>
       
     </p>
   </footer>
@@ -288,8 +273,8 @@ De igual manera, aunque no lo puse aquí (y obviamente) podemos hacer pruebas de
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/';
-        var disqus_url = 'http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/';
+        var disqus_identifier = 'http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/';
+        var disqus_url = 'http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/';
         var disqus_script = 'embed.js';
       
     (function () {

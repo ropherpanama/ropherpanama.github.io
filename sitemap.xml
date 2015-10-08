@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/</loc>
+    <lastmod>2015-10-08T13:55:17-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/2015/10/08/6-python-definiendo-clases/</loc>
+    <lastmod>2015-10-08T13:50:22-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/2015/10/08/5-python-funciones/</loc>
+    <lastmod>2015-10-08T13:46:44-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/2015/10/08/4-python-sentencias-de-flujo/</loc>
+    <lastmod>2015-10-08T13:41:01-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/</loc>
     <lastmod>2015-09-29T16:17:16-05:00</lastmod>
   </url>
@@ -111,6 +127,9 @@
   </url>
   <url>
     <loc>http://ropherpanama.github.io/blog/categories/python/</loc>
+  </url>
+  <url>
+    <loc>http://ropherpanama.github.io/blog/categories/oop/</loc>
   </url>
   <url>
     <loc>http://ropherpanama.github.io/posts/2/</loc>

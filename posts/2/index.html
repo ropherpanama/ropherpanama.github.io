@@ -9,7 +9,7 @@
   <meta name="author" content="Rosendo Peña Hernández">
 
   
-  <meta name="description" content="Apuntes - Tuning Glassfish (Optimización Para Producción) Sep 29th, 2015 11:20 am Ajuste de JVM Ya que Glassfish está hecho sobre Java, muchas de &hellip;">
+  <meta name="description" content="Android Unable to Execute Dex: Multiple Dex Files Sep 29th, 2015 11:38 am Este problema es bastante sencillo de solucionar, sólo hay que LEER (lo &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -87,6 +87,160 @@
 			<div id="content">
 				<div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="post-title"><a href="/blog/2015/09/29/android-dex-multiple-libs/">Android Unable to Execute Dex: Multiple Dex Files</a></h1>
+    
+    
+      <p class="post-info">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-29T11:38:22-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:38 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="post-excerpt"><p>Este problema es bastante sencillo de solucionar, sólo hay que LEER (lo entendí después de una noche rompiendome la cabeza) en vez de GOOGLEAR.</p>
+
+<p><strong>En mi caso el mensaje era este:</strong></p>
+
+<blockquote><p>[2013-05-07 23:08:21 - Dex Loader] Unable to execute dex: Multiple dex files define Lcom/sun/jersey/api/json/JSONConfigurated;
+[2013-05-07 23:08:21 - smf-prototype] Conversion to Dalvik format failed: Unable to execute dex: Multiple dex files define Lcom/sun/jersey/api/json/JSONConfigurated;</p></blockquote>
+
+<p>Estoy trabajando en unos <strong>webservices</strong> que usan el soporte de <strong>JSON</strong> y para eso requiero un par de librerías.</p>
+
+</div>
+  
+  
+    <footer>
+      <a class="btn btn-primary" rel="full-article" href="/blog/2015/09/29/android-dex-multiple-libs/">Leer m&aacutes &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="post-title"><a href="/blog/2015/09/29/android-estado-del-apaptador-wifi/">Android: Verificar Estado Del WIFI</a></h1>
+    
+    
+      <p class="post-info">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-29T11:35:21-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:35 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="post-excerpt"><p>Este es un tipo de funcionalidad que es bueno tenerla en una clase de utilidades globales (en otras palabras, en una clase de métodos estáticos).</p>
+
+<p>Aveces es necesario conocer el estado del adaptador de red WIFI, para permitirle al usuario o a la misma aplicación realizar o no un proceso crítico del flujo de ejecución.</p>
+
+<p>Como lo escribí arriba, hagamos una <strong>clase de utilidades</strong>, como la siguiente:</p>
+
+</div>
+  
+  
+    <footer>
+      <a class="btn btn-primary" rel="full-article" href="/blog/2015/09/29/android-estado-del-apaptador-wifi/">Leer m&aacutes &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="post-title"><a href="/blog/2015/09/29/android-scrollview/">Android, ListView Dentro De Un ScrollView</a></h1>
+    
+    
+      <p class="post-info">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-29T11:32:20-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:32 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="post-excerpt"><p>Aveces, cuando desarrollas <strong>antes de leer las teorías</strong> pasan cosas como esta.
+Hace algunos días, me encontré con una dificultad al desarrollar una aplicación Android; mi caso era el siguiente.
+Quería que una de las pantallas de mi aplicación respondiera a los cambios de orientación que el usuario realizara a su teléfono, esto no es mayor problema, por defecto el <strong>manifest</strong> de la aplicación configura todas las actividades para que esto suceda. Mi problema era que en esa pantalla tenia un <code>ListView</code> que desplegaba una lista de productos. En modo vertical se veía perfecto el <code>ListView</code>, pero al girar el teléfono; al ser el espacio vertical más pequeño, no mostraba todos los componentes de la lista, porque quedaban escondidos al girar la pantalla.</p>
+
+</div>
+  
+  
+    <footer>
+      <a class="btn btn-primary" rel="full-article" href="/blog/2015/09/29/android-scrollview/">Leer m&aacutes &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="post-title"><a href="/blog/2015/09/29/android-primer-ejemplo/">Introducción a Android Con Un Ejemplo (Y No Es HelloWorld)</a></h1>
+    
+    
+      <p class="post-info">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-29T11:27:28-05:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:27 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="post-excerpt"><p>Esta introducción va a ser diferente, ya que no vamos a ver como instalar ni configurar el SDK o cosas por el estilo y vamos a pasar directo a ver como luce un proyecto de android una vez creado. Además vamos a aplicar algo de programación para hacer una ventana que haga algo más que el clásico HelloWorld.</p>
+
+<p>Primero vamos a crear un nuevo proyecto de Android: <strong>File -> New -> Android Application Project</strong> (o sus similares en español).</p>
+
+<p>Completa los datos como los ves en la siguiente imagen, los detalles de SDK van a depender de lo que tengas instalado en tu máquina, por lo general suelo definir como SDK mínimo el 2.3, para lo demás uso lo más reciente disponible que tenga; en mi caso el Target lo he colocado API 18 y compilaré
+con el API 19</p>
+
+</div>
+  
+  
+    <footer>
+      <a class="btn btn-primary" rel="full-article" href="/blog/2015/09/29/android-primer-ejemplo/">Leer m&aacutes &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>

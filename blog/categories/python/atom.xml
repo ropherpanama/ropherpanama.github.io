@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | El blog del xobi]]></title>
   <link href="http://ropherpanama.github.io/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://ropherpanama.github.io/"/>
-  <updated>2015-09-29T23:37:39-05:00</updated>
+  <updated>2015-10-08T14:06:43-05:00</updated>
   <id>http://ropherpanama.github.io/</id>
   <author>
     <name><![CDATA[Rosendo Peña Hernández]]></name>
@@ -12,6 +12,313 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[7 Python: Conexiones a Base De Datos]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/"/>
+    <updated>2015-10-08T13:55:17-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos</id>
+    <content type="html"><![CDATA[<p>Una parte importante y lo más real en casi todo entorno de trabajo automatizado, es la <strong>interacción con una base de datos</strong> (sea del tipo que sea).
+Para este fin <strong>Python</strong> nos ofrece una manera sencilla de trabajar con bases de datos.</p>
+
+<!--more-->
+
+
+<p>Debemos tomar en cuenta la versión de <strong>Python</strong> que estemos usando para instalar la líbreria específica para la base de datos que estemos usando.</p>
+
+<blockquote><p>Usé Oracle XE 11g para este ejemplo</p></blockquote>
+
+<p>Vamos a ver un programa que realiza una tarea muy común:</p>
+
+<ol>
+<li>Conectarse a una base de datos</li>
+<li>Consultar una tabla</li>
+<li>Exportar los resultados a un archivo de texto</li>
+</ol>
+
+
+<p><strong>Increíble</strong> que esto lo podamos hacer con tan pocas líneas. Y en esta ocasión colocaré imágenes en vez de texto (<strong>adiós copy/paste</strong>) hahaha, veamos qué tal.</p>
+
+<p><img src="http://1.bp.blogspot.com/-96Wm8t-t_zM/U4-UoRMgVwI/AAAAAAAAASA/6yCkRSNbdg8/s1600/Screenshot+-+04_06_2014+,+04_48_11+p.m..png" alt="enter image description here" /></p>
+
+<p>Vemos que en las primeras líneas estamos haciendo un <strong>import</strong> de componentes externos, en este caso tenemos que instalas el módulo <strong>cx_Oracle</strong> que nos permite trabajar con bases de datos <strong>Oracle</strong>, para casos en que uses <strong>PostgreSQL</strong>, <strong>MySQL</strong>, <strong>SQLite</strong> deberás buscar el módulo adecuado y seguir los pasos de su instalación, tomar en cuenta que los módulos de base de datos van de acuerdo a la <strong>versión de Python</strong> que estés usando.</p>
+
+<p>Otro punto importante es notar que podemos especificar un <strong>name</strong> a nuestro gusto (<em>cx_Oracle as ora</em>) eso ayuda cuando el nombre del módulo que importamos tiene un nombre muy largo.</p>
+
+<p>Con <strong>makedsn</strong> construimos una cadena de conexión para el método <strong>connect</strong>, vemos que el primer parámetro es el <strong>IP</strong> del servidor de la BDD, segundo el <strong>puerto</strong>, y tercero el <strong>nombre de la base de datos</strong> (SID por ejemplo).</p>
+
+<p>Una vez teniendo el <strong>dsn</strong> nos conectamos con el <strong>user/password</strong> de la base de datos.</p>
+
+<p>Estando conectados podemos ejecutar <strong>DML</strong> y extraer datos, en este caso volcamos los resultados a un archivo de texto llamado <strong>&ldquo;tablares.txt&rdquo;</strong></p>
+
+<p>Al ejecutar el programa deberas ver lo siguiente:</p>
+
+<p><img src="http://4.bp.blogspot.com/-gfnG_eVufwk/U4-Uok-NRSI/AAAAAAAAAR8/LugJRMIyqzM/s1600/Screenshot+-+04_06_2014+%252C+04_48_45+p.m..png" alt="enter image description here" /></p>
+
+<p>En donde <em>11.2.0.1.0</em> es la versión de mi base de datos y seguido el tiempo que tomo el proceso en crear el archivo de texto con todos los registros.</p>
+
+<p>Luego podremos ver que se ha creado el archivo de texto <strong>&ldquo;tableres.txt&rdquo;</strong></p>
+
+<p><img src="http://1.bp.blogspot.com/-B4SyMowJlLA/U4-UoqNY8CI/AAAAAAAAASE/RLkL-p_fDA8/s1600/Screenshot+-+04_06_2014+%252C+04_49_08+p.m..png" alt="enter image description here" /></p>
+
+<p>Espero que les ayude, ya saben que bienvenidas son las preguntas!</p>
+
+<p>Debemos estar de acuerdo en que para ambientes productivos, realizar una tarea como esta y en esta forma puede ser vista muy <strong>&ldquo;newbie&rdquo;</strong>, es decir; no es bien visto que escribamos codigo SQL
+de plano en nuestro código y tampoco que una sola clase haga todo. Es importante modularizar, <strong>Python</strong> al igual que <strong>Java</strong> nos permite crear <strong>&ldquo;paquetes&rdquo;</strong> con diferentes módulos
+que pueden encapsular tareas muy particulares pero que también son repetitivas. Como sugerencia para este tipo de procesos (conexiones a base de datos), he visto que me
+funciona muy bien usar un componente <strong>ORM</strong> como <a href="http://www.sqlalchemy.org/">SQLAlchemy</a></p>
+
+<p>Un saludo!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[6 Python: Definiendo Clases]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/10/08/6-python-definiendo-clases/"/>
+    <updated>2015-10-08T13:50:22-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/10/08/6-python-definiendo-clases</id>
+    <content type="html"><![CDATA[<p>Para este programa vamos a ver que tal se maneja el concepto de <strong>Clase</strong> con Python, revisemos línea a línea el siguiente programa para ver a que corresponde cada una.</p>
+
+<blockquote><p>Como siempre te invito a copiar (a mano) las lineas que no tienen <strong>#</strong> por delante, ya que como sabemos son comentarios que el compilador ignora.</p></blockquote>
+
+<!--more-->
+
+
+<p>Este programa escribirá todo lo que el usuario le envíe por consola en un archivo de texto, terminará cuando el usuario escriba <strong>Adios</strong>.</p>
+
+<pre><code>#Una clase se define mediante la palabra clase class
+class Archivo:
+#Viniendo de Java lo primero que intente ubicar fue un constructor, en el caso de python, este se define como __init__, y algo muy importante es nunca olvidar
+#el parametro self, de olvidarlo veras algo como "TypeError: function() takes 0 positional arguments but 1 was given".
+#self viene a ser algo asi como el this de java, es decir los atributos de instancia que persisten a traves de la vida del objeto.
+    def __init__(self, name, content):
+        self.name = name
+        self.content = content
+        print("Archivo llamado ", name)
+
+#En java tenemos la palabra private para indicar que un atributo o metodo es privado, en python esto lo podemos hacer para los metodos con un doble subrayado, 
+#veremos que la forma de utilizar (llamar) estas funciones es un tanto diferente, no olvidar el parametro self
+    def __escribir(self):
+        t = input("Escriba &gt; ")
+        self.content += "\n" + t
+
+#Este metodo es normal, tal como lo habiamos visto en el programa 4
+    def leer(self):
+#Validamos el contenido del archivo antes de leerlo
+        if len(self.content) == 0:
+            print("Archivo no tiene contenido, escriba algo")
+        else:
+            print("cat " + self.name + "\n",self.content)
+
+
+#Uso de la clase
+#Vamos a instanciar un objeto de nuestra clase
+#Recordar que arriba colocamos el metodo de inicializacion con los parametros de nombre del archivo y algo de contenido, notar que el self no debe ser cargado por 
+#nosotros
+a = Archivo("CV.doc", "")
+
+#Ofrecemos las instrucciones, notar que con triple doble comilla podemos imprimir lineas tal cual como las escribimos en el fichero de fuente.
+print("""Escriba:
+    e para escribir
+    l para leer
+    bye para salir""")
+
+#Entramos a un blucle infinito, que se encargara de interactual con el usuario 
+while True:
+    r = input("&gt; ")
+    if r == "bye":
+        print("Adios")#Si el usuario escribe Adios salimos del programa
+        break
+    elif r == "e":
+#Observar el llamado a la funcion que definimos privada, a es el identificador de la instancia, seguido de un underline y el nombre de nuestra clase (Archivo) doble 
+#subrayado y el nombre de nuestra funcion.
+        a._Archivo__escribir()#Llamado a una funcion privada
+    elif r == "l":
+        a.leer()
+    else:
+        print("Opcion no valida")
+</code></pre>
+
+<p>Bueno, eso ha sido todo por hoy. Ya podemos definir clases, sabemos como instanciarlas y construir inicializadores según las necesidades de nuestro objeto.</p>
+
+<p>Podemos acceder a funciones privadas y públicas de una clase.</p>
+
+<p>Un saludo, bienvenidas son las preguntas!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[5 Python: Funciones]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/10/08/5-python-funciones/"/>
+    <updated>2015-10-08T13:46:44-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/10/08/5-python-funciones</id>
+    <content type="html"><![CDATA[<p>Para el cuarto programa vamos a ponernos interactivos, vamos a crear un programa que nos diga nuestra edad, <strong>muy sencillo</strong>, pero nos servirá para entender mejor la captura de datos por teclado y lo más importante, definir y utilizar funciones (métodos).</p>
+
+<p>Voy a <strong>#comentar</strong> todo entre líneas para que se entienda mejor.</p>
+
+<!--more-->
+
+
+<blockquote><p>Como de costumbre puedes escribir (<strong>sí escribir</strong>, no copy/paste) este código en tu IDLE de Python y ejecutarlo con F5</p></blockquote>
+
+<pre><code>#Mi cuarto programa Python
+#Si se abre con IDLE, ejecutar con la tecla F5
+
+#Funciones
+
+#Vamos a definir una fincion, su nombre es calcularEdad (a python no le gustan las mayusculas, pero es que vengo de Java entiéndanme)
+#Esta función o metodo va a recibir un argumento, fijense que no estamos especificando el tipo del argumento, simplemente va porque vá, queda de nosotros
+#manipular este dato en nuestro código, en este ejemplo; como lo vamos a recibir de input() por seguridad lo pasamos a string con str()
+#la función no retorna cosa alguna, solo nos imprime nuestra edad
+def calcularEdad (anio_nacimiento):
+    print("Tu edad es " + str(2015 - anio_nacimiento) + " años")
+
+#la variable entrada tendra valor capturado por teclado, esto se logra con la función input()
+entrada = input("Ingrese su año de nacimiento ")
+
+#Vamos a llamar a nuestra función creada anteriormente con el valor que tomamos de entrada
+calcularEdad(int(entrada))
+
+#Bien, ahora que vimos funciones sin retorno (tipo void) vamos a ver funciones que retornen algo
+#nuevamente fue muy extraño para mi no tener la necesidad de definir qué es lo que debo retornar en mi función, simplemente con colocar la palabra return 
+#estamos indicando que la función retorna algo, en nuestro ejemplo retorna un entero (nuestra edad)
+def calcularEdad2 (anio):
+    return 2014 - anio
+
+#Nuevamente vamos a tomar entrada desde el teclado para ejecutar nuestra función
+entrada2 = input("Ingrese su año de nacimiento ")
+
+#Vemos que para este caso, como la funcion retorna, podemos almacenar su valor retornado en una variable (answer)
+answer = calcularEdad2(int(entrada2))
+#Imprimimos la variable answer que  es la que posee el valor que retorno la funcion
+print("Tu edad es " + str(answer) + " años")
+
+#Numero variable de parametros en una funcion
+#Tal como lo indica la documentacion https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions
+#una funcion puede definirse para que tome una cantidad de argumentos variable, si bien es cierto en este ejemplo obligatoriamente estamos definiendo que 
+#se le deben enviar 2 argumentos (por arg1 y arg2), el tercer parametro puede ser una tupla o un diccionario, esto lo sabemos por el argumento *arg3.
+#Si la tupla no contiene valor alguno no se imprimirá nada que inicie con Item: o en el print de abajo, prueba colocarle algo a ver que pasa :)
+
+def variable(arg1, arg2, *arg3):
+    for s in arg3:
+        print("Item: " + str(s))
+
+    print(arg1, arg2, arg3)
+
+
+a = input("Ingrese un numero ")
+b = input("otro ...")
+
+#array = [23,22,21,20] #lista extra #descomenta esta linea para enviarle una lista a la funcion
+#variable(int(a), int(b), array) # esta tambien si le pasas la lista
+variable(int(a), int(b))
+</code></pre>
+
+<p><strong>En resumen</strong></p>
+
+<p>Muy importante y <strong>si eres observador</strong>, habrás notado que las funciones se definen con la palabra <strong>def</strong>.</p>
+
+<p>Lo demás está explicado no?, las preguntas son bienvenidas!</p>
+
+<p>Recuerden ir a descubrir mucho mas en la <a href="https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions">Documentación</a></p>
+
+<p>Saludos!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[4 Python: Sentencias De Flujo]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/10/08/4-python-sentencias-de-flujo/"/>
+    <updated>2015-10-08T13:41:01-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/10/08/4-python-sentencias-de-flujo</id>
+    <content type="html"><![CDATA[<p>Para el tercer programa, decidí fijarme en las sentencias de flujos (las más comunes), recomiendo revisar la <a href="https://docs.python.org/3/tutorial/controlflow.html">Documentación</a> ya que hay muchas <strong>cosas interesantes</strong>.</p>
+
+<p>Una de las cosas que puede llegar a romperte la cabeza son las identaciones del código que pertenece, por ejemplo a un <code>if</code>, <code>while</code>, <code>for</code>, etc. ya que al no requerir llaves para definir los bloques de código, debemos tener sumo cuidado con las <strong>tabulaciones</strong>.</p>
+
+<!--more-->
+
+
+<p><strong>No es lo mismo</strong></p>
+
+<pre><code>for i in range(5):
+print(i)
+print("boo")
+</code></pre>
+
+<p><strong>que</strong></p>
+
+<pre><code>for i in range(5):
+    print(i)
+print("boo")
+</code></pre>
+
+<p>pueden ejecutarlo si gustan, en fin; otra cosa importante es recordar que los dos puntos <strong>(:)</strong> denotan el inicio de la sentencia de flujo, poner atención a ello en el siguiente código:</p>
+
+<pre><code>#****************************************************************
+#Mi tercer programa Python
+#Si se abre con IDLE, ejecutar con la tecla F5
+
+#Sentencias de flujo
+
+#IF
+a = 10
+b = 70
+
+#Importante: las sentencias a ejecutar segun se cumpla la condicion o no; debe
+#identarse con un Tab
+if (b/a) &gt; 5 :
+    print("Alcanza para todos")
+    print("tenemos", 70/10)
+else:
+    print("No alcanza para todos")
+
+#WHILE
+#Se pueden omitir los parentesis de la condicion
+count = 0
+
+print("Uso del while")
+while ( count &lt;= 5 ):
+    count += 1
+    print("Imprimo " + str(count) + " veces")
+
+#Entrada por teclado con input(""),
+#en Python 3 se elimino el raw_input()
+
+print ("While infinito, escribe adios para salir")
+
+while True:
+    entrada = input("&gt; ")
+    if entrada == "adios":
+        break
+    else:
+        print (entrada)
+
+#FOR
+#Similar a Java se puede iterar sobre objetos sin necesidad de un contador
+
+secuencia = ["uno","dos","tres","cuatro","cinco"]
+
+for e in secuencia:
+    print("Salgo en " + e)
+#****************************************************************
+</code></pre>
+
+<p><strong>En resumen:</strong></p>
+
+<p>Muy importante tener en cuenta los dos puntos <strong>(:)</strong> y las <strong>tabulaciones</strong> para los bloques de código, es vital esto, porque los métodos o funciones funcionan de igual forma.</p>
+
+<p>Los que estamos acostumbrados a <strong>C</strong> o <strong>Java</strong> vamos; por inercia a utilizar <strong>paréntesis</strong> en las condiciones <code>if (1 == i)</code>, pero acá los puedes omitir <code>if 1 == i</code></p>
+
+<p>Vimos el uso de la función <strong>str</strong> (<code>print("Imprimo " + str(count) + " veces")</code>) sin esto no podríamos concatenar el entero al resto de la cadena.</p>
+
+<p>Otra cosa importante, y que me tomó algo de tiempo darme cuenta, era que en <strong>Python 3</strong> se eliminó la función <strong>raw_input()</strong> para procesar la entrada del teclado, desde <strong>Python 3.x</strong> en adelante debemos usar <strong>input()</strong></p>
+
+<p>Descubrí que los <strong>for</strong> son bastante resumidos en comparación con otros lenguajes.</p>
+
+<p>Recuerden revisar la <a href="https://docs.python.org/3/tutorial/controlflow.html">¡Documentación!</a>
+Saludos!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[3 Python: Listas, Tuplas Y Diccionarios]]></title>
@@ -81,123 +388,6 @@ print("Diccionario:", diccionario["uno"])
 De igual manera, aunque no lo puse aquí (y obviamente) podemos hacer pruebas de recorridos con un for, que por cierto lleva abreviadas muchas cosas para los que estamos acostumbrados a los <strong>for</strong> de <strong>C</strong> o los antiguos de <strong>Java</strong>.</p>
 
 <p>Un saludo a todos!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2 Python: Primer Contacto]]></title>
-    <link href="http://ropherpanama.github.io/blog/2015/09/29/python-dia-dos/"/>
-    <updated>2015-09-29T16:14:29-05:00</updated>
-    <id>http://ropherpanama.github.io/blog/2015/09/29/python-dia-dos</id>
-    <content type="html"><![CDATA[<p>Este fué mi primer programa con <strong>Python</strong>, muy simple realmente. Comento entre líneas lo que estaba haciendo (recordar que los comentarios inician con #)
-Copia el contenido a continuación (te sería más instructivo escribirlo pero bueno &hellip;) y pégalo en el <strong>IDLE</strong>, ejecútalo con <strong>F5</strong></p>
-
-<!--more-->
-
-
-<pre><code>#*****************************************************************************
-#Mi primer programa Python
-#El print recibe cualquier cantidad de parametros separados por coma (,)
-#incluyendo expresiones aritmeticas como se muestra a continuacion.
-#Si se abre con IDLE, ejecutar con la tecla F5
-
-print ("Si sumas 2 + 3 el resultdo es ",
-       2 + 3,
-       "\nPero si los restas el resultado es ",
-       2 - 3,
-       "\nQue cosa no?")
-
-#Variables
-#No necesitas declarar de qué tipo son, sólo se declaran (tipo dinamico)
-a = "Soy una cadena de texto"
-b = 50
-c = 25
-
-print(a, "\nOperacion:", b + c)
-
-c = "Como los tipo son dinamicos, puedes cambiar el tipo de dato de tu variable en tiempo de ejecución"
-print(c) #Notar que c era un entero (25)
-
-multilinea = """ Esto es cool
-                 puedo escribir lineas sin usar carracteres de escape
-                 solamente usando las comillas triples :)"""
-
-print(multilinea)
-
-#Las cadenas tambien aceptan operaciones aritmeticas
-#Es decir que puedes multiplicar o sumar cadenas de texto
-d = "eco"
-e = d * 3
-f = "sistema"
-print("Multiplicacion de cadenas:", e)
-
-e = d + f
-print("Suma de cadenas:", e)
-#*****************************************************************************
-</code></pre>
-
-<p><strong>En resumen:</strong></p>
-
-<p>Es bastante agradable el método <strong>print</strong>, ya que acepta lo que le pongas y como lo pongas (salvo el caso de los enteros y lo que no sea string.</p>
-
-<p>Pero tranquilo! tenemos el método <strong>str()</strong> que transforma a <strong>string</strong> lo que le pongas :)</p>
-
-<blockquote><p>Ej.: print(str(25))</p></blockquote>
-
-<p>Vimos que los tipos de datos son dinámicos (<strong>c</strong> era un entero y luego era un string)</p>
-
-<p>Vimos los textos multilínea con <code>""" """"</code>, útil si no se quiere usar el clásico <code>\n</code> (que puede ser usado).
-Y vimos la multiplicación de cadenas, por aquí nos vamos a ver que más encontramos con <strong>Python</strong>.</p>
-
-<p>Un saludo! Cualquier duda, pues a la orden!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Python: Día 1]]></title>
-    <link href="http://ropherpanama.github.io/blog/2015/09/29/python-dia-uno/"/>
-    <updated>2015-09-29T16:12:06-05:00</updated>
-    <id>http://ropherpanama.github.io/blog/2015/09/29/python-dia-uno</id>
-    <content type="html"><![CDATA[<h3>Aprender Python</h3>
-
-<p>Bueno, hace algunos días decidí hacer cosas con <strong>Python</strong> para ver que tal, ya que quería aprender un nuevo lenguaje y me decidí por él.
-En mi caso venía de trabajar puramente con <strong>Java</strong> y para mi sorpresa las diferencias son muchas (jejeje lógico no?), pero hay unas que me agradaron muchas.</p>
-
-<p>Visto desde el punto de vista de la <strong>línea</strong> de aprendizaje pues hacer un programa algo complejo (Conexión a base de datos con Oracle usando <strong>ORM SQLAlchemy</strong>) no me tardó mucho.</p>
-
-<!--more-->
-
-
-<p>Aunque atribuyo eso a que ya conocía un lenguaje orientado a objetos y que algunas cosas; pues son muy similares funcionalmente.</p>
-
-<p>Si me percaté de <strong>ciertas diferencias</strong> muy notables que dejo a continuación:</p>
-
-<ol>
-<li><strong>No tienes que &ldquo;tipar&rdquo;</strong> (definir un tipo de dato) tus variables, el tipo de datos de las mismas es dinámico, es decir que según como la uses el tipo de dato de tu variable cambiará.</li>
-<li>Los bloques de código <strong>no se cierran con llaves</strong>, en el caso del <code>for</code> y demás cosas por el estilo, se debe tabular el código (perfecto para mí porque tengo la tecla de la llave cerrando dañada :D)</li>
-<li>Las funciones se declaran con la palabra <strong>def</strong> y aunque la función o método retorne datos no necesitas especificarlo en la definición de la función.</li>
-<li>Debido a lo anterior y a lo del tipo dinámico de datos, la característica de POO sobre polimorfismo pierde un poco su lugar jejejjeeje.</li>
-<li>Hablando de <strong>métodos y constructores</strong> todos (nunca se te olvide) llevan el parametro <strong>self</strong>, que es una forma como de <strong>this</strong> (de Java)</li>
-<li>Para imprimir solo usa <strong>print</strong>!!! (no como ese largo <code>System.out.println</code> balalalalala &hellip;. )</li>
-<li>Existe el <strong>try/except</strong> en vez de <strong>try/catch</strong></li>
-<li>Leer y escribir archivos &hellip; qué les puedo decir &hellip; <strong>es muy fácil!</strong></li>
-<li>Conectarte a una base de datos también es muy fácil, solo debes buscar los módulos indicados :)</li>
-<li>La herencia es <strong>multiple</strong>!!!</li>
-<li><strong>No!</strong> Los comentarios no inician con <strong>//</strong>, inician con <strong>#</strong></li>
-</ol>
-
-
-<p>Bueno y sobre eso un montón de cosas más que aún voy descubriendo, pero por lo general han sido cosas muy buenas e interesantes y se puede decir que ya le tengo cariño.</p>
-
-<p>Antes de iniciar, pues lógicamente debemos <a href="https://www.python.org/downloads/">instalar</a> <strong>Python</strong> en nuestra máquina para poder usar la <strong>consola interactiva</strong> (!Si, consola interactiva!)</p>
-
-<p>Partí con <strong>Python 3.3</strong>, entiendo que va por la 3.4 (o quizá más adelante) pero bueno habrá que revisar, ya que mi primer tropiezo fué leer la documentación de <strong>Python 2.x</strong> y darme cuenta que el <strong>print</strong> se convirtió en un <strong>método</strong>, por ende se debía llamar con parentesis <strong>print()</strong>.</p>
-
-<p>Para <strong>Windows</strong> es fácil, solo descárgate el instalador, lo instalas (valga la redundancia) y en tu menú de programas aparecerá <strong>Python 3.3</strong> (o la versión que instales), para mi fué más bonito usar la opción <strong>IDLE</strong> (Python GUI) que está dentro del menú <strong>Python 3.3</strong>, con este puedes ejecutar tu código presionando la tecla <strong>F5</strong></p>
-
-<p>Si te gustaría empezar con un IDE, pues <a href="https://www.jetbrains.com/pycharm/download/">PyCharm</a> está muy bien.</p>
-
-<p>Saludos!</p>
 ]]></content>
   </entry>
   
