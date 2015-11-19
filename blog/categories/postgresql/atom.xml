@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Postgresql | El blog del xobi]]></title>
+  <link href="http://ropherpanama.github.io/blog/categories/postgresql/atom.xml" rel="self"/>
+  <link href="http://ropherpanama.github.io/"/>
+  <updated>2015-11-19T10:27:46-05:00</updated>
+  <id>http://ropherpanama.github.io/</id>
+  <author>
+    <name><![CDATA[Rosendo Peña Hernández]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mismo Resultado, Distintas Bases De Datos]]></title>
+    <link href="http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/"/>
+    <updated>2015-11-19T09:43:00-05:00</updated>
+    <id>http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos</id>
+    <content type="html"><![CDATA[<p>Aveces cuando se trabaja con varios tipos de bases de datos olvidas o confundes como obtener un determinado resultado o cómo se hace algo muy específico, pasa mucho con las funciones como obtener la fecha y hora del
+momento justo, entre otras cosas. A continuación detallo una tabla con los sistemas de gestión de base de datos que utilizo frecuentemente; ya que aveces lo olvido.</p>
+
+<!--more-->
+
+
+<p>Ordeno el cuadro; en el orden en que personalmente uso cada gestor; siendo PostgreSQL el que menos uso (pero realmente lo uso mucho)</p>
+
+<p>Lo comparto :)</p>
+
+<table>
+<thead>
+<tr>
+<th> Objetivo                      </th>
+<th> Oracle                                            </th>
+<th> MySQL                                     </th>
+<th> SQLite                            </th>
+<th> PostgreSQL                                </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Hora y fecha del momento      </td>
+<td> sysdate                                           </td>
+<td> now(), current_timestamp                  </td>
+<td> datetime()                        </td>
+<td> current_timestamp                         </td>
+</tr>
+<tr>
+<td> Añadir n meses a una fecha   </td>
+<td> add_months(to_date(&lsquo;20151225&rsquo;,&lsquo;YYYYMMDD&rsquo;), 3)     </td>
+<td> date_add(&lsquo;2015-12-25&rsquo;, interval 3 month)  </td>
+<td> date(&lsquo;2015-12-25&rsquo;,&lsquo;+3 month&rsquo;)     </td>
+<td> date(&lsquo;2015-12-25&rsquo;) + interval &lsquo;3 month&rsquo;   </td>
+</tr>
+<tr>
+<td>                               </td>
+<td>                                                   </td>
+<td>                                           </td>
+<td>                                   </td>
+<td>                                           </td>
+</tr>
+</tbody>
+</table>
+
+]]></content>
+  </entry>
+  
+</feed>

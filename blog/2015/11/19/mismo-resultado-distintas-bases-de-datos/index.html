@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Oracle - El blog del xobi</title>
+  <title>Mismo Resultado, Distintas Bases De Datos - El blog del xobi</title>
   <meta name="author" content="Rosendo Peña Hernández">
 
   
-  <meta name="description" content="Category: oracle">
+  <meta name="description" content="Mismo Resultado, Distintas Bases De Datos Nov 19th, 2015 9:43 am Aveces cuando se trabaja con varios tipos de bases de datos olvidas o confundes &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ropherpanama.github.io/blog/categories/oracle/">
+  <link rel="canonical" href="http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="El blog del xobi" type="application/atom+xml">
@@ -86,82 +86,131 @@
 		<div id="main">
 			<div id="content">
 				<div>
-<article role="article">
+<article class="post" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Oracle</h1>
+    
+      <h1 class="post-title">Mismo Resultado, Distintas Bases De Datos</h1>
+    
+    
+      <p class="post-info">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-11-19T09:43:00-05:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>9:43 am</span></time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="post-excerpt"><p>Aveces cuando se trabaja con varios tipos de bases de datos olvidas o confundes como obtener un determinado resultado o cómo se hace algo muy específico, pasa mucho con las funciones como obtener la fecha y hora del
+momento justo, entre otras cosas. A continuación detallo una tabla con los sistemas de gestión de base de datos que utilizo frecuentemente; ya que aveces lo olvido.</p>
 
-  
-  <h2>2015</h2>
-
-<article>
-  
-<h2><a href="/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/">Mismo Resultado, Distintas Bases De Datos</a></h2>
-<time datetime="2015-11-19T09:43:00-05:00" pubdate><span class='month'>Nov</span> <span class='day'>19</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posteado en <a class='category' href='/blog/categories/mysql/'>mysql</a>, <a class='category' href='/blog/categories/oracle/'>oracle</a>, <a class='category' href='/blog/categories/postgresql/'>postgresql</a>, <a class='category' href='/blog/categories/sqlite/'>sqlite</a></span>
-  <p>
-</footer>
+<!--more-->
 
 
-</article>
+<p>Ordeno el cuadro; en el orden en que personalmente uso cada gestor; siendo PostgreSQL el que menos uso (pero realmente lo uso mucho)</p>
 
+<p>Lo comparto :)</p>
 
-
-<article>
-  
-<h2><a href="/blog/2015/10/08/7-python-conexiones-a-base-de-datos/">7 Python: Conexiones a Base De Datos</a></h2>
-<time datetime="2015-10-08T13:55:17-05:00" pubdate><span class='month'>Oct</span> <span class='day'>08</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posteado en <a class='category' href='/blog/categories/databases/'>databases</a>, <a class='category' href='/blog/categories/oop/'>oop</a>, <a class='category' href='/blog/categories/oracle/'>oracle</a>, <a class='category' href='/blog/categories/python/'>python</a></span>
-  <p>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h2><a href="/blog/2015/09/29/pildoras-de-oracle/">Píldoras De Oracle</a></h2>
-<time datetime="2015-09-29T15:20:01-05:00" pubdate><span class='month'>Sep</span> <span class='day'>29</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posteado en <a class='category' href='/blog/categories/databases/'>databases</a>, <a class='category' href='/blog/categories/oracle/'>oracle</a>, <a class='category' href='/blog/categories/plsql/'>plsql</a></span>
-  <p>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h2><a href="/blog/2015/09/29/tuning-de-glassfish/">Apuntes - Tuning Glassfish (Optimización Para Producción)</a></h2>
-<time datetime="2015-09-29T11:20:00-05:00" pubdate><span class='month'>Sep</span> <span class='day'>29</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posteado en <a class='category' href='/blog/categories/glassfish/'>glassfish</a>, <a class='category' href='/blog/categories/javaee/'>javaee</a>, <a class='category' href='/blog/categories/oracle/'>oracle</a></span>
-  <p>
-</footer>
-
-
-</article>
+<table>
+<thead>
+<tr>
+<th> Objetivo                      </th>
+<th> Oracle                                            </th>
+<th> MySQL                                     </th>
+<th> SQLite                            </th>
+<th> PostgreSQL                                </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Hora y fecha del momento      </td>
+<td> sysdate                                           </td>
+<td> now(), current_timestamp                  </td>
+<td> datetime()                        </td>
+<td> current_timestamp                         </td>
+</tr>
+<tr>
+<td> Añadir n meses a una fecha   </td>
+<td> add_months(to_date(&lsquo;20151225&rsquo;,&lsquo;YYYYMMDD&rsquo;), 3)     </td>
+<td> date_add(&lsquo;2015-12-25&rsquo;, interval 3 month)  </td>
+<td> date(&lsquo;2015-12-25&rsquo;,&lsquo;+3 month&rsquo;)     </td>
+<td> date(&lsquo;2015-12-25&rsquo;) + interval &lsquo;3 month&rsquo;   </td>
+</tr>
+<tr>
+<td>                               </td>
+<td>                                                   </td>
+<td>                                           </td>
+<td>                                   </td>
+<td>                                           </td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Escrito por <span class="fn">Rosendo Peña Hernández</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-11-19T09:43:00-05:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>9:43 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mysql/'>mysql</a>, <a class='category' href='/blog/categories/oracle/'>oracle</a>, <a class='category' href='/blog/categories/postgresql/'>postgresql</a>, <a class='category' href='/blog/categories/sqlite/'>sqlite</a>
+  
+</span>
+
+
+    </p>
+    
+      <!-- <div class="sharing">                                                                                                                                                                                -->
+<!--                                                                                                                                                                    -->
+<!--   <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/" data-via="ropherpanama" data-counturl="http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/" >Tweet</a>      -->
+<!--                                                                                                                                                                                           -->
+<!--                                                                                                                                                                         -->
+<!--   <div class="g-plusone" data-size="medium"></div>                                                                                                                          -->
+<!--                                                                                                                                                                                           -->
+<!--                                                                                                                                                                                           -->
+<!-- </div>                                                                                                                                                                                               -->
+
+<footer class=sharing>
+	<p>
+		<b>Compártelo:</b> 
+			<a href="https://twitter.com/share" class="btn btn-social btn-twitter" data-url="http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/" data-via="ropherpanama" data-counturl="http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/"><i class=icon-twitter></i> Twitter</a> 
+			<a href="https://www.facebook.com/sharer/sharer.php?u=http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/" class="btn btn-social btn-facebook" ><i class=icon-facebook></i> Facebook</a> 
+			<a href="https://plus.google.com/share?url=http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/" class="btn btn-social btn-google"><i class=icon-google></i> Google+</a>
+	</p>
+</footer>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/10/08/7-python-conexiones-a-base-de-datos/" title="Previous Post: 7 Python: Conexiones a Base de Datos">&laquo; 7 Python: Conexiones a Base de Datos</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h3>Comentarios son bienvenidos</h3>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -217,7 +266,10 @@
       var disqus_shortname = 'elblogdelxobi';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/';
+        var disqus_url = 'http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
