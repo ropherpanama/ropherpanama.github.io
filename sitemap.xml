@@ -1,147 +1,56 @@
+---
+layout: null
+sitemap:
+  exclude: 'yes'
+---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/11/19/mismo-resultado-distintas-bases-de-datos/</loc>
-    <lastmod>2015-11-19T09:43:00-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/10/08/7-python-conexiones-a-base-de-datos/</loc>
-    <lastmod>2015-10-08T13:55:17-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/10/08/6-python-definiendo-clases/</loc>
-    <lastmod>2015-10-08T13:50:22-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/10/08/5-python-funciones/</loc>
-    <lastmod>2015-10-08T13:46:44-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/10/08/4-python-sentencias-de-flujo/</loc>
-    <lastmod>2015-10-08T13:41:01-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/29/python-dia-tres/</loc>
-    <lastmod>2015-09-29T16:17:16-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/29/python-dia-dos/</loc>
-    <lastmod>2015-09-29T16:14:29-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/29/python-dia-uno/</loc>
-    <lastmod>2015-09-29T16:12:06-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/29/llamar-java-desde-c/</loc>
-    <lastmod>2015-09-29T16:05:15-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/29/pildoras-de-oracle/</loc>
-    <lastmod>2015-09-29T15:20:01-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/29/comanteca-linux/</loc>
-    <lastmod>2015-09-29T11:42:53-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/29/android-dex-multiple-libs/</loc>
-    <lastmod>2015-09-29T11:38:22-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/29/android-estado-del-apaptador-wifi/</loc>
-    <lastmod>2015-09-29T11:35:21-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/29/android-scrollview/</loc>
-    <lastmod>2015-09-29T11:32:20-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/29/android-primer-ejemplo/</loc>
-    <lastmod>2015-09-29T11:27:28-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/29/tuning-de-glassfish/</loc>
-    <lastmod>2015-09-29T11:20:00-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/27/some-awesome-title/</loc>
-    <lastmod>2015-09-27T20:51:29-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/2015/09/27/mi-primer-post/</loc>
-    <lastmod>2015-09-27T19:35:05-05:00</lastmod>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/archives/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/about/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/java/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/pdf/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/threads/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/javaee/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/glassfish/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/oracle/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/android/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/jersey-json/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/json/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/linux/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/scripts/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/plsql/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/databases/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/script/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/unix/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/c/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/python/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/oop/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/mysql/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/sqlite/</loc>
-  </url>
-  <url>
-    <loc>http://ropherpanama.github.io/blog/categories/postgresql/</loc>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for post in site.posts %}
+    {% unless post.published == false %}
+    <url>
+      <loc>{{ site.url }}{{ post.url }}</loc>
+      {% if post.sitemap.lastmod %}
+        <lastmod>{{ post.sitemap.lastmod | date: "%Y-%m-%d" }}</lastmod>
+      {% elsif post.date %}
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      {% endif %}
+      {% if post.sitemap.changefreq %}
+        <changefreq>{{ post.sitemap.changefreq }}</changefreq>
+      {% else %}
+        <changefreq>monthly</changefreq>
+      {% endif %}
+      {% if post.sitemap.priority %}
+        <priority>{{ post.sitemap.priority }}</priority>
+      {% else %}
+        <priority>0.5</priority>
+      {% endif %}
+    </url>
+    {% endunless %}
+  {% endfor %}
+  {% for page in site.pages %}
+    {% unless page.sitemap.exclude == "yes" or page.robots contains "noindex" %}
+    <url>
+      <loc>{{ site.url }}{{ page.url | remove: "index.html" }}</loc>
+      {% if page.sitemap.lastmod %}
+        <lastmod>{{ page.sitemap.lastmod | date: "%Y-%m-%d" }}</lastmod>
+      {% elsif page.date %}
+        <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      {% endif %}
+      {% if page.sitemap.changefreq %}
+        <changefreq>{{ page.sitemap.changefreq }}</changefreq>
+      {% else %}
+        <changefreq>monthly</changefreq>
+      {% endif %}
+      {% if page.sitemap.priority %}
+        <priority>{{ page.sitemap.priority }}</priority>
+      {% else %}
+        <priority>0.3</priority>
+      {% endif %}
+    </url>
+    {% endunless %}
+  {% endfor %}
 </urlset>
