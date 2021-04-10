@@ -5,9 +5,9 @@ categories: [bio]
 tags: [about]
 ---
 
-![](/images/about-me/1.jpg)
-
 Llevo ya muchos años de experiencia en el ámbito del diseño y la construcción de software. Es una de mis pasiones, construir soluciones a problemáticas que le faciliten la vida a los usuarios.
+
+![](/images/about-me/1.jpg)
 
 He colaborado en pequeños y grandes proyectos, siempre tratando de usar tecnologías actualizadas y con soluciones creativas. A través de mi carrera profesional he trabajado
 en empresas como:
