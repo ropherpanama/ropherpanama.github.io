@@ -1,0 +1,35 @@
+---
+title:  "Sobre mí"
+date:   2021-04-09 21:12:23
+categories: [bio]
+tags: [about]
+---
+
+![](/images/about-me/1.jpg)
+
+Llevo ya muchos años de experiencia en el ámbito del diseño y la construcción de software. Es una de mis pasiones, construir soluciones a problemáticas que le faciliten la vida a los usuarios.
+
+He colaborado en pequeños y grandes proyectos, siempre tratando de usar tecnologías actualizadas y con soluciones creativas. A través de mi carrera profesional he trabajado
+en empresas como:
+
+- [INDRA Panamá](https://www.indracompany.com/es)
+- [Banco General Panamá](https://www.bgeneral.com)
+
+Así como también en proyectos a medida para clientes independientes. En todos ellos utilizando tecnologías como:
+
+- Aplicaciones de escritorio: Java, Ruby, Python
+- Aplicaciones Web: Spring Framework (Java), Ruby On Rails (Ruby), Spark (Java), VRaptor (Java)
+- Diseño y construcción de APIS: SpringBoot (Java), Spring Rest Data, Jersey JAX/RS, SOA, Webservices SOAP
+- Frameworks de desarrollo Java: ORM (Hibernate, Ibatis, MyBatis, JPA)
+- Desarrollo Móvil: Java/Kotlin para Android, Dart/Flutter para desarrollos híbridos
+- Sistemas operativos: Linux, Windows, Unix.
+- Sistemas de gestión de base de datos: MySQL, Oracle, PostgreSQL, MariaDB, Mongo DB, Sybase, MS Server, Firebase.
+- Bus de integración de IBM (IIB), IBM Datapower, IBM Websphere MQ
+- Plataformas distribuidas: Kafka (Apache / Confluent)
+- Patrones de diseño, buenas prácticas de codificación (SOLID) y diseño de arquitecturas basadas en los patrones más utilizados
+
+En cuanto a personalidad y trabajo en equipo, me gusta liderar equipos de alto rendimiento, siempre enfocado al crecimiento del equipo y a compartir experiencia y conocimientos 
+para lograr equipos homogéneos y de rápidos tiempos de entrega.
+Entusiasta, investigador, autodidacta y siempre abierto a tomar retos para sacarlos adelante con la mejor actitud y utilizando mis mejores cualidades tanto técnicas como humanas.
+
+Para más información por favor contactarme a los enlaces que aparecen en la izquierda.
